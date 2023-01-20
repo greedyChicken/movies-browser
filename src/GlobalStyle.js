@@ -8,4 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     *, ::after, ::before {
         box-sizing: inherit;
     }
+
+    #root {
+        background-color: ${({ theme }) => theme.color.mercury};
+    }
 `;
