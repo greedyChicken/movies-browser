@@ -1,5 +1,7 @@
+import MoviesListPage from "./features/movies/MoviesListPage";
+
 function App() {
-  return <div></div>;
+  return <MoviesListPage></MoviesListPage>;
 }
 
 export default App;
