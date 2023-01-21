@@ -4,10 +4,11 @@ import MoviesListPage from "./features/movies/MoviesListPage";
 
 function App() {
   return (
-    <<MoviesListPage> </MoviesListPage>
+    <>
+      <MoviesListPage> </MoviesListPage>
       <Header />
       <Tile />
-    
+    </>
   );
-  }
+}
 export default App;
