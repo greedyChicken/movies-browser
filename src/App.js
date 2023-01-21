@@ -1,13 +1,13 @@
 import Header from "./common/Header";
 import Tile from "./common/Tile";
+import MoviesListPage from "./features/movies/MoviesListPage";
 
 function App() {
   return (
-    <div>
+    <<MoviesListPage> </MoviesListPage>
       <Header />
       <Tile />
-    </div>
+    
   );
-}
-
+  }
 export default App;
