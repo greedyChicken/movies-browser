@@ -10,6 +10,10 @@ export const TileContainer = styled.div`
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    display: flex;
+  }
 `;
 
 export const Poster = styled.img`
@@ -18,6 +22,13 @@ export const Poster = styled.img`
   margin: 16px;
 
   border-radius: ${borderRadius};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    width: 114px;
+    height: 169px;
+    left: calc(50% - 114px / 2 - 71px);
+    top: 0px;
+  }
 `;
 
 export const Description = styled.div`
@@ -26,6 +37,21 @@ export const Description = styled.div`
   align-items: flex-start;
   padding: 0px;
   gap: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    /* Inside auto layout */
+
+    /* flex: none;
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 0; */
+  }
 `;
 
 export const MovieTitle = styled.h2`
@@ -42,6 +68,11 @@ export const MovieTitle = styled.h2`
   order: 0;
   align-self: left;
   flex-grow: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-top: 16px;
+  }
 `;
 
 export const Release = styled.p`
@@ -58,6 +89,27 @@ export const Release = styled.p`
   order: 0;
   align-self: flex-start;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    /* identical to box height, or 17px */
+
+    display: flex;
+    align-items: center;
+
+    /* Darker grey */
+
+    color: #7e839a;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 0;
+  }
 `;
 
 export const Tags = styled.div`
@@ -67,6 +119,19 @@ export const Tags = styled.div`
   padding: 0px;
   gap: 8px;
   margin: 0 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    width: 107px;
+    height: 46px;
+  }
 `;
 
 export const TagButton = styled.button`
@@ -85,6 +150,20 @@ export const TagButton = styled.button`
   flex: none;
   order: 2;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 8px;
+
+    height: 19px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
 `;
 
 export const Tag = styled.p`
@@ -99,6 +178,21 @@ export const Tag = styled.p`
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 10px;
+    line-height: 1.1;
+    /* identical to box height, or 11px */
+
+    display: flex;
+    align-items: center;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
 `;
 
 export const Rating = styled.div`
@@ -109,6 +203,12 @@ export const Rating = styled.div`
   gap: 12px;
   margin: 16px;
   margin-bottom: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
 `;
 
 export const Star = styled.img`
@@ -118,6 +218,11 @@ export const Star = styled.img`
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const Rate = styled.p`
@@ -133,6 +238,11 @@ export const Rate = styled.p`
   flex: none;
   order: 1;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
+    line-height: 1.3;
+  }
 `;
 
 export const Votes = styled.p`
@@ -148,4 +258,9 @@ export const Votes = styled.p`
   flex: none;
   order: 2;
   flex-grow: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
+    line-height: 1.3;
+  }
 `;
