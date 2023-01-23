@@ -2,6 +2,7 @@ import { Container } from "../../../common/Container";
 import { Header } from "../../../common/Header";
 import PageHeader from "../../../common/PageHeader";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
+import { Layout } from "./styled";
 
 const MoviesListPage = () => {
   return (
@@ -9,7 +10,16 @@ const MoviesListPage = () => {
       <Header />
       <Container>
         <PageHeader title="Popular Movies" />
-        <PopularMoviesTile />
+        <Layout>
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+          <PopularMoviesTile />
+        </Layout>
       </Container>
     </>
   );
