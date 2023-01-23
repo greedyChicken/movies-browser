@@ -1,7 +1,13 @@
 import { Container } from "../../../common/Container";
+import { Header } from "../../../common/Header";
 
 const MoviesListPage = () => {
-  return <Container></Container>;
+  return (
+    <>
+      <Header />
+      <Container></Container>
+    </>
+  );
 };
 
 export default MoviesListPage;
