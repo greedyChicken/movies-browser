@@ -108,6 +108,7 @@ export const Rating = styled.div`
   padding: 0px;
   gap: 12px;
   margin: 16px;
+  margin-bottom: 0;
 `;
 
 export const Star = styled.img`
