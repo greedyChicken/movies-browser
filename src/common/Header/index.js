@@ -8,7 +8,8 @@ import {
   LogoIcon,
   LogoTitle,
   Navigation,
-  NavLink,
+  StyledLink,
+  StyledNavLink,
   Wrapper,
 } from "./styled";
 
@@ -18,16 +19,18 @@ export const Header = () => {
       <Content>
         <Container>
           <Logo>
-            <LogoIcon />
-            <LogoTitle>Movies Browser</LogoTitle>
+            <StyledLink to={"/movies"}>
+              <LogoIcon />
+              <LogoTitle>Movies Browser</LogoTitle>
+            </StyledLink>
           </Logo>
           <Navigation>
             <List>
               <Item>
-                <NavLink>Movies</NavLink>
+                <StyledNavLink to={"/movies"}>Movies</StyledNavLink>
               </Item>
               <Item>
-                <NavLink>People</NavLink>
+                <StyledNavLink to={"/people"}>People</StyledNavLink>
               </Item>
             </List>
           </Navigation>
