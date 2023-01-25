@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Camera } from "../../images/camera.svg";
 
@@ -40,6 +41,22 @@ export const Logo = styled.div`
   align-items: center;
 `;
 
+export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+`;
+
 export const LogoIcon = styled(Camera)`
   width: 40px;
   height: 40px;
@@ -51,16 +68,7 @@ export const LogoIcon = styled(Camera)`
 `;
 
 export const LogoTitle = styled.p`
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -1.5px;
   margin: 0px 24px 0 16px;
-  white-space: nowrap;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 13px;
-    letter-spacing: -0.5px;
-  }
 `;
 
 export const Navigation = styled.div`
@@ -79,13 +87,17 @@ export const Item = styled.li`
   cursor: pointer;
 `;
 
-export const NavLink = styled.a`
+export const StyledNavLink = styled(NavLink).attrs(() => ({
+  activeClassName: "active",
+}))`
+  color: ${({ theme }) => theme.color.white};
+  text-decoration: none;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   padding: 14px 24px;
 
-  &:active {
+  &.active {
     border: 1px solid ${({ theme }) => theme.color.white};
     border-radius: 24px;
   }
