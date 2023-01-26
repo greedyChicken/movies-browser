@@ -5,9 +5,9 @@ import MovieTile from "../../../common/MovieTile";
 const MoviePage = () => {
   return (
     <>
-  <BigMovieTile></BigMovieTile>
+      <BigMovieTile />
       <Container>
-     <MovieTile></MovieTile>
+        <MovieTile />
       </Container>
     </>
   );
