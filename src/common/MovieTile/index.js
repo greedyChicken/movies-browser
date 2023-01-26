@@ -1,11 +1,12 @@
-import { Container } from "./styled";
+import { MovieTileWrapper } from "./styled";
 
 const MovieTile = () => {
   return (
     <>
-      <Container>coś</Container>
+      <MovieTileWrapper>coś</MovieTileWrapper>
     </>
   );
 };
 
 export default MovieTile;
+

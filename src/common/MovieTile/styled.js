@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { boxShadow } from "../../theme";
 
-export const Container = styled.div`
+export const MovieTileWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 40px;
+  margin: 40px 0;
   gap: 40px;
-
   max-width: 1368px;
   height: 544px;
 
