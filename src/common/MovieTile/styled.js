@@ -145,8 +145,7 @@ export const Rating = styled.div`
   align-items: center;
   padding: 0px;
   gap: 12px;
-  margin: 16px;
-  margin-bottom: 0;
+  margin: 8px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     flex: none;
@@ -157,7 +156,7 @@ export const Rating = styled.div`
 `;
 
 export const Star = styled.img`
-  width: 40px;
+  width: 24px;
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -169,11 +168,11 @@ export const Star = styled.img`
 
 export const Rate = styled.p`
   font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 22px;
+  line-height: 1.3;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.color.woodsmoke};
+  color: ${({ theme }) => theme.color.black};
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -186,15 +185,29 @@ export const Rate = styled.p`
 
 export const Votes = styled.p`
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.2;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.color.waterloo};
+  color: ${({ theme }) => theme.color.black};
   flex: none;
   order: 2;
   flex-grow: 0;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+`;
+
+export const Summary = styled.p`
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.color.black};
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
     line-height: 1.3;

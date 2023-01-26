@@ -10,15 +10,16 @@ import {
   Rating,
   ReleaseYear,
   Star,
+  Summary,
   Tag,
   TagButton,
   Tags,
   Votes,
 } from "./styled";
 import poster from "../../images/poster.png";
-import starr from "../../images/vector.svg";
+import star from "../../images/star.svg";
 
-const MovieTile = ({ tag, starr }) => {
+const MovieTile = ({ tag }) => {
   return (
     <>
       <MovieTileWrapper>
@@ -48,8 +49,15 @@ const MovieTile = ({ tag, starr }) => {
             </TagButton>
           </Tags>
           <Rating>
-            <Star src={starr} /> <Rate>7,8</Rate> <Votes>35 votes</Votes>
+            <Star src={star} /> <Rate>7,8</Rate>
+            <Votes>/ 10</Votes> <Votes>35 votes</Votes>
           </Rating>
+          <Summary>
+            A young Chinese maiden disguises herself as a male warrior in order
+            to save her father. Disguises herself as a male warrior in order to
+            save her father. A young Chinese maiden disguises herself as a male
+            warrior in order to save her father.
+          </Summary>
         </MovieData>
       </MovieTileWrapper>
     </>
