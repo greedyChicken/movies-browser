@@ -1,10 +1,13 @@
 export const theme = {
   color: {
+    scienceBlue: "#0044CC",
     mercury: "#E5E5E5",
     mystic: "#E4E6F0",
+    snuff: "#DDDDEE",
     waterloo: "#7E839A",
     white: "#FFFFFF",
     woodsmoke: "#18181B",
+    black: "#000000",
   },
   breakpoint: {
     small: 480,
