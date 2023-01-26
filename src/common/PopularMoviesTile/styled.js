@@ -79,8 +79,7 @@ export const Tags = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     gap: 8px;
