@@ -1,4 +1,5 @@
 import {
+  BasicInfo,
   MovieData,
   MovieTileWrapper,
   MovieTitle,
@@ -15,8 +16,9 @@ import {
   Votes,
 } from "./styled";
 import poster from "../../images/poster.png";
+import starr from "../../images/vector.svg";
 
-const MovieTile = ({ tag, star }) => {
+const MovieTile = ({ tag, starr }) => {
   return (
     <>
       <MovieTileWrapper>
@@ -24,12 +26,16 @@ const MovieTile = ({ tag, star }) => {
         <MovieData>
           <MovieTitle>Mulan</MovieTitle>
           <ReleaseYear>2020</ReleaseYear>
-          <Production>Production:</Production>{" "}
-          <ProductionCountries>
-            China, United States of America
-          </ProductionCountries>
-          <Production>Release:</Production>{" "}
-          <ProductionCountries>24.10.2020</ProductionCountries>
+          <BasicInfo>
+            <Production>Production:</Production>{" "}
+            <ProductionCountries>
+              China, United States of America
+            </ProductionCountries>
+          </BasicInfo>
+          <BasicInfo>
+            <Production>Release:</Production>{" "}
+            <ProductionCountries>24.10.2020</ProductionCountries>
+          </BasicInfo>
           <Tags>
             <TagButton>
               <Tag>{(tag = "Action")}</Tag>{" "}
@@ -42,8 +48,8 @@ const MovieTile = ({ tag, star }) => {
             </TagButton>
           </Tags>
           <Rating>
-          <Star src={star} /> <Rate>7,8</Rate> <Votes>35 votes</Votes>
-        </Rating>
+            <Star src={starr} /> <Rate>7,8</Rate> <Votes>35 votes</Votes>
+          </Rating>
         </MovieData>
       </MovieTileWrapper>
     </>

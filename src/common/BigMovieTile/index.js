@@ -1,5 +1,5 @@
 import { BigMovieTileWrapper, Poster } from "./styled";
-import poster from "../../images/bigposter.png"
+import poster from "../../images/bigposter.png";
 
 const BigMovieTile = () => {
   return (

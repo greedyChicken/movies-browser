@@ -5,9 +5,8 @@ export const MovieTileWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 40px;
+  margin: 40px 0;
   max-width: 1368px;
-  height: 544px;
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
 `;
@@ -26,17 +25,14 @@ export const MovieData = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 8px 0px;
-  gap: 24px;
   margin: 0;
-
   width: 936px;
-  height: 412px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
   }
 `;
 
 export const MovieTitle = styled.h1`
-  font-style: normal;
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
@@ -54,7 +50,20 @@ export const ReleaseYear = styled.p`
   line-height: 1.2;
   display: flex;
   align-items: center;
+  margin: 0;
   color: ${({ theme }) => theme.color.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  }
+`;
+
+export const BasicInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
   }
@@ -148,7 +157,7 @@ export const Rating = styled.div`
 `;
 
 export const Star = styled.img`
-  width: 24px;
+  width: 40px;
   flex: none;
   order: 0;
   flex-grow: 0;
