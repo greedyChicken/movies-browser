@@ -1,7 +1,7 @@
 import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
 import { PersonTile } from "../../../common/PersonTile";
-import { Layout } from "./styled";
+import { Layout } from "../../../common/Layout/styled";
 
 const PeopleListPage = () => {
   return (

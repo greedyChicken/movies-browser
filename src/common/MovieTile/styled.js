@@ -62,7 +62,6 @@ export const BasicInfo = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 0px;
-  gap: 10px;
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
@@ -76,6 +75,7 @@ export const Production = styled.p`
   line-height: 1.2;
   display: flex;
   align-items: center;
+  margin-right: 4px;
   color: ${({ theme }) => theme.color.stormgrey};
 `;
 
@@ -207,6 +207,7 @@ export const Summary = styled.p`
   line-height: 1.6;
   display: flex;
   align-items: center;
+  margin: 0;
   color: ${({ theme }) => theme.color.black};
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
