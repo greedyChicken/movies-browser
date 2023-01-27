@@ -8,6 +8,7 @@ export const theme = {
     white: "#FFFFFF",
     woodsmoke: "#18181B",
     black: "#000000",
+    stormgrey: "#74788B",
   },
   breakpoint: {
     small: 480,

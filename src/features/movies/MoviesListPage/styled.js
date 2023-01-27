@@ -9,8 +9,6 @@ export const Layout = styled.div`
   justify-content: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    /* grid-template-columns: 1fr; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
