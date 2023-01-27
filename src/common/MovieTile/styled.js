@@ -9,6 +9,10 @@ export const MovieTileWrapper = styled.div`
   max-width: 1368px;
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    margin: 16px;
+  }
 `;
 
 export const Poster = styled.img`
@@ -16,7 +20,9 @@ export const Poster = styled.img`
   margin: 40px;
   border-radius: ${borderRadius};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    width: 114px;
+    margin: 16px;
   }
 `;
 
@@ -28,7 +34,13 @@ export const MovieData = styled.div`
   margin: 0;
   width: 936px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    padding: 0px;
+    gap: 8px;
+    width: 126px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
   }
 `;
 
@@ -40,7 +52,9 @@ export const MovieTitle = styled.h1`
   align-items: center;
   color: ${({ theme }) => theme.color.black};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 16px;
+    line-height: 1.3;
   }
 `;
 
@@ -53,7 +67,10 @@ export const ReleaseYear = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.color.black};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-top: -16px;
   }
 `;
 
@@ -64,7 +81,14 @@ export const BasicInfo = styled.div`
   padding: 0px;
   margin: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 126px;
   }
 `;
 
@@ -77,6 +101,9 @@ export const Production = styled.p`
   align-items: center;
   margin-right: 4px;
   color: ${({ theme }) => theme.color.stormgrey};
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: none;
+  }
 `;
 
 export const ProductionCountries = styled.span`
@@ -86,6 +113,10 @@ export const ProductionCountries = styled.span`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.black};
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 12px;
+    line-height: 1.3;
+  }
 `;
 
 export const Tags = styled.div`
@@ -96,12 +127,11 @@ export const Tags = styled.div`
   gap: 8px;
   margin: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
     margin: 0;
-    gap: 8px;
   }
 `;
 
@@ -109,7 +139,6 @@ export const TagButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
   height: 30px;
   border: none;
   padding: 8px 16px;
@@ -118,7 +147,7 @@ export const TagButton = styled.button`
   order: 2;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     padding: 4px 8px;
     gap: 8px;
     height: 19px;
@@ -133,7 +162,7 @@ export const Tag = styled.p`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 10px;
     line-height: 1.1;
   }
@@ -147,11 +176,11 @@ export const Rating = styled.div`
   gap: 12px;
   margin: 8px 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     flex: none;
-    order: 2;
+    order: 0;
     flex-grow: 0;
-    margin: 0;
+    margin-top: -16px;
   }
 `;
 
@@ -161,7 +190,7 @@ export const Star = styled.img`
   order: 0;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     width: 16px;
   }
 `;
@@ -177,7 +206,7 @@ export const Rate = styled.p`
   order: 1;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }
@@ -194,7 +223,7 @@ export const Votes = styled.p`
   order: 2;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }
@@ -209,8 +238,11 @@ export const Summary = styled.p`
   align-items: center;
   margin: 0;
   color: ${({ theme }) => theme.color.black};
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
+    margin: 0 16px;
+    width: 100%;
+    order: 2;
   }
 `;
