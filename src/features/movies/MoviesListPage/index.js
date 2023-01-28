@@ -1,5 +1,6 @@
 import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
+import Pagination from "../../../common/Pagination";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import { Layout } from "./styled";
 
@@ -18,6 +19,7 @@ const MoviesListPage = () => {
           <PopularMoviesTile />
           <PopularMoviesTile />
         </Layout>
+        <Pagination />
       </Container>
     </>
   );
