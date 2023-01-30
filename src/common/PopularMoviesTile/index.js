@@ -12,16 +12,22 @@ import {
   TileContainer,
   Votes,
 } from "./styled";
-import image from "../../images/poster.png";
 import star from "../../images/star.svg";
 
-export const PopularMoviesTile = ({ tag }) => {
+export const PopularMoviesTile = ({
+  poster,
+  title,
+  date,
+  voteAverage,
+  voteCount,
+  tag,
+}) => {
   return (
     <TileContainer>
-      <Poster src={image} alt="Movie Poster"></Poster>
+      <Poster src={poster} alt="Movie Poster"></Poster>
       <Description>
-        <MovieTitle>Mulan</MovieTitle>
-        <Release>2020</Release>
+        <MovieTitle>{title}</MovieTitle>
+        <Release>{date}</Release>
         <Tags>
           <TagButton>
             <Tag>{(tag = "Action")}</Tag>{" "}
@@ -34,7 +40,8 @@ export const PopularMoviesTile = ({ tag }) => {
           </TagButton>
         </Tags>
         <Rating>
-          <Star src={star} /> <Rate>7,8</Rate> <Votes>35 votes</Votes>
+          <Star src={star} /> <Rate>{voteAverage}</Rate>{" "}
+          <Votes>{voteCount}</Votes>
         </Rating>
       </Description>
     </TileContainer>
