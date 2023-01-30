@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
+import Pagination from "../../../common/Pagination";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
@@ -48,6 +49,7 @@ const MoviesListPage = () => {
                 />
               ))}
             </Layout>
+            <Pagination />
           </>
         )}
       </Container>

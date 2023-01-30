@@ -1,7 +1,8 @@
 export const theme = {
   color: {
+    whisper: "#F5F5FA",
+    pattensBlue: "#D6E4FF",
     scienceBlue: "#0044CC",
-    mercury: "#E5E5E5",
     mystic: "#E4E6F0",
     snuff: "#DDDDEE",
     waterloo: "#7E839A",
