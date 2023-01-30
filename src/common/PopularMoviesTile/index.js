@@ -41,7 +41,7 @@ export const PopularMoviesTile = ({
         </Tags>
         <Rating>
           <Star src={star} /> <Rate>{voteAverage}</Rate>{" "}
-          <Votes>{voteCount} votes</Votes>
+          <Votes>{voteCount}</Votes>
         </Rating>
       </Description>
     </TileContainer>
