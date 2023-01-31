@@ -8,10 +8,11 @@ import {
   selectError,
   selectLoading,
   selectPeople,
-} from "../popularPeopleSlice";
+} from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
+import { APIImageUrl } from "../../dataAPI";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const PeopleListPage = () => {
               {popularPeople?.map((person, index) => (
                 <PersonTile
                   key={index}
-                  poster={`https://image.tmdb.org/t/p/original${person.profile_path}`}
+                  poster={`${APIImageUrl}/original${person.profile_path}`}
                   fullName={person.name}
                 />
               ))}

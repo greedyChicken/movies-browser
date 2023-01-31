@@ -8,10 +8,11 @@ import {
   selectError,
   selectLoading,
   selectMovies,
-} from "../popularMoviesSlice";
+} from "../moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
+import { APIImageUrl } from "../../dataAPI";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const MoviesListPage = () => {
               {popularMovies?.map((movie, index) => (
                 <PopularMoviesTile
                   key={index}
-                  poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  poster={`${APIImageUrl}/original${movie.poster_path}`}
                   title={movie.title}
                   date={movie.release_date.slice(0, 4)}
                   voteAverage={movie.vote_average}
