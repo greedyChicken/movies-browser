@@ -9,3 +9,13 @@ export const getPopularMovies = async () => {
 
   return popularMovies;
 };
+
+export const getGenres = async () => {
+  const response = await fetch(
+    `${APIUrl}/genre/movie/list?api_key=${APIKey}&language=en-US`
+  );
+
+  const genres = await response.json();
+
+  return genres;
+};
