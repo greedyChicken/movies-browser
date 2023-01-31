@@ -13,6 +13,7 @@ import {
   Votes,
 } from "./styled";
 import star from "../../images/star.svg";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const PopularMoviesTile = ({
   poster,
@@ -20,7 +21,7 @@ export const PopularMoviesTile = ({
   date,
   voteAverage,
   voteCount,
-  tag,
+  genres,
 }) => {
   return (
     <TileContainer>
@@ -29,15 +30,11 @@ export const PopularMoviesTile = ({
         <MovieTitle>{title}</MovieTitle>
         <Release>{date}</Release>
         <Tags>
-          <TagButton>
-            <Tag>{(tag = "Action")}</Tag>{" "}
-          </TagButton>{" "}
-          <TagButton>
-            <Tag>{(tag = "Adventure")}</Tag>{" "}
-          </TagButton>{" "}
-          <TagButton>
-            <Tag>{(tag = "Drama")}</Tag>{" "}
-          </TagButton>
+          {genres.map((genre) => (
+            <TagButton key={nanoid()}>
+              <Tag>{genre.name}</Tag>
+            </TagButton>
+          ))}
         </Tags>
         <Rating>
           <Star src={star} /> <Rate>{voteAverage}</Rate>{" "}

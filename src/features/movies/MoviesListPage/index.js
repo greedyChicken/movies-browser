@@ -6,6 +6,7 @@ import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
   selectError,
+  selectGenres,
   selectLoading,
   selectMovies,
 } from "../moviesSlice";
@@ -20,6 +21,7 @@ const MoviesListPage = () => {
   const popularMovies = useSelector(selectMovies);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
+  const genresArray = useSelector(selectGenres);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -47,6 +49,9 @@ const MoviesListPage = () => {
                   date={movie.release_date.slice(0, 4)}
                   voteAverage={movie.vote_average}
                   voteCount={`${movie.vote_count} votes`}
+                  genres={genresArray.filter((genre) =>
+                    movie.genre_ids.includes(genre.id)
+                  )}
                 />
               ))}
             </Layout>
