@@ -1,6 +1,8 @@
 import {
   Description,
   MovieTitle,
+  NoMovieImage,
+  NoMovieImageIcon,
   Poster,
   Rate,
   Rating,
@@ -17,6 +19,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 export const PopularMoviesTile = ({
   poster,
+  posterPath,
   title,
   date,
   voteAverage,
@@ -25,7 +28,13 @@ export const PopularMoviesTile = ({
 }) => {
   return (
     <TileContainer>
-      <Poster src={poster} alt="Movie Poster"></Poster>
+      {posterPath ? (
+        <Poster src={poster} alt="Movie Poster"></Poster>
+      ) : (
+        <NoMovieImage>
+          <NoMovieImageIcon />
+        </NoMovieImage>
+      )}
       <Description>
         <MovieTitle>{title}</MovieTitle>
         <Release>{date}</Release>
