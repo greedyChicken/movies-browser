@@ -72,6 +72,7 @@ export const Release = styled.p`
 export const Tags = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   padding: 0px;
   gap: 8px;
