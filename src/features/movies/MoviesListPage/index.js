@@ -46,6 +46,7 @@ const MoviesListPage = () => {
                 <PopularMoviesTile
                   key={nanoid()}
                   poster={`${APIImageUrl}/original${movie.poster_path}`}
+                  posterPath={movie.poster_path}
                   title={movie.title}
                   date={movie.release_date.slice(0, 4)}
                   voteAverage={movie.vote_average}

@@ -4,6 +4,7 @@ export const theme = {
     pattensBlue: "#D6E4FF",
     scienceBlue: "#0044CC",
     mystic: "#E4E6F0",
+    silver: "#C4C4C4",
     snuff: "#DDDDEE",
     waterloo: "#7E839A",
     white: "#FFFFFF",

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { borderRadius } from "../../theme";
+import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`
   max-width: 208px;
@@ -14,6 +15,37 @@ export const TileContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     padding: 8px;
+  }
+`;
+
+export const NoProfileImage = styled.div`
+  height: 264px;
+  background-color: ${({ theme }) => theme.color.silver};
+  border-radius: ${borderRadius};
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    height: 200px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    height: 178px;
+  }
+`;
+
+export const NoProfileImageIcon = styled(NoProfile)`
+  height: 72px;
+  width: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    height: 60px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    height: 48px;
   }
 `;
 
