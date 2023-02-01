@@ -1,4 +1,6 @@
 import {
+  NoProfileImage,
+  NoProfileImageIcon,
   PersonDetails,
   PersonFunction,
   PersonName,
