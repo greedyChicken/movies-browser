@@ -1,10 +1,10 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPopularPeople } from "./popularPeopleAPI";
+import { getPopularPeople } from "./peopleAPI";
 import {
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
-} from "./popularPeopleSlice";
+} from "./peopleSlice";
 
 function* fetchPopularPeopleHandler() {
   try {

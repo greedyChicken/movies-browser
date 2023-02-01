@@ -1,10 +1,10 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPopularMovies } from "./popularMoviesAPI";
+import { getPopularMovies } from "./moviesAPI";
 import {
   fetchMovies,
   fetchMoviesError,
   fetchMoviesSuccess,
-} from "./popularMoviesSlice";
+} from "./moviesSlice";
 
 function* fetchPopularMoviesHandler() {
   try {

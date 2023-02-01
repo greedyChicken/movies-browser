@@ -9,10 +9,12 @@ import {
   selectError,
   selectLoading,
   selectPeople,
-} from "../popularPeopleSlice";
+} from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
+import { APIImageUrl } from "../../dataAPI";
+import { nanoid } from "@reduxjs/toolkit";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -38,10 +40,10 @@ const PeopleListPage = () => {
           <>
             <PageHeader title="Popular people" />
             <Layout>
-              {popularPeople?.map((person, index) => (
+              {popularPeople?.map((person) => (
                 <PersonTile
-                  key={index}
-                  poster={`https://image.tmdb.org/t/p/original${person.profile_path}`}
+                  key={nanoid()}
+                  poster={`${APIImageUrl}/original${person.profile_path}`}
                   fullName={person.name}
                 />
               ))}
