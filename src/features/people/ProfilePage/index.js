@@ -10,14 +10,15 @@ import {
   selectGenres,
   selectLoading,
   selectMovies,
-} from "../moviesSlice";
+} from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { nanoid } from "@reduxjs/toolkit";
+import BigPersonTile from "../../../common/BigPersonTile";
 
-const MoviesListPage = () => {
+const ProfilePage = () => {
   const dispatch = useDispatch();
   const popularMovies = useSelector(selectMovies);
   const error = useSelector(selectError);
@@ -35,12 +36,14 @@ const MoviesListPage = () => {
           <ErrorPage />
         ) : loading ? (
           <>
-            <PageHeader title="Popular Movies" />
+            <PageHeader title="Movies Cast" />
             <Loader />
           </>
         ) : (
           <>
-            <PageHeader title="Popular Movies" />
+            <BigPersonTile></BigPersonTile>
+            <PageHeader title="Movies Cast" />
+
             <Layout>
               {popularMovies?.map((movie) => (
                 <PopularMoviesTile
