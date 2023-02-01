@@ -43,7 +43,8 @@ const PeopleListPage = () => {
               {popularPeople?.map((person) => (
                 <PersonTile
                   key={nanoid()}
-                  poster={`${APIImageUrl}/original${person.profile_path}`}
+                  profile={`${APIImageUrl}/original${person.profile_path}`}
+                  profilePath={person.profile_path}
                   fullName={person.name}
                 />
               ))}
