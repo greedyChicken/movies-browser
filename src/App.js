@@ -3,6 +3,7 @@ import { Header } from "./common/Header";
 import MoviesListPage from "./features/movies/MoviesListPage";
 import PeopleListPage from "./features/people/PeopleListPage";
 import MoviePage from "./features/movies/MoviePage";
+import ProfilePage from "./features/people/ProfilePage";
 
 const App = () => (
   <HashRouter>
@@ -14,8 +15,8 @@ const App = () => (
       <Route path={"/people"}>
         <PeopleListPage />
       </Route>
-      <Route path={"/moviepage"}>
-        <MoviePage />
+      <Route path={"/profilepage"}>
+        <ProfilePage />
       </Route>
       <Route>
         <Redirect to={"/movies"} />
