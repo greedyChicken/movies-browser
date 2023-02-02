@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, boxShadow } from "../../theme";
+import { borderRadius, boxShadow } from "../../../../theme";
 
 export const MovieTileWrapper = styled.div`
   display: flex;
@@ -51,6 +51,7 @@ export const MovieTitle = styled.h1`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.black};
+  margin-bottom: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 16px;
@@ -64,7 +65,7 @@ export const ReleaseYear = styled.p`
   line-height: 1.2;
   display: flex;
   align-items: center;
-  margin: 0;
+  margin: 24px 0;
   color: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
@@ -78,7 +79,7 @@ export const BasicInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding: 0;
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
@@ -99,7 +100,7 @@ export const Production = styled.p`
   line-height: 1.2;
   display: flex;
   align-items: center;
-  margin-right: 4px;
+  margin: 4px 4px 4px 0;
   color: ${({ theme }) => theme.color.stormgrey};
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: none;
@@ -125,7 +126,7 @@ export const Tags = styled.div`
   align-items: center;
   padding: 0px;
   gap: 8px;
-  margin: 0;
+  margin-top: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;

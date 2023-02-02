@@ -1,13 +1,12 @@
 import { BigMovieTileWrapper, Poster } from "./styled";
-import poster from "../../images/bigposter.png";
 
-const BigMovieTile = () => {
+const BigMovieTile = ({ poster }) => {
   return (
-    <>
+    poster && (
       <BigMovieTileWrapper>
         <Poster src={poster}></Poster>
       </BigMovieTileWrapper>
-    </>
+    )
   );
 };
 
