@@ -24,7 +24,7 @@ const MoviesListPage = () => {
   const query = new URLSearchParams(location.search).get(searchQueryParamName);
 
   const dispatch = useDispatch();
-  const movies = useSelector((state) => selectMoviesByQuery(state, query));
+  const queryMovies = useSelector((state) => selectMoviesByQuery(state, query));
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
@@ -47,7 +47,7 @@ const MoviesListPage = () => {
           <>
             <PageHeader title="Popular Movies" />
             <Layout>
-              {movies?.map((movie) => (
+              {queryMovies?.map((movie) => (
                 <PopularMoviesTile
                   key={nanoid()}
                   poster={`${APIImageUrl}/original${movie.poster_path}`}
