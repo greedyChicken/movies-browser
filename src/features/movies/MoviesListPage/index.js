@@ -9,17 +9,22 @@ import {
   selectError,
   selectGenres,
   selectLoading,
-  selectMovies,
+  selectMoviesByQuery,
 } from "../moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { nanoid } from "@reduxjs/toolkit";
+import { useLocation } from "react-router-dom";
+import searchQueryParamName from "../../../common/searchQueryParamName";
 
 const MoviesListPage = () => {
+  const location = useLocation();
+  const query = new URLSearchParams(location.search).get(searchQueryParamName);
+
   const dispatch = useDispatch();
-  const popularMovies = useSelector(selectMovies);
+  const movies = useSelector((state) => selectMoviesByQuery(state, query));
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
@@ -42,7 +47,7 @@ const MoviesListPage = () => {
           <>
             <PageHeader title="Popular Movies" />
             <Layout>
-              {popularMovies?.map((movie) => (
+              {movies?.map((movie) => (
                 <PopularMoviesTile
                   key={nanoid()}
                   poster={`${APIImageUrl}/original${movie.poster_path}`}
