@@ -54,7 +54,7 @@ export const PersonPhoto = styled.img`
   border-radius: ${borderRadius};
   object-fit: cover;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     height: 200px;
   }
 

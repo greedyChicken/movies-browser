@@ -17,7 +17,7 @@ import {
   Votes,
 } from "./styled";
 import star from "../../../../images/star.svg";
-import formatDate from "../../../formatDate";
+import { formatDate } from "../../../utilities";
 
 const MovieTile = ({
   title,
