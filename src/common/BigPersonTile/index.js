@@ -10,21 +10,21 @@ import {
 } from "./styled";
 import poster from "../../images/bigperson.png";
 
-const BigPersonTile = ({ personname, datebirth, placebirth, biography }) => {
+const BigPersonTile = ({ name, birthday, birthplace, biography }) => {
   return (
     <>
       <PersonTileWrapper>
         <Poster src={poster} />
         <PersonData>
-          <PersonName>{personname}</PersonName>
+          <PersonName>{name}</PersonName>
 
           <BasicInfo>
             <Birth>Date of birth: </Birth>{" "}
-            <BirthDetails>{datebirth} </BirthDetails>
+            <BirthDetails>{birthday} </BirthDetails>
           </BasicInfo>
           <BasicInfo>
             <Birth>Place of birth: </Birth>{" "}
-            <BirthDetails>{placebirth}</BirthDetails>
+            <BirthDetails>{birthplace}</BirthDetails>
           </BasicInfo>
           <Biography>{biography}</Biography>
         </PersonData>
