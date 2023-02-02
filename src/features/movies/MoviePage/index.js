@@ -31,7 +31,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     dispatch(fetchMovieId(params.id));
-  }, [dispatch]);
+  }, [dispatch, params.id]);
 
   return (
     <>
@@ -59,36 +59,40 @@ const MoviePage = () => {
               poster={`${APIImageUrl}/h632${movie.poster_path}`}
               tags={movie.genres}
             />
-            <Wrapper>
-              <PageHeader title="Cast" />
-              <Layout>
-                {getPeople(movieCredits.cast, 12).map((person) => (
-                  <TileLink to={`#`} key={person.id}>
-                    <PersonTile
-                      profile={`${APIImageUrl}/w185${person.profile_path}`}
-                      profilePath={person.profile_path}
-                      fullName={person.name}
-                      role={person.character}
-                    />
-                  </TileLink>
-                ))}
-              </Layout>
-            </Wrapper>
-            <Wrapper>
-              <PageHeader title="Crew" />
-              <Layout>
-                {getPeople(movieCredits.crew, 10).map((person) => (
-                  <TileLink to={`#`} key={person.id}>
-                    <PersonTile
-                      profile={`${APIImageUrl}/w185${person.profile_path}`}
-                      profilePath={person.profile_path}
-                      fullName={person.name}
-                      role={person.department}
-                    />
-                  </TileLink>
-                ))}
-              </Layout>
-            </Wrapper>
+            {movieCredits.cast.length > 0 && (
+              <Wrapper>
+                <PageHeader title="Cast" />
+                <Layout>
+                  {getPeople(movieCredits.cast, 12).map((person) => (
+                    <TileLink to={`#`} key={person.id}>
+                      <PersonTile
+                        profile={`${APIImageUrl}/w185${person.profile_path}`}
+                        profilePath={person.profile_path}
+                        fullName={person.name}
+                        role={person.character}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </Wrapper>
+            )}
+            {movieCredits.crew.length > 0 && (
+              <Wrapper>
+                <PageHeader title="Crew" />
+                <Layout>
+                  {getPeople(movieCredits.crew, 10).map((person) => (
+                    <TileLink to={`#`} key={person.id}>
+                      <PersonTile
+                        profile={`${APIImageUrl}/w185${person.profile_path}`}
+                        profilePath={person.profile_path}
+                        fullName={person.name}
+                        role={person.department}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </Wrapper>
+            )}
           </Container>
         </>
       )}
