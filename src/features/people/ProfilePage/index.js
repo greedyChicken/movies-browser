@@ -10,7 +10,7 @@ import {
   selectGenres,
   selectLoading,
   selectMovies,
-} from "./moviesSlice";
+} from "../../movies/moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
@@ -42,9 +42,9 @@ const ProfilePage = () => {
         ) : (
           <>
             <BigPersonTile
-              personname={"Liu Yifei"}
-              datebirth={"25.08.1987"}
-              placebirth={"Wuhan, Hubei, China"}
+              name={"Liu Yifei"}
+              birthday={"25.08.1987"}
+              birthplace={"Wuhan, Hubei, China"}
               biography={
                 "Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10            with her mother, Liu lived there for four years."
               }
