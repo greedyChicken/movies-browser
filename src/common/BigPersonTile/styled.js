@@ -108,6 +108,7 @@ export const Biography = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
+    margin-right: 10px;
   }
 `;
 
