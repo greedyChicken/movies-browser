@@ -10,12 +10,12 @@ import {
   selectGenres,
   selectLoading,
   selectMovies,
-} from "../moviesSlice";
+} from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
-import { nanoid } from "@reduxjs/toolkit";
+import { TileLink } from "../../../common/TileLink";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -43,18 +43,19 @@ const MoviesListPage = () => {
             <PageHeader title="Popular Movies" />
             <Layout>
               {popularMovies?.map((movie) => (
-                <PopularMoviesTile
-                  key={nanoid()}
-                  poster={`${APIImageUrl}/original${movie.poster_path}`}
-                  posterPath={movie.poster_path}
-                  title={movie.title}
-                  date={movie.release_date.slice(0, 4)}
-                  voteAverage={movie.vote_average}
-                  voteCount={`${movie.vote_count} votes`}
-                  genres={genresArray.filter((genre) =>
-                    movie.genre_ids.includes(genre.id)
-                  )}
-                />
+                <TileLink to={`/movies/${movie.id}`} key={movie.id}>
+                  <PopularMoviesTile
+                    poster={`${APIImageUrl}/original${movie.poster_path}`}
+                    posterPath={movie.poster_path}
+                    title={movie.title}
+                    date={movie.release_date.slice(0, 4)}
+                    voteAverage={movie.vote_average}
+                    voteCount={`${movie.vote_count} votes`}
+                    genres={genresArray.filter((genre) =>
+                      movie.genre_ids.includes(genre.id)
+                    )}
+                  />
+                </TileLink>
               ))}
             </Layout>
             <Pagination />
