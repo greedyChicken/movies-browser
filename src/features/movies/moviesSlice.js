@@ -46,13 +46,13 @@ export const selectError = (state) => selectMoviesState(state).error;
 export const selectGenres = (state) => selectMoviesState(state).genres;
 
 export const selectMoviesByQuery = (state, query) => {
-  const movies = selectMovies(state);
+  const queryMovies = selectMovies(state);
 
   if (!query || query.trim() === "") {
-    return movies;
+    return queryMovies;
   }
 
-  return movies.filter(({ title }) =>
+  return queryMovies.filter(({ title }) =>
     title.toUpperCase().includes(query.trim().toUpperCase())
   );
 };
