@@ -10,6 +10,7 @@ import {
   selectGenres,
   selectLoading,
   selectMovies,
+  selectPage,
 } from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
@@ -23,10 +24,11 @@ const MoviesListPage = () => {
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
+  const pageNumber = useSelector(selectPage);
 
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+    dispatch(fetchMovies(pageNumber));
+  }, [dispatch, pageNumber]);
 
   return (
     <>
@@ -48,7 +50,7 @@ const MoviesListPage = () => {
                     poster={`${APIImageUrl}/original${movie.poster_path}`}
                     posterPath={movie.poster_path}
                     title={movie.title}
-                    date={movie.release_date.slice(0, 4)}
+                    date={movie.release_date?.slice(0, 4)}
                     voteAverage={movie.vote_average}
                     voteCount={`${movie.vote_count} votes`}
                     genres={genresArray.filter((genre) =>
