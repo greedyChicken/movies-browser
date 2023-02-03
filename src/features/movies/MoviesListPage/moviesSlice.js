@@ -11,8 +11,9 @@ const moviesSlice = createSlice({
   },
 
   reducers: {
-    fetchMovies: (state) => {
+    fetchMovies: (state, { payload: pageNumber }) => {
       state.loading = true;
+      state.page = pageNumber;
     },
 
     fetchMoviesSuccess: (state, { payload: movies }) => {
