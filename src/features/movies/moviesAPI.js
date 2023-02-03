@@ -1,8 +1,8 @@
 import { APIKey, APIUrl } from "../dataAPI";
 
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (pageNumber) => {
   const response = await fetch(
-    `${APIUrl}/movie/popular?api_key=${APIKey}&language=en-US&page=1`
+    `${APIUrl}/movie/popular?api_key=${APIKey}&language=en-US&page=${pageNumber}`
   );
 
   const popularMovies = await response.json();
