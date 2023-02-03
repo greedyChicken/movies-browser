@@ -8,7 +8,7 @@ import {
   TileContainer,
 } from "./styled";
 
-export const PersonTile = ({ profile, profilePath, fullName }) => {
+export const PersonTile = ({ profile, profilePath, fullName, role }) => {
   return (
     <TileContainer>
       {profilePath ? (
@@ -20,7 +20,7 @@ export const PersonTile = ({ profile, profilePath, fullName }) => {
       )}
       <PersonDetails>
         <PersonName>{fullName}</PersonName>
-        <PersonFunction>{""}</PersonFunction>
+        <PersonFunction>{role}</PersonFunction>
       </PersonDetails>
     </TileContainer>
   );

@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getGenres, getPopularMovies } from "./moviesAPI";
+import { getGenres, getPopularMovies } from "../moviesAPI";
 import {
   fetchGenres,
   fetchMovies,
@@ -9,7 +9,7 @@ import {
 
 function* fetchPopularMoviesHandler() {
   try {
-    yield delay(1000);
+    yield delay(200);
     const popularMovies = yield call(getPopularMovies);
     const genres = yield call(getGenres);
     yield put(fetchMoviesSuccess(popularMovies));

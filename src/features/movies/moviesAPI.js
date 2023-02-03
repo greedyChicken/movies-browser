@@ -19,3 +19,23 @@ export const getGenres = async () => {
 
   return genres;
 };
+
+export const getMovie = async (movieId) => {
+  const response = await fetch(
+    `${APIUrl}/movie/${movieId}?api_key=${APIKey}&language=en-US`
+  );
+
+  const movie = await response.json();
+
+  return movie;
+};
+
+export const getMovieCredits = async (movieId) => {
+  const response = await fetch(
+    `${APIUrl}/movie/${movieId}/credits?api_key=${APIKey}&language=en-US`
+  );
+
+  const movieCredits = await response.json();
+
+  return movieCredits;
+};

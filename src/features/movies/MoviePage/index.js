@@ -1,49 +1,101 @@
-import BigMovieTile from "../../../common/BigMovieTile";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import BigMovieTile from "./BigMovieTile";
 import { Container } from "../../../common/Container";
+import ErrorPage from "../../../common/ErrorPage";
 import { Layout } from "../../../common/Layout/styled";
-import MovieTile from "../../../common/MovieTile";
+import Loader from "../../../common/Loader";
+import MovieTile from "./MovieTile";
 import PageHeader from "../../../common/PageHeader";
 import { PersonTile } from "../../../common/PersonTile";
+import { TileLink } from "../../../common/TileLink";
+import { APIImageUrl } from "../../dataAPI";
+import {
+  fetchMovieId,
+  selectError,
+  selectLoading,
+  selectMovie,
+  selectMovieCredits,
+} from "./movieSlice";
 import { Wrapper } from "./styled";
+import { getPeople } from "../../utilities";
 
 const MoviePage = () => {
+  const dispatch = useDispatch();
+  const movie = useSelector(selectMovie);
+  const movieCredits = useSelector(selectMovieCredits);
+  const error = useSelector(selectError);
+  const loading = useSelector(selectLoading);
+  const params = useParams();
+
+  useEffect(() => {
+    dispatch(fetchMovieId(params.id));
+  }, [dispatch, params.id]);
+
   return (
     <>
-      <BigMovieTile />
-      <Container>
-        <MovieTile />
-        <Wrapper>
-          <PageHeader title="Cast" />
-          <Layout>
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-          </Layout>
-        </Wrapper>
-        <Wrapper>
-          <PageHeader title="Crew" />
-          <Layout>
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-            <PersonTile />
-          </Layout>
-        </Wrapper>
-      </Container>
+      {loading ? (
+        <Loader />
+      ) : error || !movie?.id ? (
+        <ErrorPage />
+      ) : (
+        <>
+          <BigMovieTile
+            poster={
+              movie.backdrop_path &&
+              `${APIImageUrl}/original${movie.backdrop_path}`
+            }
+          />
+          <Container>
+            <MovieTile
+              title={movie.title}
+              releaseYear={movie.release_date}
+              releaseDate={movie.release_date}
+              productionCountries={movie.production_countries}
+              overview={movie.overview}
+              voteAverage={movie.vote_average}
+              voteCount={movie.vote_count}
+              poster={`${APIImageUrl}/h632${movie.poster_path}`}
+              tags={movie.genres}
+            />
+            {movieCredits.cast.length > 0 && (
+              <Wrapper>
+                <PageHeader title="Cast" />
+                <Layout>
+                  {getPeople(movieCredits.cast, 12).map((person) => (
+                    <TileLink to={`#`} key={person.id}>
+                      <PersonTile
+                        profile={`${APIImageUrl}/w185${person.profile_path}`}
+                        profilePath={person.profile_path}
+                        fullName={person.name}
+                        role={person.character}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </Wrapper>
+            )}
+            {movieCredits.crew.length > 0 && (
+              <Wrapper>
+                <PageHeader title="Crew" />
+                <Layout>
+                  {getPeople(movieCredits.crew, 10).map((person) => (
+                    <TileLink to={`#`} key={person.id}>
+                      <PersonTile
+                        profile={`${APIImageUrl}/w185${person.profile_path}`}
+                        profilePath={person.profile_path}
+                        fullName={person.name}
+                        role={person.department}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </Wrapper>
+            )}
+          </Container>
+        </>
+      )}
     </>
   );
 };
