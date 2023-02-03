@@ -16,22 +16,22 @@ import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { nanoid } from "@reduxjs/toolkit";
-import { useLocation } from "react-router-dom";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+import { useQueryParameter } from "../../../common/queryParameters";
 
 const MoviesListPage = () => {
-  const location = useLocation();
-  const query = new URLSearchParams(location.search).get(searchQueryParamName);
-
-  const dispatch = useDispatch();
+  const query = useQueryParameter(searchQueryParamName);
   const queryMovies = useSelector((state) => selectMoviesByQuery(state, query));
+
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, query]);
 
   return (
     <>
