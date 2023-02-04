@@ -9,26 +9,29 @@ import {
   selectError,
   selectGenres,
   selectLoading,
-  selectMovies,
-  selectPage,
-} from "./moviesSlice";
+  selectMoviesByQuery,
+} from "../moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
-import { TileLink } from "../../../common/TileLink";
+import { nanoid } from "@reduxjs/toolkit";
+import searchQueryParamName from "../../../common/searchQueryParamName";
+import { useQueryParameter } from "../../../common/queryParameters";
 
 const MoviesListPage = () => {
-  const dispatch = useDispatch();
-  const popularMovies = useSelector(selectMovies);
+  const query = useQueryParameter(searchQueryParamName);
+  const queryMovies = useSelector((state) => selectMoviesByQuery(state, query));
+
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
-  const pageNumber = useSelector(selectPage);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies(pageNumber));
-  }, [dispatch, pageNumber]);
+    dispatch(fetchMovies());
+  }, [dispatch, query]);
 
   return (
     <>
@@ -44,20 +47,19 @@ const MoviesListPage = () => {
           <>
             <PageHeader title="Popular Movies" />
             <Layout>
-              {popularMovies?.map((movie) => (
-                <TileLink to={`/movies/${movie.id}`} key={movie.id}>
-                  <PopularMoviesTile
-                    poster={`${APIImageUrl}/original${movie.poster_path}`}
-                    posterPath={movie.poster_path}
-                    title={movie.title}
-                    date={movie.release_date?.slice(0, 4)}
-                    voteAverage={movie.vote_average}
-                    voteCount={`${movie.vote_count} votes`}
-                    genres={genresArray.filter((genre) =>
-                      movie.genre_ids.includes(genre.id)
-                    )}
-                  />
-                </TileLink>
+              {queryMovies?.map((movie) => (
+                <PopularMoviesTile
+                  key={nanoid()}
+                  poster={`${APIImageUrl}/original${movie.poster_path}`}
+                  posterPath={movie.poster_path}
+                  title={movie.title}
+                  date={movie.release_date.slice(0, 4)}
+                  voteAverage={movie.vote_average}
+                  voteCount={`${movie.vote_count} votes`}
+                  genres={genresArray.filter((genre) =>
+                    movie.genre_ids.includes(genre.id)
+                  )}
+                />
               ))}
             </Layout>
             <Pagination />

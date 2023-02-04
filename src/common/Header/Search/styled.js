@@ -21,11 +21,11 @@ export const SearchBar = styled.div`
 `;
 
 export const SearchIcon = styled(Search)`
-  margin: 12px 24px;
+  margin: 0px 16px 0px 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
   }
 `;
 
