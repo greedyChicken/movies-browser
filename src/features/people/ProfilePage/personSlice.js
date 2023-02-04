@@ -8,7 +8,6 @@ const personSlice = createSlice({
     person: null,
     personId: null,
     personCredits: null,
-    // personBiography: null,
   },
 
   reducers: {
