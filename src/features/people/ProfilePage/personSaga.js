@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPerson, getPersonCredits } from "../personsAPI";
+import { getPerson, getPersonCredits } from "../ProfilePage/personAPI";
 import {
   fetchPersonCreditsSuccess,
   fetchPersonId,

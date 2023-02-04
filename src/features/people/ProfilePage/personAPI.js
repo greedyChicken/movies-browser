@@ -1,4 +1,4 @@
-import { APIKey, APIUrl } from "../dataAPI";
+import { APIKey, APIUrl } from "../../dataAPI";
 
 export const getPerson = async (personId) => {
   const response = await fetch(
@@ -12,7 +12,7 @@ export const getPerson = async (personId) => {
 
 export const getPersonCredits = async (personId) => {
   const response = await fetch(
-    `${APIUrl}/person/${movieId}/movie_credits?api_key=${APIKey}&language=en-US`
+    `${APIUrl}/person/${personId}/person_credits?api_key=${APIKey}&language=en-US`
   );
 
   const personCredits = await response.json();
