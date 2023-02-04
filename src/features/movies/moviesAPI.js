@@ -1,8 +1,8 @@
 import { APIKey, APIUrl } from "../dataAPI";
 
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (pageNumber) => {
   const response = await fetch(
-    `${APIUrl}/movie/popular?api_key=${APIKey}&language=en-US&page=1`
+    `${APIUrl}/movie/popular?api_key=${APIKey}&language=en-US&page=${pageNumber}`
   );
 
   const popularMovies = await response.json();
@@ -18,4 +18,24 @@ export const getGenres = async () => {
   const genres = await response.json();
 
   return genres;
+};
+
+export const getMovie = async (movieId) => {
+  const response = await fetch(
+    `${APIUrl}/movie/${movieId}?api_key=${APIKey}&language=en-US`
+  );
+
+  const movie = await response.json();
+
+  return movie;
+};
+
+export const getMovieCredits = async (movieId) => {
+  const response = await fetch(
+    `${APIUrl}/movie/${movieId}/credits?api_key=${APIKey}&language=en-US`
+  );
+
+  const movieCredits = await response.json();
+
+  return movieCredits;
 };

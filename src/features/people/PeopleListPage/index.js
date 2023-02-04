@@ -14,7 +14,6 @@ import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
-import { nanoid } from "@reduxjs/toolkit";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -42,8 +41,9 @@ const PeopleListPage = () => {
             <Layout>
               {popularPeople?.map((person) => (
                 <PersonTile
-                  key={nanoid()}
-                  poster={`${APIImageUrl}/original${person.profile_path}`}
+                  key={person.id}
+                  profile={`${APIImageUrl}/original${person.profile_path}`}
+                  profilePath={person.profile_path}
                   fullName={person.name}
                 />
               ))}

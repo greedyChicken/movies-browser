@@ -1,14 +1,49 @@
 import styled from "styled-components";
 import { borderRadius, boxShadow } from "../../theme";
+import { ReactComponent as NoPoster } from "../../images/no-poster-image.svg";
 
 export const TileContainer = styled.div`
   max-width: 324px;
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
     width: 288px;
+  }
+`;
+
+export const NoMovieImage = styled.div`
+  height: 434px;
+  background-color: ${({ theme }) => theme.color.silver};
+  border-radius: ${borderRadius};
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    min-width: 180px;
+    height: 270px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    min-width: 114px;
+    height: 169px;
+  }
+`;
+
+export const NoMovieImageIcon = styled(NoPoster)`
+  height: 96px;
+  width: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    height: 72px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    height: 48px;
   }
 `;
 
