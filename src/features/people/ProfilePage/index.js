@@ -6,7 +6,7 @@ import Pagination from "../../../common/Pagination";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
-import BigPersonTile from "../../../common/BigPersonTile";
+import BigPersonTile from "./BigPersonTile";
 import {
   selectPerson,
   fetchPersonId,
@@ -16,7 +16,7 @@ import {
 } from "./personSlice";
 import { useParams } from "react-router-dom";
 
-const ProfilePage = () => {
+const PersonPage = () => {
   const dispatch = useDispatch();
   const person = useSelector(selectPerson);
   const personCredits = useSelector(selectPersonCredits);
@@ -53,4 +53,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default PersonPage;
