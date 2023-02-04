@@ -46,6 +46,6 @@ export const selectError = (state) => selectPersonState(state).error;
 export const selectPerson = (state) => selectPersonState(state).person;
 export const selectPersonId = (state) => selectPersonState(state).personId;
 export const selectPersonCredits = (state) =>
-  selectPersonstate(state).personCredits;
+  selectPersonState(state).personCredits;
 
 export const personReducer = personSlice.reducer;
