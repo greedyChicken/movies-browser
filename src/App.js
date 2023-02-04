@@ -2,7 +2,6 @@ import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "./common/Header";
 import MoviesListPage from "./features/movies/MoviesListPage";
 import PeopleListPage from "./features/people/PeopleListPage";
-import MoviePage from "./features/movies/MoviePage";
 import ProfilePage from "./features/people/ProfilePage";
 
 const App = () => (
