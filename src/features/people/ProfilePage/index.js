@@ -19,6 +19,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import BigPersonTile from "../../../common/BigPersonTile";
 import {
   selectPerson,
+  fetchPersonId,
   selectPersonCredits,
   selectError,
   selectLoading,
@@ -34,6 +35,10 @@ const ProfilePage = () => {
   const loading = useSelector(selectLoading);
   const params = useParams();
 
+  useEffect(() => {
+    dispatch(fetchPersonId(params.id));
+  }, [dispatch, params.id]);
+
   // const popularMovies = useSelector(selectMovies);
   // const error = useSelector(selectError);
   // const loading = useSelector(selectLoading);
@@ -46,27 +51,24 @@ const ProfilePage = () => {
   return (
     <>
       <Container>
-        {/* {error ? (
+        {loading ? (
+          <Loader />
+        ) : error || !person?.id ? (
           <ErrorPage />
-        ) : loading ? (
+        ) : (
           <>
+            <BigPersonTile
+              poster={poster}
+              name={person.name}
+              birthday={person.birthday}
+              birthplace={"Wuhan, Hubei, China"}
+              biography={
+                "Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10            with her mother, Liu lived there for four years."
+              }
+            />
             <PageHeader title="Movies Cast" />
-            <Loader />
-          </>
-        ) : ( */}
-        <>
-          <BigPersonTile
-            poster={poster}
-            name={"Liu Yifei"}
-            birthday={"25.08.1987"}
-            birthplace={"Wuhan, Hubei, China"}
-            biography={
-              "Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10            with her mother, Liu lived there for four years."
-            }
-          />
-          <PageHeader title="Movies Cast" />
 
-          {/* <Layout>
+            {/* <Layout>
               {popularMovies?.map((movie) => (
                 <PopularMoviesTile
                   key={nanoid()}
@@ -81,8 +83,8 @@ const ProfilePage = () => {
                 />
               ))}
             </Layout> */}
-          <Pagination />
-        </>
+            <Pagination />
+          </>
         )}
       </Container>
     </>

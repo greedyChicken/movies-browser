@@ -33,7 +33,9 @@ export const Header = () => {
                 <StyledNavLink to={"/people"}>People</StyledNavLink>
               </Item>
               <Item>
-                <StyledNavLink to={"/profilepage"}>ProfilePage</StyledNavLink>
+                <StyledNavLink to={"/people/profilepage"}>
+                  ProfilePage
+                </StyledNavLink>
               </Item>
             </List>
           </Navigation>
