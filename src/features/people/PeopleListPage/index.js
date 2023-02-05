@@ -16,6 +16,7 @@ import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { useParams } from "react-router-dom";
+import { TileLink } from "../../../common/TileLink";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -45,12 +46,14 @@ const PeopleListPage = () => {
             <PageHeader title="Popular people" />
             <Layout>
               {popularPeople?.map((person) => (
-                <PersonTile
-                  key={person.id}
-                  profile={`${APIImageUrl}/original${person.profile_path}`}
-                  profilePath={person.profile_path}
-                  fullName={person.name}
-                />
+                <TileLink to={`/people/${person.id}`} key={person.id}>
+                  <PersonTile
+                    key={person.id}
+                    profile={`${APIImageUrl}/original${person.profile_path}`}
+                    profilePath={person.profile_path}
+                    fullName={person.name}
+                  />
+                </TileLink>
               ))}
             </Layout>
             <Pagination

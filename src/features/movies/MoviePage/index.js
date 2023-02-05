@@ -64,7 +64,7 @@ const MoviePage = () => {
                 <PageHeader title="Cast" />
                 <Layout>
                   {getPeople(movieCredits.cast, 12).map((person) => (
-                    <TileLink to={`#`} key={person.id}>
+                    <TileLink to={`/people/${person.id}`} key={person.id}>
                       <PersonTile
                         profile={`${APIImageUrl}/w185${person.profile_path}`}
                         profilePath={person.profile_path}
