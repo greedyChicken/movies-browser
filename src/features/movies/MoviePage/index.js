@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import BigMovieTile from "./BigMovieTile";
 import { Container } from "../../../common/Container";
 import ErrorPage from "../../../common/ErrorPage";
@@ -64,7 +64,7 @@ const MoviePage = () => {
                 <PageHeader title="Cast" />
                 <Layout>
                   {getPeople(movieCredits.cast, 12).map((person) => (
-                    <TileLink to={`/people/${person.id}`} key={person.id}>
+                    <TileLink to={`/people/1/${person.id}`} key={person.id}>
                       <PersonTile
                         profile={`${APIImageUrl}/w185${person.profile_path}`}
                         profilePath={person.profile_path}
@@ -81,7 +81,7 @@ const MoviePage = () => {
                 <PageHeader title="Crew" />
                 <Layout>
                   {getPeople(movieCredits.crew, 10).map((person) => (
-                    <TileLink to={`#`} key={person.id}>
+                    <TileLink to={`/people/1/${person.id}`} key={person.id}>
                       <PersonTile
                         profile={`${APIImageUrl}/w185${person.profile_path}`}
                         profilePath={person.profile_path}
