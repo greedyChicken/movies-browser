@@ -14,8 +14,11 @@ const App = () => (
       <Route path={"/movies/:page"}>
         <MoviesListPage />
       </Route>
-      <Route path={"/people"}>
+      <Route path={"/people/:page"}>
         <PeopleListPage />
+      </Route>
+      <Route path={"/people"}>
+        <Redirect to={"/people/1"} />
       </Route>
       <Route>
         <Redirect to={"/movies/1"} />

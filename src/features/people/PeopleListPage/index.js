@@ -7,25 +7,28 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
   selectError,
+  selectLastPage,
   selectLoading,
-  selectPage,
   selectPeople,
 } from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
+import { useParams } from "react-router-dom";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
   const popularPeople = useSelector(selectPeople);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
-  const pageNumber = useSelector(selectPage);
+  const lastPage = useSelector(selectLastPage);
+  const params = useParams();
+  const page = params.page;
 
   useEffect(() => {
-    dispatch(fetchPeople());
-  }, [dispatch]);
+    dispatch(fetchPeople(page));
+  }, [dispatch, page]);
 
   return (
     <>
@@ -50,7 +53,11 @@ const PeopleListPage = () => {
                 />
               ))}
             </Layout>
-            <Pagination fetchFunction={fetchPeople} currentPage={pageNumber} />
+            <Pagination
+              currentPage={params.page}
+              lastPage={lastPage}
+              type={"people"}
+            />
           </>
         )}
       </Container>
