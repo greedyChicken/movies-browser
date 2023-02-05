@@ -6,11 +6,13 @@ import Pagination from "../../../common/Pagination";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
+  fetchSearchResults,
   selectError,
   selectGenres,
   selectLoading,
-  selectMoviesByQuery,
-} from "../moviesSlice";
+  selectMovies,
+  selectPage,
+} from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
@@ -21,16 +23,18 @@ import { useQueryParameter } from "../../../common/queryParameters";
 
 const MoviesListPage = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const queryMovies = useSelector((state) => selectMoviesByQuery(state, query));
-
+  const movies = useSelector(selectMovies);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
+  const pageNumber = useSelector(selectPage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    query && query !== ""
+      ? dispatch(fetchSearchResults({ query }))
+      : dispatch(fetchMovies(pageNumber));
   }, [dispatch, query]);
 
   return (
@@ -47,7 +51,7 @@ const MoviesListPage = () => {
           <>
             <PageHeader title="Popular Movies" />
             <Layout>
-              {queryMovies?.map((movie) => (
+              {movies?.map((movie) => (
                 <PopularMoviesTile
                   key={nanoid()}
                   poster={`${APIImageUrl}/original${movie.poster_path}`}
