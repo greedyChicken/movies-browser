@@ -8,17 +8,17 @@ const App = () => (
   <HashRouter>
     <Header />
     <Switch>
-      <Route path={"/movies/:id"}>
+      <Route path={"/movies/:page/:id"}>
         <MoviePage />
       </Route>
-      <Route path={"/movies"}>
+      <Route path={"/movies/:page"}>
         <MoviesListPage />
       </Route>
       <Route path={"/people"}>
         <PeopleListPage />
       </Route>
       <Route>
-        <Redirect to={"/movies"} />
+        <Redirect to={"/movies/1"} />
       </Route>
     </Switch>
   </HashRouter>

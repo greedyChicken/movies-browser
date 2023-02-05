@@ -1,58 +1,55 @@
-import { PageNumber, Pages, StyledPagination } from "./styled";
-import { Button, ButtonText, StyledButtons, Wrapper } from "./styled";
-import { BackwardArrow, ForwardArrow } from "./buttonArrows";
-import { useDispatch } from "react-redux";
+import {
+  LeftButton,
+  PageNumber,
+  Pages,
+  RightButton,
+  StyledPagination,
+} from "./styled";
+import { ButtonText, StyledButtons, Wrapper } from "./styled";
+import { BackwardArrow, ForwardArrow } from "./paginationUtils/buttonArrows";
+import {
+  getFirstPage,
+  getLastPage,
+  getNextPage,
+  getPreviousPage,
+} from "./paginationUtils/pathFunctions";
 
-const Pagination = ({ fetchFunction, currentPage, lastPage }) => {
-  const dispatch = useDispatch();
-
-  const changePage = (page, backward, toEnd) => {
-    if (toEnd) {
-      backward
-        ? page !== 1 && dispatch(fetchFunction(1))
-        : page !== 500 && dispatch(fetchFunction(500));
-    } else {
-      backward
-        ? page > 1 && dispatch(fetchFunction(page - 1))
-        : page < 500 && dispatch(fetchFunction(page + 1));
-    }
-  };
-
+const Pagination = ({ currentPage, lastPage, type }) => {
   return (
     <StyledPagination>
       <StyledButtons>
-        <Button backward onClick={() => changePage(currentPage, true, true)}>
+        <LeftButton to={getFirstPage(type)}>
           <BackwardArrow />
           <ButtonText>First</ButtonText>
           <Wrapper>
             <BackwardArrow />
           </Wrapper>
-        </Button>
+        </LeftButton>
 
-        <Button backward onClick={() => changePage(currentPage, true, false)}>
+        <LeftButton to={getPreviousPage(type, currentPage)}>
           <BackwardArrow />
           <ButtonText>Previous</ButtonText>
-        </Button>
+        </LeftButton>
       </StyledButtons>
       <Pages>
         Page
         <PageNumber>{currentPage}</PageNumber>
         of
-        <PageNumber>500</PageNumber>
+        <PageNumber>{lastPage}</PageNumber>
       </Pages>
       <StyledButtons>
-        <Button forward onClick={() => changePage(currentPage, false, false)}>
+        <RightButton to={getNextPage(type, currentPage, lastPage)}>
           <ButtonText>Next</ButtonText>
           <ForwardArrow />
-        </Button>
+        </RightButton>
 
-        <Button forward onClick={() => changePage(currentPage, false, true)}>
+        <RightButton to={getLastPage(type, lastPage)}>
           <ButtonText>Last</ButtonText>
           <Wrapper>
             <ForwardArrow />
           </Wrapper>
           <ForwardArrow />
-        </Button>
+        </RightButton>
       </StyledButtons>
     </StyledPagination>
   );
