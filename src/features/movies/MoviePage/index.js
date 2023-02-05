@@ -12,7 +12,7 @@ import { PersonTile } from "../../../common/PersonTile";
 import { TileLink } from "../../../common/TileLink";
 import { APIImageUrl } from "../../dataAPI";
 import {
-  fetchMovieId,
+  fetchMovie,
   selectError,
   selectLoading,
   selectMovie,
@@ -30,7 +30,7 @@ const MoviePage = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(fetchMovieId(params.id));
+    dispatch(fetchMovie(params.id));
   }, [dispatch, params.id]);
 
   return (
