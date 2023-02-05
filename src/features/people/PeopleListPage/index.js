@@ -38,7 +38,7 @@ const PeopleListPage = () => {
           </>
         ) : (
           <>
-            <PageHeader title="Popular " />
+            <PageHeader title="Popular people" />
             <Layout>
               {popularPeople?.map((person) => (
                 <TileLink to={`/people/${person.id}`} key={person.id}>
