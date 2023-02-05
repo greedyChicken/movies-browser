@@ -59,9 +59,6 @@ export const BasicInfo = styled.div`
   padding: 0px;
   margin: -16px 0;
   gap: 11px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-  }
 `;
 
 export const Birth = styled.p`
@@ -85,10 +82,6 @@ export const BirthDetails = styled.span`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.black};
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 12px;
-    line-height: 1.2;
-  }
 `;
 
 export const Biography = styled.p`
@@ -110,5 +103,4 @@ export const Biography = styled.p`
 export const AboutBirth = styled.div`
   flex: none;
   order: 1;
-  flex-grow: 0;
 `;
