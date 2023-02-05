@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { borderRadius } from "../../theme";
+import { TileLink } from "../TileLink";
 
 export const StyledPagination = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ export const StyledButtons = styled.div`
   gap: 12px;
 `;
 
-export const Button = styled.button`
+export const Button = styled(TileLink)`
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -45,23 +46,25 @@ export const Button = styled.button`
   font-size: 14px;
   border: none;
 
-  ${(props) =>
-    props.backward &&
-    css`
-      background-color: ${({ theme }) => theme.color.mystic};
-    `}
+  &:visited,
+  &:active,
+  &:link {
+    color: ${({ theme }) => theme.color.woodsmoke};
+  }
 
-  ${(props) =>
-    props.forward &&
-    css`
-      background-color: ${({ theme }) => theme.color.pattensBlue};
-    `}
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     gap: 4px;
     font-size: 10px;
     padding: 8px 12px;
   }
+`;
+
+export const LeftButton = styled(Button)`
+  background-color: ${({ theme }) => theme.color.mystic};
+`;
+
+export const RightButton = styled(Button)`
+  background-color: ${({ theme }) => theme.color.pattensBlue};
 `;
 
 export const ButtonText = styled.span`
