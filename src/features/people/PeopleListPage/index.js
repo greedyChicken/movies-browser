@@ -8,6 +8,7 @@ import {
   fetchPeople,
   selectError,
   selectLoading,
+  selectPage,
   selectPeople,
 } from "../peopleSlice";
 import { useEffect } from "react";
@@ -20,6 +21,7 @@ const PeopleListPage = () => {
   const popularPeople = useSelector(selectPeople);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
+  const pageNumber = useSelector(selectPage);
 
   useEffect(() => {
     dispatch(fetchPeople());
@@ -48,7 +50,7 @@ const PeopleListPage = () => {
                 />
               ))}
             </Layout>
-            <Pagination />
+            <Pagination fetchFunction={fetchPeople} currentPage={pageNumber} />
           </>
         )}
       </Container>

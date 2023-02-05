@@ -6,10 +6,10 @@ import {
   fetchPeopleSuccess,
 } from "./peopleSlice";
 
-function* fetchPopularPeopleHandler() {
+function* fetchPopularPeopleHandler({ payload: pageNumber }) {
   try {
     yield delay(1000);
-    const popularPeople = yield call(getPopularPeople);
+    const popularPeople = yield call(getPopularPeople, pageNumber);
     yield put(fetchPeopleSuccess(popularPeople));
   } catch (error) {
     yield put(fetchPeopleError());
