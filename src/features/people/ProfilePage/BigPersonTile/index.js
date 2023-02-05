@@ -8,7 +8,6 @@ import {
   BirthDetails,
   Biography,
 } from "./styled";
-// import poster from "../../images/bigperson.png";
 
 const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
   return (
