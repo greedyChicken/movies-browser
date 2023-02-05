@@ -4,29 +4,44 @@ import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
+  fetchSearchResults,
+  selectLastPage,
   selectPage,
 } from "../../features/movies/MoviesListPage/moviesSlice";
+import searchQueryParamName from "../searchQueryParamName";
+import { useQueryParameter } from "../queryParameters";
 
 const Pagination = () => {
   const dispatch = useDispatch();
   const pageNumber = useSelector(selectPage);
+  const lastPageNumber = useSelector(selectLastPage);
+  const query = useQueryParameter(searchQueryParamName);
 
-  const changePage = (currentPage, backward, toEnd) => {
+  const changePage = (currentPage, backward, toEnd, query) => {
+    const fetchFunction =
+      query && query !== "" ? fetchSearchResults : fetchMovies;
+
     if (toEnd) {
       backward
-        ? currentPage !== 1 && dispatch(fetchMovies(1))
-        : currentPage !== 500 && dispatch(fetchMovies(500));
+        ? currentPage !== 1 && dispatch(fetchFunction({ query, pageNumber: 1 }))
+        : currentPage !== lastPageNumber &&
+          dispatch(fetchFunction({ query, pageNumber: lastPageNumber }));
     } else {
       backward
-        ? currentPage > 1 && dispatch(fetchMovies(currentPage - 1))
-        : currentPage < 500 && dispatch(fetchMovies(currentPage + 1));
+        ? currentPage > 1 &&
+          dispatch(fetchFunction({ query, pageNumber: currentPage - 1 }))
+        : currentPage < lastPageNumber &&
+          dispatch(fetchFunction({ query, pageNumber: currentPage + 1 }));
     }
   };
 
   return (
     <StyledPagination>
       <StyledButtons>
-        <Button backward onClick={() => changePage(pageNumber, true, true)}>
+        <Button
+          backward
+          onClick={() => changePage(pageNumber, true, true, query)}
+        >
           <BackwardArrow />
           <ButtonText>First</ButtonText>
           <Wrapper>
@@ -34,7 +49,10 @@ const Pagination = () => {
           </Wrapper>
         </Button>
 
-        <Button backward onClick={() => changePage(pageNumber, true, false)}>
+        <Button
+          backward
+          onClick={() => changePage(pageNumber, true, false, query)}
+        >
           <BackwardArrow />
           <ButtonText>Previous</ButtonText>
         </Button>
@@ -43,15 +61,21 @@ const Pagination = () => {
         Page
         <PageNumber>{pageNumber}</PageNumber>
         of
-        <PageNumber>500</PageNumber>
+        <PageNumber>{lastPageNumber}</PageNumber>
       </Pages>
       <StyledButtons>
-        <Button forward onClick={() => changePage(pageNumber, false, false)}>
+        <Button
+          forward
+          onClick={() => changePage(pageNumber, false, false, query)}
+        >
           <ButtonText>Next</ButtonText>
           <ForwardArrow />
         </Button>
 
-        <Button forward onClick={() => changePage(pageNumber, false, true)}>
+        <Button
+          forward
+          onClick={() => changePage(pageNumber, false, true, query)}
+        >
           <ButtonText>Last</ButtonText>
           <Wrapper>
             <ForwardArrow />
