@@ -12,6 +12,7 @@ export const TileContainer = styled.div`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.color.woodsmoke};
+  height: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     padding: 8px;

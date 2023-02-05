@@ -2,6 +2,7 @@ import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "./common/Header";
 import MoviesListPage from "./features/movies/MoviesListPage";
 import PeopleListPage from "./features/people/PeopleListPage";
+import ProfilePage from "./features/people/ProfilePage";
 import MoviePage from "./features/movies/MoviePage";
 
 const App = () => (
@@ -13,6 +14,9 @@ const App = () => (
       </Route>
       <Route path={"/movies"}>
         <MoviesListPage />
+      </Route>
+      <Route path={"/people/:id"}>
+        <ProfilePage />
       </Route>
       <Route path={"/people"}>
         <PeopleListPage />
