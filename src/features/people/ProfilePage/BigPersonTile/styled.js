@@ -3,7 +3,6 @@ import { borderRadius, boxShadow } from "../../../../theme";
 
 export const PersonTileWrapper = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
   margin: 40px 0;
   max-width: 1368px;
@@ -35,9 +34,6 @@ export const PersonData = styled.div`
   width: 936px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     padding: 4px 0px;
     gap: 16px;
   }
@@ -59,7 +55,6 @@ export const PersonName = styled.h1`
 
 export const BasicInfo = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 0px;
   margin: -16px 0;
