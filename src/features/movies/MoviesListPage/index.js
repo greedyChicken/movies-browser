@@ -60,7 +60,7 @@ const MoviesListPage = () => {
                 </TileLink>
               ))}
             </Layout>
-            <Pagination />
+            <Pagination fetchFunction={fetchMovies} currentPage={pageNumber} />
           </>
         )}
       </Container>
