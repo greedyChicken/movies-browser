@@ -7,7 +7,6 @@ import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
   selectError,
-  selectGenres,
   selectLastPage,
   selectLoading,
   selectMovies,
@@ -24,7 +23,6 @@ const MoviesListPage = () => {
   const popularMovies = useSelector(selectMovies);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
-  const genresArray = useSelector(selectGenres);
   const lastPage = useSelector(selectLastPage);
   const params = useParams();
   const page = params.page;
@@ -56,9 +54,7 @@ const MoviesListPage = () => {
                     date={movie.release_date?.slice(0, 4)}
                     voteAverage={movie.vote_average}
                     voteCount={`${movie.vote_count} votes`}
-                    genres={genresArray.filter((genre) =>
-                      movie.genre_ids.includes(genre.id)
-                    )}
+                    genres={movie.genre_ids}
                   />
                 </TileLink>
               ))}
