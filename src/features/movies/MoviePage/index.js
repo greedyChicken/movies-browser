@@ -46,6 +46,7 @@ const MoviePage = () => {
               movie.backdrop_path &&
               `${APIImageUrl}/original${movie.backdrop_path}`
             }
+            title={movie.title}
           />
           <Container>
             <MovieTile

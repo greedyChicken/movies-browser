@@ -1,11 +1,23 @@
-import { BigMovieTileWrapper, Poster } from "./styled";
+import {
+  Backdrop,
+  BackdropContainer,
+  Background,
+  Pleksa,
+  Poster,
+  Title,
+} from "./styled";
 
-const BigMovieTile = ({ poster }) => {
+const BigMovieTile = ({ poster, title }) => {
   return (
     poster && (
-      <BigMovieTileWrapper>
-        <Poster src={poster}></Poster>
-      </BigMovieTileWrapper>
+      <Background>
+        <BackdropContainer>
+          <Pleksa>
+            <Title>{title}</Title>
+          </Pleksa>
+          <Backdrop src={poster}></Backdrop>
+        </BackdropContainer>
+      </Background>
     )
   );
 };
