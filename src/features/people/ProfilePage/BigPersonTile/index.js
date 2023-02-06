@@ -1,3 +1,4 @@
+import { formatDate } from "../../../utilities";
 import {
   BasicInfo,
   PersonData,
@@ -16,10 +17,9 @@ const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
         <Poster src={poster} />
         <PersonData>
           <PersonName>{name}</PersonName>
-
           <BasicInfo>
             <Birth>Date of birth: </Birth>{" "}
-            <BirthDetails>{birthday} </BirthDetails>
+            <BirthDetails>{formatDate(birthday, "dd.MM.yyyy")} </BirthDetails>
           </BasicInfo>
           <BasicInfo>
             <Birth>Place of birth: </Birth>{" "}

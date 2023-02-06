@@ -14,6 +14,9 @@ import {
   selectLoading,
 } from "./personSlice";
 import { useParams } from "react-router-dom";
+import { Layout } from "./styled";
+import { TileLink } from "../../../common/TileLink";
+import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 
 const PersonPage = () => {
   const dispatch = useDispatch();
@@ -43,7 +46,50 @@ const PersonPage = () => {
               birthplace={person.place_of_birth}
               biography={person.biography}
             />
-            <PageHeader title="Movies Cast" />
+            {personCredits.cast.length > 0 && (
+              <>
+                <PageHeader
+                  title={`Movies - cast (${personCredits.cast.length})`}
+                />
+                <Layout>
+                  {personCredits.cast.map((movie) => (
+                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                      <PopularMoviesTile
+                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                        posterPath={movie.poster_path}
+                        title={movie.title}
+                        date={movie.release_date.slice(0, 4)}
+                        voteAverage={movie.vote_average}
+                        voteCount={movie.vote_count}
+                        genres={movie.genre_ids}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </>
+            )}
+            {personCredits.crew.length > 0 && (
+              <>
+                <PageHeader
+                  title={`Movies - crew (${personCredits.crew.length})`}
+                />
+                <Layout>
+                  {personCredits.crew.map((movie) => (
+                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                      <PopularMoviesTile
+                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                        posterPath={movie.poster_path}
+                        title={movie.title}
+                        date={movie.release_date.slice(0, 4)}
+                        voteAverage={movie.vote_average}
+                        voteCount={movie.vote_count}
+                        genres={movie.genre_ids}
+                      />
+                    </TileLink>
+                  ))}
+                </Layout>
+              </>
+            )}
           </>
         )}
       </Container>
