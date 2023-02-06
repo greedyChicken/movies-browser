@@ -12,7 +12,7 @@ export const getPerson = async (personId) => {
 
 export const getPersonCredits = async (personId) => {
   const response = await fetch(
-    `${APIUrl}/person/${personId}/person_credits?api_key=${APIKey}&language=en-US`
+    `${APIUrl}/person/${personId}/movie_credits?api_key=${APIKey}&language=en-US`
   );
 
   const personCredits = await response.json();
