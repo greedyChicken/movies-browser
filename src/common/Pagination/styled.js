@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { borderRadius } from "../../theme";
 import { TileLink } from "../TileLink";
 
@@ -52,19 +52,20 @@ export const Button = styled(TileLink)`
     color: ${({ theme }) => theme.color.woodsmoke};
   }
 
+  ${(props) =>
+    props.disabled
+      ? css`
+          background-color: ${({ theme }) => theme.color.mystic};
+        `
+      : css`
+          background-color: ${({ theme }) => theme.color.pattensBlue};
+        `}
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     gap: 4px;
     font-size: 10px;
     padding: 8px 12px;
   }
-`;
-
-export const LeftButton = styled(Button)`
-  background-color: ${({ theme }) => theme.color.mystic};
-`;
-
-export const RightButton = styled(Button)`
-  background-color: ${({ theme }) => theme.color.pattensBlue};
 `;
 
 export const ButtonText = styled.span`

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import BigMovieTile from "./BigMovieTile";
 import { Container } from "../../../common/Container";
 import ErrorPage from "../../../common/ErrorPage";

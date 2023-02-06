@@ -1,10 +1,4 @@
-import {
-  LeftButton,
-  PageNumber,
-  Pages,
-  RightButton,
-  StyledPagination,
-} from "./styled";
+import { Button, PageNumber, Pages, StyledPagination } from "./styled";
 import { ButtonText, StyledButtons, Wrapper } from "./styled";
 import { BackwardArrow, ForwardArrow } from "./paginationUtils/buttonArrows";
 import {
@@ -15,21 +9,27 @@ import {
 } from "./paginationUtils/pathFunctions";
 
 const Pagination = ({ currentPage, lastPage, type }) => {
+  const backButtonsDisabled = parseInt(currentPage) === 1;
+  const forwardButtonsDisabled = parseInt(currentPage) === lastPage;
+
   return (
     <StyledPagination>
       <StyledButtons>
-        <LeftButton to={getFirstPage(type)}>
+        <Button to={getFirstPage(type)} disabled={backButtonsDisabled}>
           <BackwardArrow />
           <ButtonText>First</ButtonText>
           <Wrapper>
             <BackwardArrow />
           </Wrapper>
-        </LeftButton>
+        </Button>
 
-        <LeftButton to={getPreviousPage(type, currentPage)}>
+        <Button
+          to={getPreviousPage(type, currentPage)}
+          disabled={backButtonsDisabled}
+        >
           <BackwardArrow />
           <ButtonText>Previous</ButtonText>
-        </LeftButton>
+        </Button>
       </StyledButtons>
       <Pages>
         Page
@@ -38,18 +38,24 @@ const Pagination = ({ currentPage, lastPage, type }) => {
         <PageNumber>{lastPage}</PageNumber>
       </Pages>
       <StyledButtons>
-        <RightButton to={getNextPage(type, currentPage, lastPage)}>
+        <Button
+          to={getNextPage(type, currentPage, lastPage)}
+          disabled={forwardButtonsDisabled}
+        >
           <ButtonText>Next</ButtonText>
           <ForwardArrow />
-        </RightButton>
+        </Button>
 
-        <RightButton to={getLastPage(type, lastPage)}>
+        <Button
+          to={getLastPage(type, lastPage)}
+          disabled={forwardButtonsDisabled}
+        >
           <ButtonText>Last</ButtonText>
           <Wrapper>
             <ForwardArrow />
           </Wrapper>
           <ForwardArrow />
-        </RightButton>
+        </Button>
       </StyledButtons>
     </StyledPagination>
   );
