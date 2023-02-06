@@ -8,6 +8,7 @@ export const TileContainer = styled.div`
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
   height: 100%;
+  border: 1px solid ${({ theme }) => theme.color.white};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
