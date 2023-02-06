@@ -1,11 +1,34 @@
-import { BigMovieTileWrapper, Poster } from "./styled";
+import {
+  Backdrop,
+  BackdropContainer,
+  Background,
+  Pleksa,
+  Rate,
+  Rating,
+  Star,
+  Title,
+  Votes,
+} from "./styled";
+import star from "../../../../images/star.svg";
 
-const BigMovieTile = ({ poster }) => {
+const BigMovieTile = ({ poster, title, voteCount, voteAverage }) => {
   return (
     poster && (
-      <BigMovieTileWrapper>
-        <Poster src={poster}></Poster>
-      </BigMovieTileWrapper>
+      <Background>
+        <BackdropContainer>
+          <Pleksa>
+            <Title>{title}</Title>
+            <Rating>
+              <Rate>
+                <Star src={star} />
+                {voteAverage} <Votes>/ 10</Votes>
+              </Rate>
+              <Votes>{voteCount} votes</Votes>
+            </Rating>
+          </Pleksa>
+          <Backdrop src={poster}></Backdrop>
+        </BackdropContainer>
+      </Background>
     )
   );
 };

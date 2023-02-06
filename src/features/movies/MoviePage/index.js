@@ -46,6 +46,9 @@ const MoviePage = () => {
               movie.backdrop_path &&
               `${APIImageUrl}/original${movie.backdrop_path}`
             }
+            title={movie.title}
+            voteAverage={movie.vote_average}
+            voteCount={movie.vote_count}
           />
           <Container>
             <MovieTile
