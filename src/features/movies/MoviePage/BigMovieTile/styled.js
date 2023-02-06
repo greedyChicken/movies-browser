@@ -4,11 +4,6 @@ export const Background = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.color.black};
   color: ${({ theme }) => theme.color.white};
-
-  /* 
-  gap: 40px;
-  background: ;
-  margin: 0 auto; */
 `;
 
 export const BackdropContainer = styled.div`
@@ -23,19 +18,6 @@ export const BackdropContainer = styled.div`
 export const Backdrop = styled.img`
   display: block;
   width: 100%;
-`;
-
-export const Poster = styled.img`
-  height: 769px;
-  display: block;
-  margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 316px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    height: 169px;
-  }
 `;
 
 export const Pleksa = styled.div`
@@ -58,6 +40,7 @@ export const Title = styled.h1`
   line-height: 1.2;
   margin-bottom: 24px;
   color: inherit;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 32px;
     margin-bottom: 8px;
@@ -86,6 +69,7 @@ export const Rating = styled.div`
 export const Star = styled.img`
   width: 40px;
   margin-right: 6px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     width: 22px;
   }
@@ -118,6 +102,7 @@ export const Votes = styled.span`
   font-size: 16px;
   line-height: 1%;
   font-weight: 400;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     margin-bottom: 0;
     font-size: 12px;

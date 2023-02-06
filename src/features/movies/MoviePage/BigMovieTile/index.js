@@ -3,7 +3,6 @@ import {
   BackdropContainer,
   Background,
   Pleksa,
-  Poster,
   Rate,
   Rating,
   Star,
@@ -24,7 +23,6 @@ const BigMovieTile = ({ poster, title, voteCount, voteAverage }) => {
                 <Star src={star} />
                 {voteAverage} <Votes>/ 10</Votes>
               </Rate>
-
               <Votes>{voteCount} votes</Votes>
             </Rating>
           </Pleksa>
