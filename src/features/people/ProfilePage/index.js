@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
-import Pagination from "../../../common/Pagination";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
@@ -45,7 +44,6 @@ const PersonPage = () => {
               biography={person.biography}
             />
             <PageHeader title="Movies Cast" />
-            <Pagination />
           </>
         )}
       </Container>

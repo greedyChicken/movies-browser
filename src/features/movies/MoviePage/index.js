@@ -12,7 +12,7 @@ import { PersonTile } from "../../../common/PersonTile";
 import { TileLink } from "../../../common/TileLink";
 import { APIImageUrl } from "../../dataAPI";
 import {
-  fetchMovieId,
+  fetchMovie,
   selectError,
   selectLoading,
   selectMovie,
@@ -30,7 +30,7 @@ const MoviePage = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(fetchMovieId(params.id));
+    dispatch(fetchMovie(params.id));
   }, [dispatch, params.id]);
 
   return (
@@ -64,7 +64,7 @@ const MoviePage = () => {
                 <PageHeader title="Cast" />
                 <Layout>
                   {getPeople(movieCredits.cast, 12).map((person) => (
-                    <TileLink to={`/people/${person.id}`} key={person.id}>
+                    <TileLink to={`/people/1/${person.id}`} key={person.id}>
                       <PersonTile
                         profile={`${APIImageUrl}/w185${person.profile_path}`}
                         profilePath={person.profile_path}
@@ -81,7 +81,7 @@ const MoviePage = () => {
                 <PageHeader title="Crew" />
                 <Layout>
                   {getPeople(movieCredits.crew, 10).map((person) => (
-                    <TileLink to={`#`} key={person.id}>
+                    <TileLink to={`/people/1/${person.id}`} key={person.id}>
                       <PersonTile
                         profile={`${APIImageUrl}/w185${person.profile_path}`}
                         profilePath={person.profile_path}

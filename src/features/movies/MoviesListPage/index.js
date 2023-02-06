@@ -8,15 +8,16 @@ import {
   fetchMovies,
   selectError,
   selectGenres,
+  selectLastPage,
   selectLoading,
   selectMovies,
-  selectPage,
 } from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { TileLink } from "../../../common/TileLink";
+import { useParams } from "react-router-dom";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -24,11 +25,13 @@ const MoviesListPage = () => {
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const genresArray = useSelector(selectGenres);
-  const pageNumber = useSelector(selectPage);
+  const lastPage = useSelector(selectLastPage);
+  const params = useParams();
+  const page = params.page;
 
   useEffect(() => {
-    dispatch(fetchMovies(pageNumber));
-  }, [dispatch, pageNumber]);
+    dispatch(fetchMovies(page));
+  }, [dispatch, page]);
 
   return (
     <>
@@ -45,7 +48,7 @@ const MoviesListPage = () => {
             <PageHeader title="Popular Movies" />
             <Layout>
               {popularMovies?.map((movie) => (
-                <TileLink to={`/movies/${movie.id}`} key={movie.id}>
+                <TileLink to={`/movies/${page}/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
                     poster={`${APIImageUrl}/original${movie.poster_path}`}
                     posterPath={movie.poster_path}
@@ -60,7 +63,11 @@ const MoviesListPage = () => {
                 </TileLink>
               ))}
             </Layout>
-            <Pagination />
+            <Pagination
+              currentPage={params.page}
+              lastPage={lastPage}
+              type={"movies"}
+            />
           </>
         )}
       </Container>

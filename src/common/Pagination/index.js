@@ -1,32 +1,21 @@
-import { PageNumber, Pages, StyledPagination } from "./styled";
-import { Button, ButtonText, StyledButtons, Wrapper } from "./styled";
-import { BackwardArrow, ForwardArrow } from "./buttonArrows";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, PageNumber, Pages, StyledPagination } from "./styled";
+import { ButtonText, StyledButtons, Wrapper } from "./styled";
+import { BackwardArrow, ForwardArrow } from "./paginationUtils/buttonArrows";
 import {
-  fetchMovies,
-  selectPage,
-} from "../../features/movies/MoviesListPage/moviesSlice";
+  getFirstPage,
+  getLastPage,
+  getNextPage,
+  getPreviousPage,
+} from "./paginationUtils/pathFunctions";
 
-const Pagination = () => {
-  const dispatch = useDispatch();
-  const pageNumber = useSelector(selectPage);
-
-  const changePage = (currentPage, backward, toEnd) => {
-    if (toEnd) {
-      backward
-        ? currentPage !== 1 && dispatch(fetchMovies(1))
-        : currentPage !== 500 && dispatch(fetchMovies(500));
-    } else {
-      backward
-        ? currentPage > 1 && dispatch(fetchMovies(currentPage - 1))
-        : currentPage < 500 && dispatch(fetchMovies(currentPage + 1));
-    }
-  };
+const Pagination = ({ currentPage, lastPage, type }) => {
+  const backButtonsDisabled = parseInt(currentPage) === 1;
+  const forwardButtonsDisabled = parseInt(currentPage) === lastPage;
 
   return (
     <StyledPagination>
       <StyledButtons>
-        <Button backward onClick={() => changePage(pageNumber, true, true)}>
+        <Button to={getFirstPage(type)} disabled={backButtonsDisabled}>
           <BackwardArrow />
           <ButtonText>First</ButtonText>
           <Wrapper>
@@ -34,24 +23,33 @@ const Pagination = () => {
           </Wrapper>
         </Button>
 
-        <Button backward onClick={() => changePage(pageNumber, true, false)}>
+        <Button
+          to={getPreviousPage(type, currentPage)}
+          disabled={backButtonsDisabled}
+        >
           <BackwardArrow />
           <ButtonText>Previous</ButtonText>
         </Button>
       </StyledButtons>
       <Pages>
         Page
-        <PageNumber>{pageNumber}</PageNumber>
+        <PageNumber>{currentPage}</PageNumber>
         of
-        <PageNumber>500</PageNumber>
+        <PageNumber>{lastPage}</PageNumber>
       </Pages>
       <StyledButtons>
-        <Button forward onClick={() => changePage(pageNumber, false, false)}>
+        <Button
+          to={getNextPage(type, currentPage, lastPage)}
+          disabled={forwardButtonsDisabled}
+        >
           <ButtonText>Next</ButtonText>
           <ForwardArrow />
         </Button>
 
-        <Button forward onClick={() => changePage(pageNumber, false, true)}>
+        <Button
+          to={getLastPage(type, lastPage)}
+          disabled={forwardButtonsDisabled}
+        >
           <ButtonText>Last</ButtonText>
           <Wrapper>
             <ForwardArrow />

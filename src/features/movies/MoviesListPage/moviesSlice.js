@@ -8,6 +8,7 @@ const moviesSlice = createSlice({
     loading: false,
     error: false,
     page: 1,
+    lastPage: 500,
   },
 
   reducers: {
@@ -21,6 +22,7 @@ const moviesSlice = createSlice({
       state.error = false;
       state.movies = movies.results;
       state.page = movies.page;
+      state.lastPage = movies.total_pages < 500 ? movies.total_pages : 500;
     },
     fetchMoviesError: (state) => {
       state.error = true;
@@ -45,5 +47,6 @@ export const selectPage = (state) => selectMoviesState(state).page;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
 export const selectGenres = (state) => selectMoviesState(state).genres;
+export const selectLastPage = (state) => selectMoviesState(state).lastPage;
 
 export const moviesReducer = moviesSlice.reducer;

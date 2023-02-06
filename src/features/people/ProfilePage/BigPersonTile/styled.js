@@ -82,6 +82,10 @@ export const BirthDetails = styled.span`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.black};
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 12px;
+    line-height: 1.2;
+  }
 `;
 
 export const Biography = styled.p`
