@@ -53,7 +53,7 @@ const PersonPage = () => {
                 />
                 <Layout>
                   {personCredits.cast.map((movie) => (
-                    <TileLink to={`/movies/1/${movie.id}`} key={movie.id}>
+                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                       <PopularMoviesTile
                         poster={`${APIImageUrl}/w185${movie.poster_path}`}
                         posterPath={movie.poster_path}
@@ -75,7 +75,7 @@ const PersonPage = () => {
                 />
                 <Layout>
                   {personCredits.crew.map((movie) => (
-                    <TileLink to={`/movies/1/${movie.id}`} key={movie.id}>
+                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                       <PopularMoviesTile
                         poster={`${APIImageUrl}/w185${movie.poster_path}`}
                         posterPath={movie.poster_path}

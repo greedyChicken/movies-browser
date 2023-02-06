@@ -46,7 +46,7 @@ const MoviesListPage = () => {
             <PageHeader title="Popular Movies" />
             <Layout>
               {popularMovies?.map((movie) => (
-                <TileLink to={`/movies/${page}/${movie.id}`} key={movie.id}>
+                <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
                     poster={`${APIImageUrl}/original${movie.poster_path}`}
                     posterPath={movie.poster_path}
