@@ -8,14 +8,17 @@ import {
   getPreviousPage,
 } from "./paginationUtils/pathFunctions";
 
-const Pagination = ({ currentPage, lastPage, type }) => {
+const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
   const backButtonsDisabled = parseInt(currentPage) === 1;
   const forwardButtonsDisabled = parseInt(currentPage) === lastPage;
 
   return (
     <StyledPagination>
       <StyledButtons>
-        <Button to={getFirstPage(type)} disabled={backButtonsDisabled}>
+        <Button
+          to={getFirstPage(type, searchParam)}
+          disabled={backButtonsDisabled}
+        >
           <BackwardArrow />
           <ButtonText>First</ButtonText>
           <Wrapper>
@@ -24,7 +27,7 @@ const Pagination = ({ currentPage, lastPage, type }) => {
         </Button>
 
         <Button
-          to={getPreviousPage(type, currentPage)}
+          to={getPreviousPage(type, currentPage, searchParam)}
           disabled={backButtonsDisabled}
         >
           <BackwardArrow />
@@ -39,7 +42,7 @@ const Pagination = ({ currentPage, lastPage, type }) => {
       </Pages>
       <StyledButtons>
         <Button
-          to={getNextPage(type, currentPage, lastPage)}
+          to={getNextPage(type, currentPage, lastPage, searchParam)}
           disabled={forwardButtonsDisabled}
         >
           <ButtonText>Next</ButtonText>
@@ -47,7 +50,7 @@ const Pagination = ({ currentPage, lastPage, type }) => {
         </Button>
 
         <Button
-          to={getLastPage(type, lastPage)}
+          to={getLastPage(type, lastPage, searchParam)}
           disabled={forwardButtonsDisabled}
         >
           <ButtonText>Last</ButtonText>
