@@ -63,6 +63,7 @@ export const selectLastPage = (state) => selectMoviesState(state).lastPage;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
 export const selectGenres = (state) => selectMoviesState(state).genres;
+export const selectLastPage = (state) => selectMoviesState(state).lastPage;
 
 export const selectMoviesByQuery = (state, query) => {
   const queryMovies = selectMovies(state);

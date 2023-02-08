@@ -6,7 +6,6 @@ const movieSlice = createSlice({
     loading: true,
     error: false,
     movie: null,
-    movieId: null,
     movieCredits: null,
   },
 
@@ -19,9 +18,8 @@ const movieSlice = createSlice({
     fetchMovieError: (state) => {
       state.error = true;
     },
-    fetchMovieId: (state, { payload: movieId }) => {
+    fetchMovie: (state) => {
       state.loading = true;
-      state.movieId = movieId;
     },
     fetchMovieCreditsSuccess: (state, { payload: movieCredits }) => {
       state.loading = false;
@@ -34,7 +32,7 @@ const movieSlice = createSlice({
 export const {
   fetchMovieSuccess,
   fetchMovieError,
-  fetchMovieId,
+  fetchMovie,
   fetchMovieCreditsSuccess,
 } = movieSlice.actions;
 
@@ -43,7 +41,6 @@ const selectMovieState = (state) => state.movie;
 export const selectLoading = (state) => selectMovieState(state).loading;
 export const selectError = (state) => selectMovieState(state).error;
 export const selectMovie = (state) => selectMovieState(state).movie;
-export const selectMovieId = (state) => selectMovieState(state).movieId;
 export const selectMovieCredits = (state) =>
   selectMovieState(state).movieCredits;
 

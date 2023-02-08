@@ -2,7 +2,7 @@ import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { getMovie, getMovieCredits } from "../moviesAPI";
 import {
   fetchMovieCreditsSuccess,
-  fetchMovieId,
+  fetchMovie,
   fetchMovieError,
   fetchMovieSuccess,
 } from "./movieSlice";
@@ -20,5 +20,5 @@ function* fetchMovieHandler({ payload: movieId }) {
 }
 
 export function* watchFetchMovie() {
-  yield takeLatest(fetchMovieId.type, fetchMovieHandler);
+  yield takeLatest(fetchMovie.type, fetchMovieHandler);
 }
