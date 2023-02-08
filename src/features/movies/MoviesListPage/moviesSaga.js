@@ -22,6 +22,7 @@ function* fetchPopularMoviesHandler({ payload: pageNumber }) {
 }
 
 function* fetchSearchResultsHandler({ payload: { query, page } }) {
+  console.log("halo");
   try {
     const searchResults = yield call(getSearchResults, query, page);
     yield put(fetchSearchResultsSuccess(searchResults));
@@ -32,5 +33,5 @@ function* fetchSearchResultsHandler({ payload: { query, page } }) {
 
 export function* watchFetchMovies() {
   yield takeLatest(fetchMovies.type, fetchPopularMoviesHandler);
-  yield debounce(500, fetchSearchResults.type, fetchSearchResultsHandler);
+  yield debounce(200, fetchSearchResults.type, fetchSearchResultsHandler);
 }
