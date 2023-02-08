@@ -10,7 +10,8 @@ export const Title = styled.h1`
   margin: 56px 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    font-size: 18px;
+    margin: 24px 0 0;
+    font-size: 20px;
     line-height: 1.2;
   }
 `;
