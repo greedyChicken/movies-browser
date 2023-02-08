@@ -50,8 +50,14 @@ export const PopularMoviesTile = ({
           ))}
         </Tags>
         <Rating>
-          <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>{" "}
-          <Votes>{voteCount}</Votes>
+          {voteCount === "0 votes" ? (
+            "No votes yet"
+          ) : (
+            <>
+              <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>{" "}
+              <Votes>{voteCount}</Votes>
+            </>
+          )}
         </Rating>
       </Description>
     </TileContainer>

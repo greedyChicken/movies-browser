@@ -102,6 +102,7 @@ export const Production = styled.p`
   align-items: center;
   margin: 4px 4px 4px 0;
   color: ${({ theme }) => theme.color.stormgrey};
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: none;
   }
@@ -114,6 +115,7 @@ export const ProductionCountries = styled.span`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.black};
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 12px;
     line-height: 1.3;
@@ -185,6 +187,16 @@ export const Rating = styled.div`
   }
 `;
 
+export const NoVotes = styled.span`
+  color: ${({ theme }) => theme.color.stormgrey};
+  margin: 8px 0;
+  font-size: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 13px;
+  }
+`;
+
 export const Star = styled.img`
   width: 24px;
   flex: none;
@@ -239,6 +251,7 @@ export const Summary = styled.p`
   align-items: center;
   margin: 0;
   color: ${({ theme }) => theme.color.black};
+
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
