@@ -6,6 +6,7 @@ import { Layout } from "../../../common/Layout/styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
+  fetchSearchResults,
   selectError,
   selectLastPage,
   selectLoading,
@@ -15,8 +16,10 @@ import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { TileLink } from "../../../common/TileLink";
+import searchQueryParamName from "../../../common/searchQueryParamName";
+import { useQueryParameter } from "../../../common/queryParameters";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -24,12 +27,16 @@ const PeopleListPage = () => {
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
+  const query = useQueryParameter(searchQueryParamName);
   const params = useParams();
   const page = params.page;
+  const { search } = useLocation();
 
   useEffect(() => {
-    dispatch(fetchPeople(page));
-  }, [dispatch, page]);
+    query
+      ? dispatch(fetchSearchResults({ query, page }))
+      : dispatch(fetchPeople(page));
+  }, [dispatch, query, page]);
 
   return (
     <>
@@ -57,9 +64,10 @@ const PeopleListPage = () => {
               ))}
             </Layout>
             <Pagination
-              currentPage={params.page}
+              currentPage={page}
               lastPage={lastPage}
               type={"people"}
+              searchParam={search ?? ""}
             />
           </>
         )}

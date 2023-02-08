@@ -1,9 +1,11 @@
-import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPopularPeople } from "./peopleAPI";
+import { call, debounce, delay, put, takeLatest } from "redux-saga/effects";
+import { getPopularPeople, getSearchResults } from "./peopleAPI";
 import {
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
+  fetchSearchResults,
+  fetchSearchResultsSuccess,
 } from "./peopleSlice";
 
 function* fetchPopularPeopleHandler({ payload: pageNumber }) {
@@ -16,6 +18,16 @@ function* fetchPopularPeopleHandler({ payload: pageNumber }) {
   }
 }
 
+function* fetchSearchResultsHandler({ payload: { query, page } }) {
+  try {
+    const searchResults = yield call(getSearchResults, query, page);
+    yield put(fetchSearchResultsSuccess(searchResults));
+  } catch (error) {
+    yield put(fetchPeopleError());
+  }
+}
+
 export function* watchFetchPopularPeople() {
   yield takeLatest(fetchPeople.type, fetchPopularPeopleHandler);
+  yield debounce(500, fetchSearchResults.type, fetchSearchResultsHandler);
 }
