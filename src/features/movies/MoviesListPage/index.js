@@ -20,6 +20,7 @@ import { TileLink } from "../../../common/TileLink";
 import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+import NoResultsPage from "../../../common/NoResultsPage";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -45,9 +46,13 @@ const MoviesListPage = () => {
           <ErrorPage />
         ) : loading ? (
           <>
-            <PageHeader title="Popular movies" />
+            <PageHeader
+              title={query ? `Search results for "${query}"` : `Popular movies`}
+            />
             <Loader />
           </>
+        ) : popularMovies.length === 0 ? (
+          <NoResultsPage query={query} />
         ) : (
           <>
             <PageHeader title="Popular movies" />
