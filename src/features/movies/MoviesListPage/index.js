@@ -45,12 +45,12 @@ const MoviesListPage = () => {
           <ErrorPage />
         ) : loading ? (
           <>
-            <PageHeader title="Popular Movies" />
+            <PageHeader title="Popular movies" />
             <Loader />
           </>
         ) : (
           <>
-            <PageHeader title="Popular Movies" />
+            <PageHeader title="Popular movies" />
             <Layout>
               {popularMovies?.map((movie) => (
                 <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>

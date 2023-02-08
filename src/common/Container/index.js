@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   margin: 0 auto;
-  max-width: 1368px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    max-width: 90%;
-  }
+  max-width: 1400px;
+  padding: 0 16px;
 `;
