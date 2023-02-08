@@ -21,9 +21,9 @@ function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   }
 }
 
-function* fetchSearchResultsHandler({ payload: { query, pageNumber } }) {
+function* fetchSearchResultsHandler({ payload: { query, page } }) {
   try {
-    const searchResults = yield call(getSearchResults, query, pageNumber);
+    const searchResults = yield call(getSearchResults, query, page);
     yield put(fetchSearchResultsSuccess(searchResults));
   } catch (error) {
     yield put(fetchMoviesError());

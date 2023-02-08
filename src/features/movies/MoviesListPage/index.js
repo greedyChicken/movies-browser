@@ -6,6 +6,7 @@ import Pagination from "../../../common/Pagination";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
+  fetchSearchResults,
   selectError,
   selectLastPage,
   selectLoading,
@@ -16,24 +17,26 @@ import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { APIImageUrl } from "../../dataAPI";
 import { TileLink } from "../../../common/TileLink";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 
 const MoviesListPage = () => {
-  const query = useQueryParameter(searchQueryParamName);
+  const dispatch = useDispatch();
   const popularMovies = useSelector(selectMovies);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
+  const query = useQueryParameter(searchQueryParamName);
   const params = useParams();
   const page = params.page;
-
-  const dispatch = useDispatch();
+  const { search } = useLocation();
 
   useEffect(() => {
-    dispatch(fetchMovies(page));
-  }, [dispatch, page]);
+    query
+      ? dispatch(fetchSearchResults({ query, page }))
+      : dispatch(fetchMovies(page));
+  }, [dispatch, query, page]);
 
   return (
     <>
@@ -64,9 +67,10 @@ const MoviesListPage = () => {
               ))}
             </Layout>
             <Pagination
-              currentPage={params.page}
+              currentPage={page}
               lastPage={lastPage}
               type={"movies"}
+              searchParam={search ?? ""}
             />
           </>
         )}
