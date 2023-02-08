@@ -17,6 +17,7 @@ import { useParams } from "react-router-dom";
 import { Layout } from "./styled";
 import { TileLink } from "../../../common/TileLink";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
+import { getNonDuplicatedItems } from "../../utilities";
 
 const PersonPage = () => {
   const dispatch = useDispatch();
@@ -52,19 +53,21 @@ const PersonPage = () => {
                   title={`Movies - cast (${personCredits.cast.length})`}
                 />
                 <Layout>
-                  {personCredits.cast.map((movie) => (
-                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
-                      <PopularMoviesTile
-                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
-                        posterPath={movie.poster_path}
-                        title={movie.title}
-                        date={movie.release_date.slice(0, 4)}
-                        voteAverage={movie.vote_average}
-                        voteCount={movie.vote_count}
-                        genres={movie.genre_ids}
-                      />
-                    </TileLink>
-                  ))}
+                  {getNonDuplicatedItems(personCredits.cast, 12).map(
+                    (movie) => (
+                      <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                        <PopularMoviesTile
+                          poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                          posterPath={movie.poster_path}
+                          title={movie.title}
+                          date={movie.release_date.slice(0, 4)}
+                          voteAverage={movie.vote_average}
+                          voteCount={movie.vote_count}
+                          genres={movie.genre_ids}
+                        />
+                      </TileLink>
+                    )
+                  )}
                 </Layout>
               </>
             )}
@@ -74,19 +77,21 @@ const PersonPage = () => {
                   title={`Movies - crew (${personCredits.crew.length})`}
                 />
                 <Layout>
-                  {personCredits.crew.map((movie) => (
-                    <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
-                      <PopularMoviesTile
-                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
-                        posterPath={movie.poster_path}
-                        title={movie.title}
-                        date={movie.release_date.slice(0, 4)}
-                        voteAverage={movie.vote_average}
-                        voteCount={movie.vote_count}
-                        genres={movie.genre_ids}
-                      />
-                    </TileLink>
-                  ))}
+                  {getNonDuplicatedItems(personCredits.crew, 12).map(
+                    (movie) => (
+                      <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                        <PopularMoviesTile
+                          poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                          posterPath={movie.poster_path}
+                          title={movie.title}
+                          date={movie.release_date.slice(0, 4)}
+                          voteAverage={movie.vote_average}
+                          voteCount={movie.vote_count}
+                          genres={movie.genre_ids}
+                        />
+                      </TileLink>
+                    )
+                  )}
                 </Layout>
               </>
             )}

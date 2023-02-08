@@ -18,7 +18,7 @@ export const formatDate = (inputDate, format) => {
   return format;
 };
 
-export const getPeople = (array, numberOfItems) => {
+export const getNonDuplicatedItems = (array, numberOfItems) => {
   // filtering from duplicates
   let filteredArray = Array.from(new Set(array.map((item) => item.id))).map(
     (id) => {
