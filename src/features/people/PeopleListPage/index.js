@@ -46,7 +46,7 @@ const PeopleListPage = () => {
             <PageHeader title="Popular people" />
             <Layout>
               {popularPeople?.map((person) => (
-                <TileLink to={`/people/${page}/${person.id}`} key={person.id}>
+                <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
                     key={person.id}
                     profile={`${APIImageUrl}/original${person.profile_path}`}
