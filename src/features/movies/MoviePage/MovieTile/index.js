@@ -57,7 +57,7 @@ const MovieTile = ({
             ))}
           </Tags>
           <Rating>
-            <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>
+            <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>
             <Votes>/ 10</Votes> <Votes>{voteCount} votes</Votes>
           </Rating>
           <Summary>{overview}</Summary>

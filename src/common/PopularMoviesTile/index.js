@@ -50,7 +50,7 @@ export const PopularMoviesTile = ({
           ))}
         </Tags>
         <Rating>
-          <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
+          <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>{" "}
           <Votes>{voteCount}</Votes>
         </Rating>
       </Description>
