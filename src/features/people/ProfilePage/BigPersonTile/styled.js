@@ -5,12 +5,15 @@ export const PersonTileWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 40px 0;
+  padding: 16px;
   max-width: 1368px;
+  word-break: break-word;
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     margin: 16px;
+    padding: 8px;
   }
 `;
 
@@ -100,7 +103,9 @@ export const Biography = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
-    margin-right: 10px;
+    margin-top: 96px;
+    margin-left: -130px;
+    margin-right: 12px;
   }
 `;
 
