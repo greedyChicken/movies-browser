@@ -25,11 +25,28 @@ const peopleSlice = createSlice({
     fetchPeopleError: (state) => {
       state.error = true;
     },
+    fetchSearchResults: (state, { payload: { page } }) => {
+      state.loading = true;
+      state.page = page;
+    },
+    fetchSearchResultsSuccess: (state, { payload: searchResults }) => {
+      state.loading = false;
+      state.error = false;
+      state.people = searchResults.results;
+      state.page = searchResults.page;
+      state.lastPage =
+        searchResults.total_pages < 500 ? searchResults.total_pages : 500;
+    },
   },
 });
 
-export const { fetchPeople, fetchPeopleSuccess, fetchPeopleError } =
-  peopleSlice.actions;
+export const {
+  fetchPeople,
+  fetchPeopleSuccess,
+  fetchPeopleError,
+  fetchSearchResults,
+  fetchSearchResultsSuccess,
+} = peopleSlice.actions;
 
 const selectPeopleState = (state) => state.people;
 

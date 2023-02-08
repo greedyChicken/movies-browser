@@ -9,3 +9,13 @@ export const getPopularPeople = async (pageNumber) => {
 
   return popularPeople;
 };
+
+export const getSearchResults = async (query, pageNumber) => {
+  const response = await fetch(
+    `${APIUrl}/search/person?api_key=${APIKey}&language=en-US&query=${query}&page=${pageNumber}`
+  );
+
+  const searchResults = await response.json();
+
+  return searchResults;
+};
