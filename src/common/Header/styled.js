@@ -5,9 +5,6 @@ import { ReactComponent as Camera } from "../../images/camera.svg";
 export const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.woodsmoke};
   position: sticky;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-  }
 `;
 
 export const Content = styled.div`
@@ -19,7 +16,7 @@ export const Content = styled.div`
   align-items: center;
   padding: 23px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     flex-direction: column;
     padding: 32px 16px 16px 16px;
   }
@@ -30,9 +27,13 @@ export const Container = styled.div`
   grid-template-columns: auto auto;
   grid-gap: 80px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    grid-gap: 0px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    justify-content: space-between;
     margin-bottom: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    grid-gap: 0;
   }
 `;
 
@@ -50,6 +51,10 @@ export const StyledLink = styled(Link)`
   white-space: nowrap;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    justify-content: space-between;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
