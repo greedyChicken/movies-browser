@@ -59,7 +59,7 @@ const MoviePage = () => {
               overview={movie.overview}
               voteAverage={movie.vote_average}
               voteCount={movie.vote_count}
-              poster={`${APIImageUrl}/h632${movie.poster_path}`}
+              poster={`${APIImageUrl}/w500${movie.poster_path}`}
               tags={movie.genres}
             />
             {movieCredits.cast.length > 0 && (

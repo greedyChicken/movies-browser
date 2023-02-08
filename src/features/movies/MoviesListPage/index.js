@@ -55,7 +55,7 @@ const MoviesListPage = () => {
               {popularMovies?.map((movie) => (
                 <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
-                    poster={`${APIImageUrl}/original${movie.poster_path}`}
+                    poster={`${APIImageUrl}/w342${movie.poster_path}`}
                     posterPath={movie.poster_path}
                     title={movie.title}
                     date={movie.release_date?.slice(0, 4)}

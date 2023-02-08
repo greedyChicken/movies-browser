@@ -56,7 +56,7 @@ const PeopleListPage = () => {
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
                     key={person.id}
-                    profile={`${APIImageUrl}/original${person.profile_path}`}
+                    profile={`${APIImageUrl}/w185${person.profile_path}`}
                     profilePath={person.profile_path}
                     fullName={person.name}
                   />

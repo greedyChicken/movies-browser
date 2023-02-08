@@ -40,7 +40,7 @@ const PersonPage = () => {
         ) : (
           <>
             <BigPersonTile
-              poster={`${APIImageUrl}/original${person.profile_path}`}
+              poster={`${APIImageUrl}/h632${person.profile_path}`}
               name={person.name}
               birthday={person.birthday}
               birthplace={person.place_of_birth}
@@ -55,7 +55,7 @@ const PersonPage = () => {
                   {personCredits.cast.map((movie) => (
                     <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                       <PopularMoviesTile
-                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                        poster={`${APIImageUrl}/w342${movie.poster_path}`}
                         posterPath={movie.poster_path}
                         title={movie.title}
                         date={movie.release_date.slice(0, 4)}
@@ -77,7 +77,7 @@ const PersonPage = () => {
                   {personCredits.crew.map((movie) => (
                     <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                       <PopularMoviesTile
-                        poster={`${APIImageUrl}/w185${movie.poster_path}`}
+                        poster={`${APIImageUrl}/w342${movie.poster_path}`}
                         posterPath={movie.poster_path}
                         title={movie.title}
                         date={movie.release_date.slice(0, 4)}
