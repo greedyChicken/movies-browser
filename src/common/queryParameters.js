@@ -21,7 +21,6 @@ export const useReplaceQueryParameter = () => {
       searchParams.set(key, value);
     }
 
-    console.log(location.pathname.slice(0, secondSlash));
     history.push(
       `${location.pathname.slice(0, secondSlash)}/1?${searchParams.toString()}`
     );
