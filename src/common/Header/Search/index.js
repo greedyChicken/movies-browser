@@ -1,4 +1,4 @@
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   useQueryParameter,
   useReplaceQueryParameter,
@@ -23,7 +23,7 @@ export const Search = () => {
       <SearchIcon />
       <SearchInput
         placeholder={`Search for ${
-          location.pathname === "/movies" ? "movies..." : "people..."
+          location.pathname.includes("movies") ? "movies..." : "people..."
         }`}
         type="text"
         value={query || ""}
