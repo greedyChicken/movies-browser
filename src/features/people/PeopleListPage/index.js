@@ -29,7 +29,7 @@ const PeopleListPage = () => {
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
   const params = useParams();
-  const page = params.page;
+  const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
   const { search } = useLocation();
 
   useEffect(() => {
