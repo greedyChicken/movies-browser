@@ -19,7 +19,7 @@ import {
   selectMovieCredits,
 } from "./movieSlice";
 import { Wrapper } from "./styled";
-import { getPeople } from "../../utilities";
+import { getNonDuplicatedItems } from "../../utilities";
 
 const MoviePage = () => {
   const dispatch = useDispatch();
@@ -66,19 +66,21 @@ const MoviePage = () => {
               <Wrapper>
                 <PageHeader title="Cast" />
                 <Layout>
-                  {getPeople(movieCredits.cast, 12).map((person) => (
-                    <TileLink
-                      to={`/people/person/${person.id}`}
-                      key={person.id}
-                    >
-                      <PersonTile
-                        profile={`${APIImageUrl}/w185${person.profile_path}`}
-                        profilePath={person.profile_path}
-                        fullName={person.name}
-                        role={person.character}
-                      />
-                    </TileLink>
-                  ))}
+                  {getNonDuplicatedItems(movieCredits.cast, 12).map(
+                    (person) => (
+                      <TileLink
+                        to={`/people/person/${person.id}`}
+                        key={person.id}
+                      >
+                        <PersonTile
+                          profile={`${APIImageUrl}/w185${person.profile_path}`}
+                          profilePath={person.profile_path}
+                          fullName={person.name}
+                          role={person.character}
+                        />
+                      </TileLink>
+                    )
+                  )}
                 </Layout>
               </Wrapper>
             )}
@@ -86,19 +88,21 @@ const MoviePage = () => {
               <Wrapper>
                 <PageHeader title="Crew" />
                 <Layout>
-                  {getPeople(movieCredits.crew, 10).map((person) => (
-                    <TileLink
-                      to={`/people/people/${person.id}`}
-                      key={person.id}
-                    >
-                      <PersonTile
-                        profile={`${APIImageUrl}/w185${person.profile_path}`}
-                        profilePath={person.profile_path}
-                        fullName={person.name}
-                        role={person.department}
-                      />
-                    </TileLink>
-                  ))}
+                  {getNonDuplicatedItems(movieCredits.crew, 12).map(
+                    (person) => (
+                      <TileLink
+                        to={`/people/people/${person.id}`}
+                        key={person.id}
+                      >
+                        <PersonTile
+                          profile={`${APIImageUrl}/w185${person.profile_path}`}
+                          profilePath={person.profile_path}
+                          fullName={person.name}
+                          role={person.department}
+                        />
+                      </TileLink>
+                    )
+                  )}
                 </Layout>
               </Wrapper>
             )}
