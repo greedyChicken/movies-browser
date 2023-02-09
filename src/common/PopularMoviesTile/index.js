@@ -1,5 +1,6 @@
 import {
   Description,
+  InfoContainer,
   MovieTitle,
   NoMovieImage,
   NoMovieImageIcon,
@@ -39,6 +40,8 @@ export const PopularMoviesTile = ({
           <NoMovieImageIcon />
         </NoMovieImage>
       )}
+
+      <InfoContainer>
       <Description>
         <MovieTitle>{title}</MovieTitle>
         <Release>{date}</Release>
@@ -49,11 +52,12 @@ export const PopularMoviesTile = ({
             </TagButton>
           ))}
         </Tags>
-        <Rating>
-          <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
-          <Votes>{voteCount}</Votes>
-        </Rating>
       </Description>
+      <Rating>
+        <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
+        <Votes>{voteCount}</Votes>
+      </Rating>
+      </InfoContainer>
     </TileContainer>
   );
 };

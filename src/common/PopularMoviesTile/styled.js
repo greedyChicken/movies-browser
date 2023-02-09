@@ -7,8 +7,12 @@ export const TileContainer = styled.div`
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
-  height: 100%;
   border: 1px solid ${({ theme }) => theme.color.white};
+
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
@@ -58,6 +62,16 @@ export const Poster = styled.img`
     height: 169px;
     left: calc(50% - 114px / 2 - 71px);
     top: 0px;
+  }
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    margin: 16px 0;
   }
 `;
 
