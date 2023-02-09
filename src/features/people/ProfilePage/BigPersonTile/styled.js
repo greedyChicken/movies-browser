@@ -4,15 +4,14 @@ import { borderRadius, boxShadow } from "../../../../theme";
 export const PersonTileWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin: 40px 0;
+  margin: 56px 0;
   padding: 16px;
-  max-width: 1368px;
   word-break: break-word;
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    margin: 16px;
+    margin: 23px 0;
     padding: 8px;
   }
 `;
@@ -33,12 +32,13 @@ export const PersonData = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 8px 0px;
-  margin: 0;
+  margin-right: 40px;
   width: 936px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     padding: 4px 0px;
     gap: 16px;
+    margin-right: 16px;
   }
 `;
 
@@ -48,24 +48,30 @@ export const PersonName = styled.h1`
   line-height: 1.2;
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
   color: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.3;
+    margin-bottom: 16px;
   }
 `;
 
 export const BasicInfo = styled.div`
   display: flex;
   align-items: center;
-  padding: 0px;
-  margin: -16px 0;
-  gap: 11px;
+  padding: 0;
+  margin: -14px 0;
+  gap: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 12px;
+    line-height: 1.2;
+    gap: 4px;
+  }
 `;
 
 export const Birth = styled.p`
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
