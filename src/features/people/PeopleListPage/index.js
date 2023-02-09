@@ -11,6 +11,7 @@ import {
   selectLastPage,
   selectLoading,
   selectPeople,
+  selectPeopleCount,
 } from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
@@ -29,9 +30,9 @@ const PeopleListPage = () => {
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
-  const params = useParams();
-  const page = params.page;
+  const { page } = useParams();
   const { search } = useLocation();
+  const peopleCount = useSelector(selectPeopleCount);
 
   useEffect(() => {
     query
@@ -55,7 +56,13 @@ const PeopleListPage = () => {
           <NoResultsPage query={query} />
         ) : (
           <>
-            <PageHeader title="Popular people" />
+            <PageHeader
+              title={
+                query
+                  ? `Search results for "${query}" (${peopleCount})`
+                  : `Popular people`
+              }
+            />
             <Layout>
               {popularPeople?.map((person) => (
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>

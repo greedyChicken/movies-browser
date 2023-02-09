@@ -8,19 +8,20 @@ const peopleSlice = createSlice({
     error: false,
     page: 1,
     lastPage: 500,
+    peopleCount: null,
   },
   reducers: {
     fetchPeople: (state, { payload: pageNumber }) => {
       state.loading = true;
       state.page = pageNumber;
     },
-
     fetchPeopleSuccess: (state, { payload: people }) => {
       state.loading = false;
       state.error = false;
       state.people = people.results;
       state.page = people.page;
       state.lastPage = people.total_pages < 500 ? people.total_pages : 500;
+      state.peopleCount = people.total_results;
     },
     fetchPeopleError: (state) => {
       state.error = true;
@@ -29,13 +30,13 @@ const peopleSlice = createSlice({
       state.loading = true;
       state.page = page;
     },
-    fetchSearchResultsSuccess: (state, { payload: searchResults }) => {
+    fetchSearchResultsSuccess: (state, { payload: results }) => {
       state.loading = false;
       state.error = false;
-      state.people = searchResults.results;
-      state.page = searchResults.page;
-      state.lastPage =
-        searchResults.total_pages < 500 ? searchResults.total_pages : 500;
+      state.people = results.results;
+      state.page = results.page;
+      state.lastPage = results.total_pages < 500 ? results.total_pages : 500;
+      state.peopleCount = results.total_results;
     },
   },
 });
@@ -55,5 +56,7 @@ export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectError = (state) => selectPeopleState(state).error;
 export const selectPage = (state) => selectPeopleState(state).page;
 export const selectLastPage = (state) => selectPeopleState(state).lastPage;
+export const selectPeopleCount = (state) =>
+  selectPeopleState(state).peopleCount;
 
 export const peopleReducer = peopleSlice.reducer;
