@@ -107,15 +107,22 @@ export const Biography = styled.p`
   margin: 24px 0;
   color: ${({ theme }) => theme.color.black};
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: none;
     font-size: 13px;
     line-height: 1.3;
-    margin-top: 96px;
+    margin-top: 84px;
     margin-left: -130px;
-    margin-right: 12px;
+    margin-right: 8px;
   }
 `;
 
-export const AboutBirth = styled.div`
-  flex: none;
-  order: 1;
+export const BiographyMobile = styled.p`
+  display: none;
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: block;
+    font-size: 13px;
+    line-height: 1.3;
+    margin-top: 84px;
+    margin-left: -130px;
+  }
 `;

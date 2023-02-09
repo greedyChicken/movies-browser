@@ -8,6 +8,7 @@ import {
   Birth,
   BirthDetails,
   Biography,
+  BiographyMobile,
 } from "./styled";
 
 const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
@@ -26,6 +27,7 @@ const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
             <BirthDetails>{birthplace}</BirthDetails>
           </BasicInfo>
           <Biography>{biography}</Biography>
+          <BiographyMobile>{biography}</BiographyMobile>
         </PersonData>
       </PersonTileWrapper>
     </>
