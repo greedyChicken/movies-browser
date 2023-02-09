@@ -166,7 +166,6 @@ export const Rating = styled.div`
   gap: 12px;
   margin: 16px;
   margin-bottom: 0;
-  color: ${({ theme }) => theme.color.waterloo};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     flex: none;
