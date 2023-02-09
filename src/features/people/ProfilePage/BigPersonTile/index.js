@@ -8,7 +8,6 @@ import {
   Birth,
   BirthDetails,
   Biography,
-  BiographyMobile,
 } from "./styled";
 
 const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {

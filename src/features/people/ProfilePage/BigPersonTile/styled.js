@@ -88,7 +88,8 @@ export const BirthDetails = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.color.black};
   margin: 0;
-  line-height: 120%;
+  line-height: 1.2;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 15px;
   }
@@ -100,7 +101,7 @@ export const BirthDetails = styled.span`
 export const Biography = styled.article`
   font-weight: 400;
   font-size: 20px;
-  line-height: 160%;
+  line-height: 1.6;
   color: ${({ theme }) => theme.color.black};
   margin: 0;
 
