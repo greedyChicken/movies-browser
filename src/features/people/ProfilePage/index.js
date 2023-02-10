@@ -83,7 +83,7 @@ const PersonPage = () => {
                           poster={movie.poster_path}
                           posterPath={movie.poster_path}
                           title={movie.title}
-                          date={movie.release_date.slice(0, 4)}
+                          date={movie.release_date}
                           voteAverage={movie.vote_average}
                           voteCount={movie.vote_count}
                           genres={movie.genre_ids}
