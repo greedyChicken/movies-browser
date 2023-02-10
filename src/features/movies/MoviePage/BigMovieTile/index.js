@@ -10,6 +10,7 @@ import {
   Votes,
 } from "./styled";
 import star from "../../../../images/star.svg";
+import { APIImageUrl } from "../../../dataAPI";
 
 const BigMovieTile = ({ poster, title, voteCount, voteAverage }) => {
   return (
@@ -26,7 +27,7 @@ const BigMovieTile = ({ poster, title, voteCount, voteAverage }) => {
               <Votes>{voteCount} votes</Votes>
             </Rating>
           </Pleksa>
-          <Backdrop src={poster}></Backdrop>
+          <Backdrop src={`${APIImageUrl}/original${poster}`}></Backdrop>
         </BackdropContainer>
       </Background>
     )

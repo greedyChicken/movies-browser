@@ -18,6 +18,7 @@ import {
 } from "./styled";
 import star from "../../../../images/star.svg";
 import { formatDate } from "../../../utilities";
+import { APIImageUrl } from "../../../dataAPI";
 
 const MovieTile = ({
   title,
@@ -33,26 +34,30 @@ const MovieTile = ({
   return (
     <>
       <MovieTileWrapper>
-        <Poster src={poster} />
+        {poster && <Poster src={`${APIImageUrl}/w500${poster}`} />}
         <MovieData>
           <MovieTitle>{title}</MovieTitle>
           <ReleaseYear>{releaseYear.slice(0, 4)}</ReleaseYear>
-          <BasicInfo>
-            <Production>Production:</Production>
-            <ProductionCountries>
-              {productionCountries.map((country) => country.name).join(", ")}
-            </ProductionCountries>
-          </BasicInfo>
-          <BasicInfo>
-            <Production>Release:</Production>{" "}
-            <ProductionCountries>
-              {formatDate(releaseDate, "dd.MM.yyyy")}
-            </ProductionCountries>
-          </BasicInfo>
+          {productionCountries.length !== 0 && (
+            <BasicInfo>
+              <Production>Production:</Production>
+              <ProductionCountries>
+                {productionCountries.map((country) => country.name).join(", ")}
+              </ProductionCountries>
+            </BasicInfo>
+          )}
+          {releaseDate && (
+            <BasicInfo>
+              <Production>Release:</Production>
+              <ProductionCountries>
+                {formatDate(releaseDate, "dd.MM.yyyy")}
+              </ProductionCountries>
+            </BasicInfo>
+          )}
           <Tags>
             {tags.map((tag, index) => (
               <TagButton key={index}>
-                <Tag>{tag.name}</Tag>{" "}
+                <Tag>{tag.name}</Tag>
               </TagButton>
             ))}
           </Tags>
