@@ -30,7 +30,8 @@ const MoviesListPage = () => {
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
-  const { page } = useParams();
+  const params = useParams();
+  const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
   const { search } = useLocation();
   const moviesCount = useSelector(selectMoviesCount);
 
@@ -67,7 +68,7 @@ const MoviesListPage = () => {
               {popularMovies?.map((movie) => (
                 <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
-                    poster={`${APIImageUrl}/original${movie.poster_path}`}
+                    poster={`${APIImageUrl}/w342${movie.poster_path}`}
                     posterPath={movie.poster_path}
                     title={movie.title}
                     date={movie.release_date?.slice(0, 4)}

@@ -19,10 +19,10 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
           to={getFirstPage(type, searchParam)}
           disabled={backButtonsDisabled}
         >
-          <BackwardArrow />
+          <BackwardArrow disabled={backButtonsDisabled} />
           <ButtonText>First</ButtonText>
           <Wrapper>
-            <BackwardArrow />
+            <BackwardArrow disabled={backButtonsDisabled} />
           </Wrapper>
         </Button>
 
@@ -30,7 +30,7 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
           to={getPreviousPage(type, currentPage, searchParam)}
           disabled={backButtonsDisabled}
         >
-          <BackwardArrow />
+          <BackwardArrow disabled={backButtonsDisabled} />
           <ButtonText>Previous</ButtonText>
         </Button>
       </StyledButtons>
@@ -46,7 +46,7 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
           disabled={forwardButtonsDisabled}
         >
           <ButtonText>Next</ButtonText>
-          <ForwardArrow />
+          <ForwardArrow disabled={forwardButtonsDisabled} />
         </Button>
 
         <Button
@@ -55,9 +55,9 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
         >
           <ButtonText>Last</ButtonText>
           <Wrapper>
-            <ForwardArrow />
+            <ForwardArrow disabled={forwardButtonsDisabled} />
           </Wrapper>
-          <ForwardArrow />
+          <ForwardArrow disabled={forwardButtonsDisabled} />
         </Button>
       </StyledButtons>
     </StyledPagination>

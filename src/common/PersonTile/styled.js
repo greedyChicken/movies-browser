@@ -1,18 +1,22 @@
 import styled from "styled-components";
-import { borderRadius } from "../../theme";
+import { borderRadius, boxShadow } from "../../theme";
 import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`
   max-width: 208px;
   background-color: ${({ theme }) => theme.color.white};
   padding: 16px;
-  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+  box-shadow: ${boxShadow};
   text-align: center;
   word-break: break-word;
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.color.woodsmoke};
   height: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    padding: 12px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     padding: 8px;
@@ -54,14 +58,6 @@ export const PersonPhoto = styled.img`
   height: 264px;
   border-radius: ${borderRadius};
   object-fit: cover;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 200px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    height: 178px;
-  }
 `;
 
 export const PersonDetails = styled.div`

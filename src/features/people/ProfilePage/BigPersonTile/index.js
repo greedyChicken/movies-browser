@@ -25,8 +25,8 @@ const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
             <Birth>Place of birth: </Birth>{" "}
             <BirthDetails>{birthplace}</BirthDetails>
           </BasicInfo>
-          <Biography>{biography}</Biography>
-        </PersonData>
+        </PersonData>{" "}
+        <Biography>{biography}</Biography>
       </PersonTileWrapper>
     </>
   );

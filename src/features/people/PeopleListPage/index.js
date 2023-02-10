@@ -30,7 +30,8 @@ const PeopleListPage = () => {
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
-  const { page } = useParams();
+  const params = useParams();
+  const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
   const { search } = useLocation();
   const peopleCount = useSelector(selectPeopleCount);
 
@@ -68,7 +69,7 @@ const PeopleListPage = () => {
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
                     key={person.id}
-                    profile={`${APIImageUrl}/original${person.profile_path}`}
+                    profile={`${APIImageUrl}/w185${person.profile_path}`}
                     profilePath={person.profile_path}
                     fullName={person.name}
                   />

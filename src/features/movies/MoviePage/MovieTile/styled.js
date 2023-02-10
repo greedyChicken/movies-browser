@@ -2,60 +2,62 @@ import styled from "styled-components";
 import { borderRadius, boxShadow } from "../../../../theme";
 
 export const MovieTileWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin: 40px 0;
-  max-width: 1368px;
-  background: ${({ theme }) => theme.color.white};
+  margin: 56px 0;
+  padding: 40px;
+  display: grid;
+  gap: 0 40px;
+  grid-template-columns: minmax(auto, 312px) 1fr;
   box-shadow: ${boxShadow};
+  background: ${({ theme }) => theme.color.white};
+  grid-template-rows: auto 1fr;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    margin: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    gap: 0 28px;
+    grid-template-columns: minmax(auto, 215px) 1fr;
+    padding: 28px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    grid-template-columns: minmax(auto, 114px) 1fr;
+    gap: 0 16px;
+    padding: 16px;
   }
 `;
 
 export const Poster = styled.img`
   width: 312px;
-  margin: 40px;
+  height: 464px;
   border-radius: ${borderRadius};
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  grid-row: span 2;
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    width: 215px;
+    height: 319px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     width: 114px;
-    margin: 16px;
+    height: 169px;
   }
 `;
 
 export const MovieData = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 8px 0px;
-  margin: 0;
-  width: 936px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    padding: 0px;
-    gap: 8px;
-    width: 126px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    grid-row: span 2;
   }
 `;
 
 export const MovieTitle = styled.h1`
   font-weight: 600;
   font-size: 36px;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
+  margin: 0 0 24px 0;
+  word-break: break-word;
   color: ${({ theme }) => theme.color.black};
-  margin-bottom: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 16px;
-    line-height: 1.3;
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 24px;
+    margin: 0 0 18px 0;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
+    margin: 0 0 8px 0;
   }
 `;
 
@@ -68,41 +70,37 @@ export const ReleaseYear = styled.p`
   margin: 24px 0;
   color: ${({ theme }) => theme.color.black};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 16px;
     line-height: 1.3;
     margin-top: -16px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
   }
 `;
 
 export const BasicInfo = styled.div`
+  margin: 0px 0px 8px 0px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-
-    width: 126px;
-  }
+  flex-wrap: wrap;
 `;
 
 export const Production = styled.p`
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-  margin: 4px 4px 4px 0;
   color: ${({ theme }) => theme.color.stormgrey};
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  margin: 0px 10px 0px 0px;
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 15px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: none;
   }
 `;
@@ -110,13 +108,15 @@ export const Production = styled.p`
 export const ProductionCountries = styled.span`
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
   color: ${({ theme }) => theme.color.black};
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  margin: 0;
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 15px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 12px;
-    line-height: 1.3;
   }
 `;
 
@@ -178,10 +178,7 @@ export const Rating = styled.div`
   margin: 8px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-top: -16px;
+    margin: 0 0 4px 0;
   }
 `;
 
@@ -191,8 +188,11 @@ export const Star = styled.img`
   order: 0;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     width: 16px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    width: 13px;
   }
 `;
 
@@ -206,10 +206,11 @@ export const Rate = styled.p`
   flex: none;
   order: 1;
   flex-grow: 0;
-
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 16px;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
-    line-height: 1.3;
   }
 `;
 
@@ -223,27 +224,29 @@ export const Votes = styled.p`
   flex: none;
   order: 2;
   flex-grow: 0;
-
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 16px;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
-    line-height: 1.3;
   }
 `;
 
 export const Summary = styled.p`
-  font-family: "Poppins";
   font-weight: 400;
   font-size: 20px;
   line-height: 1.6;
-  display: flex;
-  align-items: center;
-  margin: 0;
   color: ${({ theme }) => theme.color.black};
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 13px;
-    line-height: 1.3;
-    margin: 0 16px;
-    width: 100%;
-    order: 2;
+  margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 17px;
+    grid-row: 3;
+    grid-column: span 2;
+    margin-top: 24px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 14px;
+    margin-top: 4px;
   }
 `;

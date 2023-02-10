@@ -60,8 +60,8 @@ const MovieTile = ({
             <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>
             <Votes>/ 10</Votes> <Votes>{voteCount} votes</Votes>
           </Rating>
-          <Summary>{overview}</Summary>
         </MovieData>
+        <Summary>{overview}</Summary>
       </MovieTileWrapper>
     </>
   );
