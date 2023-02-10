@@ -7,8 +7,11 @@ export const TileContainer = styled.div`
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
-  height: 100%;
   border: 1px solid ${({ theme }) => theme.color.white};
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
@@ -61,12 +64,23 @@ export const Poster = styled.img`
   }
 `;
 
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    margin: 16px 0;
+  }
+`;
+
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 8px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
     align-items: flex-start;
@@ -84,6 +98,7 @@ export const MovieTitle = styled.h2`
   align-items: center;
   color: ${({ theme }) => theme.color.woodsmoke};
   align-self: left;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 16px;
     line-height: 1.3;
@@ -108,7 +123,6 @@ export const Release = styled.p`
 
 export const Tags = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   padding: 0px;
@@ -126,7 +140,6 @@ export const Tags = styled.div`
 
 export const TagButton = styled.button`
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 10px;
   height: 36px;
@@ -160,7 +173,6 @@ export const Tag = styled.p`
 
 export const Rating = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 0px;
   gap: 12px;
