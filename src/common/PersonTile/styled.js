@@ -15,17 +15,6 @@ export const TileContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     padding: 8px;
   }
-  /* display: flex;
-  flex-direction: column;
-  max-width: 208px;
-  padding: 16px;
-  text-align: center;
-  word-break: break-word;
-  display: flex;
-  flex-direction: column;
-  
-  height: 100%;
- */
 `;
 
 export const NoProfileImage = styled.div`
@@ -60,7 +49,7 @@ export const NoProfileImageIcon = styled(NoProfile)`
 `;
 
 export const PersonPhoto = styled.img`
-  height: 264px;
+  width: 100%;
   border-radius: ${borderRadius};
   object-fit: cover;
 `;
@@ -77,6 +66,11 @@ export const PersonName = styled.h2`
   line-height: 1.3;
   margin: 12px 0 0;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 14px;
   }
@@ -90,5 +84,6 @@ export const PersonFunction = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
+    margin: 5px 0 0;
   }
 `;
