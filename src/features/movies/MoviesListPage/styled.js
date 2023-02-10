@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
 export const Layout = styled.div`
-  max-width: 1368px;
   margin: 24px auto 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 324px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   justify-content: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    margin: 12px auto 0;
   }
 `;

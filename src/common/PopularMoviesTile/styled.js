@@ -68,9 +68,9 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    margin: 16px 0;
+    margin: 16px;
   }
 `;
 
