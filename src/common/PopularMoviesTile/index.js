@@ -42,21 +42,21 @@ export const PopularMoviesTile = ({
       )}
 
       <InfoContainer>
-      <Description>
-        <MovieTitle>{title}</MovieTitle>
-        <Release>{date}</Release>
-        <Tags>
-          {movieGenres.map((genre) => (
-            <TagButton key={genre.id}>
-              <Tag>{genre.name}</Tag>
-            </TagButton>
-          ))}
-        </Tags>
-      </Description>
-      <Rating>
-        <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
-        <Votes>{voteCount}</Votes>
-      </Rating>
+        <Description>
+          <MovieTitle>{title}</MovieTitle>
+          <Release>{date}</Release>
+          <Tags>
+            {movieGenres.map((genre) => (
+              <TagButton key={genre.id}>
+                <Tag>{genre.name}</Tag>
+              </TagButton>
+            ))}
+          </Tags>
+        </Description>
+        <Rating>
+          <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
+          <Votes>{voteCount}</Votes>
+        </Rating>
       </InfoContainer>
     </TileContainer>
   );
