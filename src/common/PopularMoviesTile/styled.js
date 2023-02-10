@@ -69,8 +69,8 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
-    margin: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: block;
   }
 `;
 
@@ -82,7 +82,7 @@ export const Description = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
     margin-bottom: 12px;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     grid-gap: 4px;
     margin-bottom: 8px;
   }
