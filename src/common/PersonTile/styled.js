@@ -3,22 +3,16 @@ import { borderRadius, boxShadow } from "../../theme";
 import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`
-  max-width: 208px;
-  background-color: ${({ theme }) => theme.color.white};
   padding: 16px;
-  box-shadow: ${boxShadow};
-  text-align: center;
   word-break: break-word;
-  display: flex;
-  flex-direction: column;
-  color: ${({ theme }) => theme.color.woodsmoke};
+  width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.color.white};
+  box-shadow: ${boxShadow};
+  border-radius: ${borderRadius};
+  color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    padding: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     padding: 8px;
   }
 `;
@@ -55,7 +49,7 @@ export const NoProfileImageIcon = styled(NoProfile)`
 `;
 
 export const PersonPhoto = styled.img`
-  height: 264px;
+  width: 100%;
   border-radius: ${borderRadius};
   object-fit: cover;
 `;
@@ -72,6 +66,11 @@ export const PersonName = styled.h2`
   line-height: 1.3;
   margin: 12px 0 0;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 14px;
   }
@@ -85,5 +84,6 @@ export const PersonFunction = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
+    margin: 5px 0 0;
   }
 `;
