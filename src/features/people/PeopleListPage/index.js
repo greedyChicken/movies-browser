@@ -2,7 +2,6 @@ import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
 import Pagination from "../../../common/Pagination";
 import { PersonTile } from "../../../common/PersonTile";
-import { Layout } from "../../../common/Layout/styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
