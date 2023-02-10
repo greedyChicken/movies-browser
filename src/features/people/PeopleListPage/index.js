@@ -2,7 +2,7 @@ import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
 import Pagination from "../../../common/Pagination";
 import { PersonTile } from "../../../common/PersonTile";
-import { PeopleContainer } from "./styled";
+import { Layout } from "../../../common/Layout/styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
@@ -56,18 +56,15 @@ const PeopleListPage = () => {
         ) : popularPeople.length === 0 ? (
           <NoResultsPage query={query} />
         ) : (
-          <><Container>
-        {error ? (
-          <ErrorPage />
-        ) : loading ? (
           <>
-            <PageHeader title="Popular people" />
-            <Loader />
-          </>
-        ) : (
-          <>
-            <PageHeader title="Popular people" />
-            <PeopleContainer>
+            <PageHeader
+              title={
+                query
+                  ? `Search results for "${query}" (${peopleCount})`
+                  : `Popular people`
+              }
+            />
+            <Layout>
               {popularPeople?.map((person) => (
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
@@ -78,7 +75,7 @@ const PeopleListPage = () => {
                   />
                 </TileLink>
               ))}
-            </PeopleContainer>
+            </Layout>
             <Pagination
               currentPage={page}
               lastPage={lastPage}
