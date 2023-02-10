@@ -16,7 +16,6 @@ import {
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { APIImageUrl } from "../../dataAPI";
 import { TileLink } from "../../../common/TileLink";
 import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
@@ -68,10 +67,9 @@ const MoviesListPage = () => {
               {popularMovies?.map((movie) => (
                 <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
-                    poster={`${APIImageUrl}/w342${movie.poster_path}`}
-                    posterPath={movie.poster_path}
+                    poster={movie.poster_path}
                     title={movie.title}
-                    date={movie.release_date?.slice(0, 4)}
+                    date={movie.release_date}
                     voteAverage={movie.vote_average}
                     voteCount={`${movie.vote_count} votes`}
                     genres={movie.genre_ids}
