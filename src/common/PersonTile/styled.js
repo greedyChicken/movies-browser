@@ -3,24 +3,29 @@ import { borderRadius, boxShadow } from "../../theme";
 import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`
-  max-width: 208px;
-  background-color: ${({ theme }) => theme.color.white};
   padding: 16px;
+  word-break: break-word;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
+  border-radius: ${borderRadius};
+  color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+    padding: 8px;
+  }
+  /* display: flex;
+  flex-direction: column;
+  max-width: 208px;
+  padding: 16px;
   text-align: center;
   word-break: break-word;
   display: flex;
   flex-direction: column;
-  color: ${({ theme }) => theme.color.woodsmoke};
+  
   height: 100%;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    padding: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    padding: 8px;
-  }
+ */
 `;
 
 export const NoProfileImage = styled.div`
