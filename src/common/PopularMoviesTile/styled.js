@@ -10,7 +10,7 @@ export const TileContainer = styled.div`
   height: 100%;
   border: 1px solid ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     width: 288px;
   }
@@ -54,7 +54,7 @@ export const Poster = styled.img`
   margin: 16px;
   border-radius: ${borderRadius};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     height: 169px;
     left: calc(50% - 114px / 2 - 71px);
     top: 0px;
@@ -67,7 +67,7 @@ export const Description = styled.div`
   align-items: flex-start;
   padding: 0px;
   gap: 8px;
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     align-items: flex-start;
     padding: 0px;
@@ -84,7 +84,7 @@ export const MovieTitle = styled.h2`
   align-items: center;
   color: ${({ theme }) => theme.color.woodsmoke};
   align-self: left;
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 16px;
     line-height: 1.3;
     margin: 16px 0 0 0;
@@ -98,7 +98,7 @@ export const Release = styled.p`
   margin: 8px 16px;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-weight: 400;
     font-size: 13px;
     line-height: 1.3;
@@ -115,7 +115,7 @@ export const Tags = styled.div`
   gap: 8px;
   margin: 0 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
@@ -137,7 +137,7 @@ export const TagButton = styled.button`
   order: 2;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     padding: 4px 8px;
     gap: 8px;
     height: 19px;
@@ -152,7 +152,7 @@ export const Tag = styled.p`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 10px;
     line-height: 1.1;
   }
@@ -167,7 +167,7 @@ export const Rating = styled.div`
   margin: 16px;
   margin-bottom: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -181,7 +181,7 @@ export const Star = styled.img`
   order: 0;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     width: 16px;
   }
 `;
@@ -197,7 +197,7 @@ export const Rate = styled.p`
   order: 1;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }
@@ -214,7 +214,7 @@ export const Votes = styled.p`
   order: 2;
   flex-grow: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }

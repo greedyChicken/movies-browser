@@ -8,11 +8,12 @@ export const Layout = styled.div`
   gap: 24px;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 16px;
     gap: 16px;
+    margin: 12px auto 32px;
   }
 `;
