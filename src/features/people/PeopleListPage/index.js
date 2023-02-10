@@ -2,7 +2,6 @@ import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
 import Pagination from "../../../common/Pagination";
 import { PersonTile } from "../../../common/PersonTile";
-import { Layout } from "../../../common/Layout/styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
@@ -22,6 +21,7 @@ import { TileLink } from "../../../common/TileLink";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import { useQueryParameter } from "../../../common/queryParameters";
 import NoResultsPage from "../../../common/NoResultsPage";
+import { PeopleContainer } from "./styled";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const PeopleListPage = () => {
                   : `Popular people`
               }
             />
-            <Layout>
+            <PeopleContainer>
               {popularPeople?.map((person) => (
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
@@ -75,7 +75,7 @@ const PeopleListPage = () => {
                   />
                 </TileLink>
               ))}
-            </Layout>
+            </PeopleContainer>
             <Pagination
               currentPage={page}
               lastPage={lastPage}
