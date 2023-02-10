@@ -11,6 +11,7 @@ import {
   selectLastPage,
   selectLoading,
   selectMovies,
+  selectMoviesCount,
 } from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
@@ -20,6 +21,7 @@ import { TileLink } from "../../../common/TileLink";
 import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+import NoResultsPage from "../../../common/NoResultsPage";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const MoviesListPage = () => {
   const params = useParams();
   const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
   const { search } = useLocation();
+  const moviesCount = useSelector(selectMoviesCount);
 
   useEffect(() => {
     query
@@ -45,12 +48,22 @@ const MoviesListPage = () => {
           <ErrorPage />
         ) : loading ? (
           <>
-            <PageHeader title="Popular movies" />
+            <PageHeader
+              title={query ? `Search results for "${query}"` : `Popular movies`}
+            />
             <Loader />
           </>
+        ) : popularMovies.length === 0 ? (
+          <NoResultsPage query={query} />
         ) : (
           <>
-            <PageHeader title="Popular movies" />
+            <PageHeader
+              title={
+                query
+                  ? `Search results for "${query}" (${moviesCount})`
+                  : `Popular movies`
+              }
+            />
             <Layout>
               {popularMovies?.map((movie) => (
                 <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>

@@ -11,6 +11,7 @@ import {
   selectLastPage,
   selectLoading,
   selectPeople,
+  selectPeopleCount,
 } from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
@@ -20,6 +21,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { TileLink } from "../../../common/TileLink";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import { useQueryParameter } from "../../../common/queryParameters";
+import NoResultsPage from "../../../common/NoResultsPage";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const PeopleListPage = () => {
   const params = useParams();
   const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
   const { search } = useLocation();
+  const peopleCount = useSelector(selectPeopleCount);
 
   useEffect(() => {
     query
@@ -41,6 +44,19 @@ const PeopleListPage = () => {
   return (
     <>
       <Container>
+        {error ? (
+          <ErrorPage />
+        ) : loading ? (
+          <>
+            <PageHeader
+              title={query ? `Search results for "${query}"` : `Popular people`}
+            />
+            <Loader />
+          </>
+        ) : popularPeople.length === 0 ? (
+          <NoResultsPage query={query} />
+        ) : (
+          <><Container>
         {error ? (
           <ErrorPage />
         ) : loading ? (
