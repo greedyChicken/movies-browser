@@ -15,7 +15,6 @@ import {
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { APIImageUrl } from "../../dataAPI";
 import { useLocation, useParams } from "react-router-dom";
 import { TileLink } from "../../../common/TileLink";
 import searchQueryParamName from "../../../common/searchQueryParamName";
@@ -68,9 +67,7 @@ const PeopleListPage = () => {
               {popularPeople?.map((person) => (
                 <TileLink to={`/people/person/${person.id}`} key={person.id}>
                   <PersonTile
-                    key={person.id}
-                    profile={`${APIImageUrl}/w185${person.profile_path}`}
-                    profilePath={person.profile_path}
+                    profile={person.profile_path}
                     fullName={person.name}
                   />
                 </TileLink>

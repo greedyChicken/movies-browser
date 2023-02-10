@@ -41,7 +41,7 @@ const PersonPage = () => {
         ) : (
           <>
             <BigPersonTile
-              poster={`${APIImageUrl}/h632${person.profile_path}`}
+              poster={person.profile_path}
               name={person.name}
               birthday={person.birthday}
               birthplace={person.place_of_birth}
