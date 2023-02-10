@@ -8,7 +8,7 @@ export const Layout = styled.div`
   gap: 24px;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: flex;
     flex-direction: column;
     align-items: center;
