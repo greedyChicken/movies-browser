@@ -1,5 +1,4 @@
 import {
-  Container,
   Description,
   InfoContainer,
   MovieTitle,
@@ -17,8 +16,6 @@ import {
   Votes,
 } from "./styled";
 import star from "../../images/star.svg";
-import { useSelector } from "react-redux";
-import { selectGenres } from "../../features/movies/MoviesListPage/moviesSlice";
 
 export const PopularMoviesTile = ({
   poster,
@@ -29,9 +26,6 @@ export const PopularMoviesTile = ({
   voteCount,
   genres,
 }) => {
-  const genresArray = useSelector(selectGenres);
-  const movieGenres = genresArray.filter((genre) => genres.includes(genre.id));
-
   return (
     <TileContainer>
       {posterPath ? (
@@ -47,7 +41,7 @@ export const PopularMoviesTile = ({
           <MovieTitle>{title}</MovieTitle>
           <Release>{date}</Release>
           <Tags>
-            {movieGenres.map((genre) => (
+            {genres.map((genre) => (
               <TagButton key={genre.id}>
                 <Tag>{genre.name}</Tag>
               </TagButton>
