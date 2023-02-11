@@ -26,11 +26,11 @@ const peopleSlice = createSlice({
     fetchPeopleError: (state) => {
       state.error = true;
     },
-    fetchSearchResults: (state, { payload: { page } }) => {
+    fetchPeopleSearchResults: (state, { payload: { page } }) => {
       state.loading = true;
       state.page = page;
     },
-    fetchSearchResultsSuccess: (state, { payload: results }) => {
+    fetchPeopleSearchResultsSuccess: (state, { payload: results }) => {
       state.loading = false;
       state.error = false;
       state.people = results.results;
@@ -45,8 +45,8 @@ export const {
   fetchPeople,
   fetchPeopleSuccess,
   fetchPeopleError,
-  fetchSearchResults,
-  fetchSearchResultsSuccess,
+  fetchPeopleSearchResults,
+  fetchPeopleSearchResultsSuccess,
 } = peopleSlice.actions;
 
 const selectPeopleState = (state) => state.people;
