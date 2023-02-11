@@ -1,4 +1,5 @@
 import {
+  Container,
   Description,
   InfoContainer,
   MovieTitle,
@@ -54,8 +55,14 @@ export const PopularMoviesTile = ({
           </Tags>
         </Description>
         <Rating>
-          <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
-          <Votes>{voteCount}</Votes>
+          {voteCount ? (
+            <>
+              <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>{" "}
+              <Votes>{voteCount} votes</Votes>
+            </>
+          ) : (
+            <Votes>No votes yet</Votes>
+          )}
         </Rating>
       </InfoContainer>
     </TileContainer>

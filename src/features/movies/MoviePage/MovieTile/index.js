@@ -3,6 +3,7 @@ import {
   MovieData,
   MovieTileWrapper,
   MovieTitle,
+  NoVotes,
   Poster,
   Production,
   ProductionCountries,
@@ -44,7 +45,7 @@ const MovieTile = ({
             </ProductionCountries>
           </BasicInfo>
           <BasicInfo>
-            <Production>Release:</Production>{" "}
+            <Production>Release date:</Production>{" "}
             <ProductionCountries>
               {formatDate(releaseDate, "dd.MM.yyyy")}
             </ProductionCountries>
@@ -57,8 +58,14 @@ const MovieTile = ({
             ))}
           </Tags>
           <Rating>
-            <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>
-            <Votes>/ 10</Votes> <Votes>{voteCount} votes</Votes>
+            {voteCount ? (
+              <>
+                <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>
+                <Votes>/ 10</Votes> <Votes>{voteCount} votes</Votes>
+              </>
+            ) : (
+              <NoVotes>No votes yet</NoVotes>
+            )}
           </Rating>
         </MovieData>
         <Summary>{overview}</Summary>

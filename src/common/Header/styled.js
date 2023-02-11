@@ -33,7 +33,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    grid-gap: 0;
+    grid-gap: 35px;
   }
 `;
 
