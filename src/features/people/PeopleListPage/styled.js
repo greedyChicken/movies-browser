@@ -3,11 +3,9 @@ import styled from "styled-components";
 export const PeopleContainer = styled.div`
   margin: 24px 0px 56px 0px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 24px;
-  @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
-    grid-template-columns: repeat(5, 1fr);
-  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     grid-template-columns: repeat(4, 1fr);
   }
