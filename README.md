@@ -29,11 +29,11 @@ Application allows to easily browse movies and actors based on **external API**.
 
 ## How to use
 
-Movies Browser is composed of four main views:
+Movies Browser is composed of five main views:
 
 **`Movies page`**
 
-On this page you can browse recently popular movies. Each movie tile includes information such as title, release year, film genres and viewers' rate. To find out more about the specific movie, just click on its tile, and then you will be redirected to a movie subpage.
+On this page you can browse recently popular movies. Each movie tile includes information such as title, release year, film genres and viewers' rate. To find out more about the specific movie, just click on its tile to redirect you to a movie subpage.
 
 **`Movie subpage`**
 
