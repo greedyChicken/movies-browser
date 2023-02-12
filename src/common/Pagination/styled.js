@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { borderRadius } from "../../theme";
+import { borderRadius } from "../../core/theme";
 import { TileLink } from "../TileLink";
 
 export const StyledPagination = styled.div`

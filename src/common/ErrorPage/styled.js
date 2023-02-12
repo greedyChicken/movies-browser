@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Error } from "../../images/error.svg";
-import { borderRadius } from "../../theme";
+import { borderRadius } from "../../core/theme";
 
 export const Wrapper = styled.div`
   margin-top: 180px;

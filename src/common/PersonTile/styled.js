@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, boxShadow } from "../../theme";
+import { borderRadius, boxShadow } from "../../core/theme";
 import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`

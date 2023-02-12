@@ -1,5 +1,5 @@
 import React from "react";
-import { theme } from "../../../theme";
+import { theme } from "../../../core/theme";
 
 const getArrowColor = (disabled) => {
   return disabled ? theme.color.waterloo : theme.color.scienceBlue;
