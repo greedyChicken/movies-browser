@@ -46,7 +46,6 @@ export const {
   fetchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
-  fetchGenres,
   fetchMoviesSearchResults,
   fetchMoviesSearchResultsSuccess,
 } = moviesSlice.actions;
