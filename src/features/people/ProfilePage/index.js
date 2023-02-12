@@ -18,10 +18,12 @@ import { Layout } from "./styled";
 import { TileLink } from "../../../common/TileLink";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import { getNonDuplicatedItems } from "../../utilities";
+import { selectGenres } from "../../genresSlice";
 
 const PersonPage = () => {
   const dispatch = useDispatch();
   const person = useSelector(selectPerson);
+  const genresArray = useSelector(selectGenres);
   const personCredits = useSelector(selectPersonCredits);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
@@ -63,7 +65,9 @@ const PersonPage = () => {
                           date={movie.release_date.slice(0, 4)}
                           voteAverage={movie.vote_average}
                           voteCount={movie.vote_count}
-                          genres={movie.genre_ids}
+                          genres={genresArray.filter((genre) =>
+                            movie.genre_ids.includes(genre.id)
+                          )}
                         />
                       </TileLink>
                     )
