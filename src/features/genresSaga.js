@@ -8,7 +8,6 @@ import { getGenres } from "./movies/moviesAPI";
 
 function* fetchGenresHandler() {
   try {
-    yield delay(300);
     const genres = yield call(getGenres);
     yield put(fetchGenresSuccess(genres));
   } catch (error) {
