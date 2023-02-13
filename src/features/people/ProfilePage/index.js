@@ -4,7 +4,6 @@ import { Container } from "../../../common/Container";
 import PageHeader from "../../../common/PageHeader";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { APIImageUrl } from "../../dataAPI";
 import BigPersonTile from "./BigPersonTile";
 import {
   selectPerson,
@@ -43,7 +42,7 @@ const PersonPage = () => {
         ) : (
           <>
             <BigPersonTile
-              poster={`${APIImageUrl}/h632${person.profile_path}`}
+              poster={person.profile_path}
               name={person.name}
               birthday={person.birthday}
               birthplace={person.place_of_birth}
@@ -59,10 +58,10 @@ const PersonPage = () => {
                     (movie) => (
                       <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                         <PopularMoviesTile
-                          poster={`${APIImageUrl}/w342${movie.poster_path}`}
+                          poster={movie.poster_path}
                           posterPath={movie.poster_path}
                           title={movie.title}
-                          date={movie.release_date.slice(0, 4)}
+                          date={movie.release_date}
                           voteAverage={movie.vote_average}
                           voteCount={movie.vote_count}
                           genres={genresArray.filter((genre) =>
@@ -85,10 +84,10 @@ const PersonPage = () => {
                     (movie) => (
                       <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
                         <PopularMoviesTile
-                          poster={`${APIImageUrl}/w342${movie.poster_path}`}
+                          poster={movie.poster_path}
                           posterPath={movie.poster_path}
                           title={movie.title}
-                          date={movie.release_date.slice(0, 4)}
+                          date={movie.release_date}
                           voteAverage={movie.vote_average}
                           voteCount={movie.vote_count}
                           genres={genresArray.filter((genre) =>

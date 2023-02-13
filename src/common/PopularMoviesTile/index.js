@@ -16,10 +16,12 @@ import {
   Votes,
 } from "./styled";
 import star from "../../images/star.svg";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../../features/movies/MoviesListPage/moviesSlice";
+import { APIImageUrl } from "../../features/dataAPI";
 
 export const PopularMoviesTile = ({
   poster,
-  posterPath,
   title,
   date,
   voteAverage,
@@ -28,8 +30,11 @@ export const PopularMoviesTile = ({
 }) => {
   return (
     <TileContainer>
-      {posterPath ? (
-        <Poster src={poster} alt="Movie Poster"></Poster>
+      {poster ? (
+        <Poster
+          src={`${APIImageUrl}/w342${poster}`}
+          alt="Movie Poster"
+        ></Poster>
       ) : (
         <NoMovieImage>
           <NoMovieImageIcon />
@@ -39,7 +44,7 @@ export const PopularMoviesTile = ({
       <InfoContainer>
         <Description>
           <MovieTitle>{title}</MovieTitle>
-          <Release>{date}</Release>
+          <Release>{date.slice(0, 4)}</Release>
           <Tags>
             {genres.map((genre) => (
               <TagButton key={genre.id}>

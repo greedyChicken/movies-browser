@@ -1,3 +1,4 @@
+import { APIImageUrl } from "../../../dataAPI";
 import { formatDate } from "../../../utilities";
 import {
   BasicInfo,
@@ -12,23 +13,25 @@ import {
 
 const BigPersonTile = ({ name, birthday, birthplace, biography, poster }) => {
   return (
-    <>
-      <PersonTileWrapper>
-        <Poster src={poster} />
-        <PersonData>
-          <PersonName>{name}</PersonName>
+    <PersonTileWrapper>
+      {poster && <Poster src={`${APIImageUrl}/h632${poster}`} />}
+      <PersonData>
+        <PersonName>{name}</PersonName>
+        {birthday && (
           <BasicInfo>
-            <Birth>Date of birth: </Birth>{" "}
+            <Birth>Date of birth: </Birth>
             <BirthDetails>{formatDate(birthday, "dd.MM.yyyy")} </BirthDetails>
           </BasicInfo>
+        )}
+        {birthplace && (
           <BasicInfo>
-            <Birth>Place of birth: </Birth>{" "}
+            <Birth>Place of birth: </Birth>
             <BirthDetails>{birthplace}</BirthDetails>
           </BasicInfo>
-        </PersonData>{" "}
-        <Biography>{biography}</Biography>
-      </PersonTileWrapper>
-    </>
+        )}
+      </PersonData>
+      {biography && <Biography>{biography}</Biography>}
+    </PersonTileWrapper>
   );
 };
 

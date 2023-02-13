@@ -10,7 +10,6 @@ import MovieTile from "./MovieTile";
 import PageHeader from "../../../common/PageHeader";
 import { PersonTile } from "../../../common/PersonTile";
 import { TileLink } from "../../../common/TileLink";
-import { APIImageUrl } from "../../dataAPI";
 import {
   fetchMovie,
   selectError,
@@ -42,10 +41,7 @@ const MoviePage = () => {
       ) : (
         <>
           <BigMovieTile
-            poster={
-              movie.backdrop_path &&
-              `${APIImageUrl}/original${movie.backdrop_path}`
-            }
+            poster={movie.backdrop_path}
             title={movie.title}
             voteAverage={movie.vote_average}
             voteCount={movie.vote_count}
@@ -59,7 +55,7 @@ const MoviePage = () => {
               overview={movie.overview}
               voteAverage={movie.vote_average}
               voteCount={movie.vote_count}
-              poster={`${APIImageUrl}/w500${movie.poster_path}`}
+              poster={movie.poster_path}
               tags={movie.genres}
             />
             {movieCredits.cast.length > 0 && (
@@ -73,8 +69,7 @@ const MoviePage = () => {
                         key={person.id}
                       >
                         <PersonTile
-                          profile={`${APIImageUrl}/w185${person.profile_path}`}
-                          profilePath={person.profile_path}
+                          profile={person.profile_path}
                           fullName={person.name}
                           role={person.character}
                         />
@@ -95,8 +90,7 @@ const MoviePage = () => {
                         key={person.id}
                       >
                         <PersonTile
-                          profile={`${APIImageUrl}/w185${person.profile_path}`}
-                          profilePath={person.profile_path}
+                          profile={person.profile_path}
                           fullName={person.name}
                           role={person.department}
                         />

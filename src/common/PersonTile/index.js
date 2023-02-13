@@ -1,3 +1,4 @@
+import { APIImageUrl } from "../../features/dataAPI";
 import {
   NoProfileImage,
   NoProfileImageIcon,
@@ -8,11 +9,14 @@ import {
   TileContainer,
 } from "./styled";
 
-export const PersonTile = ({ profile, profilePath, fullName, role }) => {
+export const PersonTile = ({ profile, fullName, role }) => {
   return (
     <TileContainer>
-      {profilePath ? (
-        <PersonPhoto src={profile} alt="Person Photo"></PersonPhoto>
+      {profile ? (
+        <PersonPhoto
+          src={`${APIImageUrl}/w185${profile}`}
+          alt="Person Photo"
+        ></PersonPhoto>
       ) : (
         <NoProfileImage>
           <NoProfileImageIcon />
