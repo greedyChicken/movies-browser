@@ -6,13 +6,15 @@ export const TileContainer = styled.div`
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
-  width: 100%;
+  width: 324px;
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     grid-template-columns: auto 1fr;
+    height: 100%;
+    width: 100%;
   }
 `;
 
@@ -50,7 +52,7 @@ export const NoMovieImageIcon = styled(NoPoster)`
 `;
 
 export const Poster = styled.img`
-  height: auto;
+  height: 434px;
   width: 100%;
   padding: 16px;
   border-radius: ${borderRadius};
@@ -58,9 +60,12 @@ export const Poster = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: grid;
     grid-template-columns: auto 1fr;
+    width: 200px;
+    height: auto;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    width: 136px;
+    width: 114px;
+    height: 100%;
   }
 `;
 
@@ -69,7 +74,7 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     display: block;
   }
 `;
@@ -95,11 +100,11 @@ export const MovieTitle = styled.h2`
   margin: 0 16px;
   color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 22px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 16px;
     line-height: 1.3;
     margin: 16px 0 0 0;
@@ -113,7 +118,7 @@ export const Release = styled.p`
   margin: 0 16px;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-weight: 400;
     font-size: 13px;
     line-height: 1.3;
@@ -129,7 +134,7 @@ export const Tags = styled.div`
   gap: 8px;
   margin: 0 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -147,7 +152,7 @@ export const TagButton = styled.button`
   background: ${({ theme }) => theme.color.mystic};
   border-radius: ${borderRadius};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     padding: 4px 8px;
     gap: 8px;
     height: 19px;
@@ -160,7 +165,7 @@ export const Tag = styled.p`
   line-height: 1.4;
   color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 10px;
     line-height: 1.1;
   }
@@ -172,7 +177,7 @@ export const Rating = styled.div`
   gap: 12px;
   margin: 0 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     margin: 0;
   }
 `;
@@ -180,7 +185,7 @@ export const Rating = styled.div`
 export const Star = styled.img`
   width: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     width: 16px;
   }
 `;
@@ -191,7 +196,7 @@ export const Rate = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }
@@ -203,7 +208,7 @@ export const Votes = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     font-size: 13px;
     line-height: 1.3;
   }

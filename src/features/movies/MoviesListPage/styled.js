@@ -7,14 +7,14 @@ export const Layout = styled.div`
   gap: 24px;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.bigest}px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     grid-template-columns: 1fr;
     margin: 12px auto 0;
   }
