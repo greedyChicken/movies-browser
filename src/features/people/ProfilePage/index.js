@@ -91,7 +91,9 @@ const PersonPage = () => {
                           date={movie.release_date.slice(0, 4)}
                           voteAverage={movie.vote_average}
                           voteCount={movie.vote_count}
-                          genres={movie.genre_ids}
+                          genres={genresArray.filter((genre) =>
+                            movie.genre_ids.includes(genre.id)
+                          )}
                         />
                       </TileLink>
                     )
