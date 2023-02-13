@@ -10,7 +10,7 @@ const peopleSlice = createSlice({
     peopleCount: null,
   },
   reducers: {
-    fetchPeople: (state, { payload: pageNumber }) => {
+    fetchPeople: (state) => {
       state.loading = true;
     },
     fetchPeopleSuccess: (state, { payload: people }) => {
@@ -23,7 +23,7 @@ const peopleSlice = createSlice({
     fetchPeopleError: (state) => {
       state.error = true;
     },
-    fetchPeopleSearchResults: (state, { payload: { page } }) => {
+    fetchPeopleSearchResults: (state) => {
       state.loading = true;
     },
     fetchPeopleSearchResultsSuccess: (state, { payload: results }) => {
