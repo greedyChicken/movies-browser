@@ -17,8 +17,8 @@ import {
 } from "./styled";
 import star from "../../images/star.svg";
 import { useSelector } from "react-redux";
-import { selectGenres } from "../../features/movies/MoviesListPage/moviesSlice";
 import { APIImageUrl } from "../../features/dataAPI";
+import { selectGenres } from "../../features/genresSlice";
 
 export const PopularMoviesTile = ({
   poster,
@@ -28,6 +28,9 @@ export const PopularMoviesTile = ({
   voteCount,
   genres,
 }) => {
+  const genresArray = useSelector(selectGenres);
+  const movieGenres = genresArray.filter((genre) => genres.includes(genre.id));
+
   return (
     <TileContainer>
       {poster ? (
@@ -46,7 +49,7 @@ export const PopularMoviesTile = ({
           <MovieTitle>{title}</MovieTitle>
           <Release>{date.slice(0, 4)}</Release>
           <Tags>
-            {genres.map((genre) => (
+            {movieGenres.map((genre) => (
               <TagButton key={genre.id}>
                 <Tag>{genre.name}</Tag>
               </TagButton>
