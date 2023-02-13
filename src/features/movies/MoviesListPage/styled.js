@@ -7,7 +7,7 @@ export const Layout = styled.div`
   gap: 24px;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.bigest}px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
