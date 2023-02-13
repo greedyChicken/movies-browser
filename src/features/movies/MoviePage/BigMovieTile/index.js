@@ -22,7 +22,7 @@ const BigMovieTile = ({ poster, title, voteCount, voteAverage }) => {
             <Rating>
               <Rate>
                 <Star src={star} />
-                {voteAverage} <Votes>/ 10</Votes>
+                {voteAverage.toFixed(1)} <Votes>/ 10</Votes>
               </Rate>
               <Votes>{voteCount} votes</Votes>
             </Rating>

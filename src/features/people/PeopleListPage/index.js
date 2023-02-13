@@ -5,7 +5,7 @@ import { PersonTile } from "../../../common/PersonTile";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
-  fetchSearchResults,
+  fetchPeopleSearchResults,
   selectError,
   selectLastPage,
   selectLoading,
@@ -36,7 +36,7 @@ const PeopleListPage = () => {
 
   useEffect(() => {
     query
-      ? dispatch(fetchSearchResults({ query, page }))
+      ? dispatch(fetchPeopleSearchResults({ query, page }))
       : dispatch(fetchPeople(page));
   }, [dispatch, query, page]);
 

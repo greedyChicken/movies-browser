@@ -9,12 +9,12 @@ export const Wrapper = styled.header`
 
 export const Content = styled.div`
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1400px;
   color: ${({ theme }) => theme.color.white};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 23px;
+  padding: 23px 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     flex-direction: column;
@@ -28,12 +28,15 @@ export const Container = styled.div`
   grid-gap: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
-    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
     margin-bottom: 32px;
+    gap: 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    grid-gap: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    justify-content: space-between;
   }
 `;
 
@@ -57,8 +60,12 @@ export const StyledLink = styled(Link)`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    font-size: 13px;
+    font-size: 18px;
     letter-spacing: 0.5px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    font-size: 13px;
   }
 `;
 
@@ -74,6 +81,10 @@ export const LogoIcon = styled(Camera)`
 
 export const LogoTitle = styled.p`
   margin: 0px 24px 0 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    align-self: flex-end;
+  }
 `;
 
 export const Navigation = styled.div`

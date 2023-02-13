@@ -9,7 +9,7 @@ export const StyledPagination = styled.div`
   margin: 40px 0 103px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    margin: 0 0 31px;
+    margin: 32px 0 31px;
     gap: 8px;
   }
 `;
@@ -61,7 +61,7 @@ export const Button = styled(TileLink)`
           background-color: ${({ theme }) => theme.color.pattensBlue};
         `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     gap: 4px;
     font-size: 10px;
     padding: 8px 12px;
@@ -69,7 +69,7 @@ export const Button = styled(TileLink)`
 `;
 
 export const ButtonText = styled.span`
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: none;
   }
 `;
@@ -77,7 +77,7 @@ export const ButtonText = styled.span`
 export const Wrapper = styled.span`
   display: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
   }
 `;

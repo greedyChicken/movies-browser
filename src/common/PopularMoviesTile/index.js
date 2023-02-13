@@ -28,9 +28,6 @@ export const PopularMoviesTile = ({
   voteCount,
   genres,
 }) => {
-  const genresArray = useSelector(selectGenres);
-  const movieGenres = genresArray.filter((genre) => genres.includes(genre.id));
-
   return (
     <TileContainer>
       {poster ? (
@@ -49,7 +46,7 @@ export const PopularMoviesTile = ({
           <MovieTitle>{title}</MovieTitle>
           <Release>{date.slice(0, 4)}</Release>
           <Tags>
-            {movieGenres.map((genre) => (
+            {genres.map((genre) => (
               <TagButton key={genre.id}>
                 <Tag>{genre.name}</Tag>
               </TagButton>
@@ -57,8 +54,14 @@ export const PopularMoviesTile = ({
           </Tags>
         </Description>
         <Rating>
-          <Star src={star} /> <Rate>{voteAverage.toFixed(2)}</Rate>{" "}
-          <Votes>{voteCount}</Votes>
+          {voteCount ? (
+            <>
+              <Star src={star} /> <Rate>{voteAverage.toFixed(1)}</Rate>{" "}
+              <Votes>{voteCount} votes</Votes>
+            </>
+          ) : (
+            <Votes>No votes yet</Votes>
+          )}
         </Rating>
       </InfoContainer>
     </TileContainer>

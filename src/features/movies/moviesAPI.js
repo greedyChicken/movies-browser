@@ -40,7 +40,7 @@ export const getMovieCredits = async (movieId) => {
   return movieCredits;
 };
 
-export const getSearchResults = async (query, pageNumber) => {
+export const getMoviesSearchResults = async (query, pageNumber) => {
   const response = await fetch(
     `${APIUrl}/search/movie?api_key=${APIKey}&language=en-US&query=${query}&page=${pageNumber}`
   );

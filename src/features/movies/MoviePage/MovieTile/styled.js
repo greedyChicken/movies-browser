@@ -182,6 +182,15 @@ export const Rating = styled.div`
   }
 `;
 
+export const NoVotes = styled.span`
+  color: ${({ theme }) => theme.color.stormgrey};
+  margin: 8px 0;
+  font-size: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 13px;
+  }
+`;
+
 export const Star = styled.img`
   width: 24px;
   flex: none;
