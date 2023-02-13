@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, boxShadow } from "../../../../theme";
+import { borderRadius, boxShadow } from "../../../../core/theme";
 
 export const MovieTileWrapper = styled.div`
   margin: 56px 0;
