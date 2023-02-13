@@ -6,7 +6,7 @@ import Pagination from "../../../common/Pagination";
 import { PopularMoviesTile } from "../../../common/PopularMoviesTile";
 import {
   fetchMovies,
-  fetchSearchResults,
+  fetchMoviesSearchResults,
   selectError,
   selectLastPage,
   selectLoading,
@@ -22,10 +22,12 @@ import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import NoResultsPage from "../../../common/NoResultsPage";
+import { selectGenres } from "../../genresSlice";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
   const popularMovies = useSelector(selectMovies);
+  const genresArray = useSelector(selectGenres);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
@@ -37,7 +39,7 @@ const MoviesListPage = () => {
 
   useEffect(() => {
     query
-      ? dispatch(fetchSearchResults({ query, page }))
+      ? dispatch(fetchMoviesSearchResults({ query, page }))
       : dispatch(fetchMovies(page));
   }, [dispatch, query, page]);
 
@@ -74,7 +76,9 @@ const MoviesListPage = () => {
                     date={movie.release_date?.slice(0, 4)}
                     voteAverage={movie.vote_average}
                     voteCount={movie.vote_count}
-                    genres={movie.genre_ids}
+                    genres={genresArray.filter((genre) =>
+                      movie.genre_ids.includes(genre.id)
+                    )}
                   />
                 </TileLink>
               ))}

@@ -27,7 +27,7 @@ export const NoProfileImage = styled.div`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 200px;
+    height: 210px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
