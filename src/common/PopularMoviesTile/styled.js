@@ -7,7 +7,7 @@ export const TileContainer = styled.div`
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
   width: 324px;
-  height: 650px;
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
 
