@@ -18,8 +18,7 @@ export const TileContainer = styled.div`
 `;
 
 export const NoProfileImage = styled.div`
-  flex-shrink: 0;
-  height: 300px;
+  height: 264px;
   background-color: ${({ theme }) => theme.color.silver};
   border-radius: ${borderRadius};
   object-fit: cover;
@@ -50,17 +49,9 @@ export const NoProfileImageIcon = styled(NoProfile)`
 `;
 
 export const PersonPhoto = styled.img`
-  height: 300px;
+  width: 100%;
   border-radius: ${borderRadius};
   object-fit: cover;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 210px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    height: 178px;
-  }
 `;
 
 export const PersonDetails = styled.div`
