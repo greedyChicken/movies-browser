@@ -1,4 +1,4 @@
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "../common/Header";
 import MoviesListPage from "../features/movies/MoviesListPage";
 import PeopleListPage from "../features/people/PeopleListPage";
@@ -32,8 +32,8 @@ const App = () => {
         <Route path={toPeople()}>
           <PeopleListPage />
         </Route>
-        <Route path={toMovies()}>
-          <MoviesListPage />
+        <Route>
+          <Redirect to={toMovies()} />
         </Route>
       </Switch>
     </HashRouter>
