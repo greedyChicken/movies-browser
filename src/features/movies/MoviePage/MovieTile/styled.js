@@ -81,7 +81,6 @@ export const ReleaseYear = styled.p`
     margin-top: 0;
     margin-bottom: 8px;
   }
-  }
 `;
 
 export const BasicInfo = styled.div`
