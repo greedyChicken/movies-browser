@@ -10,6 +10,15 @@ export const TileContainer = styled.div`
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+  &:active {
+    transform: scale(1.05);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     grid-template-columns: auto 1fr;

@@ -11,6 +11,15 @@ export const TileContainer = styled.div`
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
   color: ${({ theme }) => theme.color.woodsmoke};
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+  &:active {
+    transform: scale(1.05);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     padding: 8px;
