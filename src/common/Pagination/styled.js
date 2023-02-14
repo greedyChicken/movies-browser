@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { borderRadius } from "../../core/theme";
-import { TileLink } from "../TileLink";
 
 export const StyledPagination = styled.div`
   display: flex;
@@ -37,7 +36,7 @@ export const StyledButtons = styled.div`
   gap: 12px;
 `;
 
-export const Button = styled(TileLink)`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -45,21 +44,24 @@ export const Button = styled(TileLink)`
   border-radius: ${borderRadius};
   font-size: 14px;
   border: none;
+  color: ${({ theme }) => theme.color.woodsmoke};
+  background-color: ${({ theme }) => theme.color.pattensBlue};
+  cursor: pointer;
 
-  &:visited,
-  &:active,
-  &:link {
-    color: ${({ theme }) => theme.color.woodsmoke};
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+  &:active {
+    transform: scale(1.05);
   }
 
-  ${(props) =>
-    props.disabled
-      ? css`
-          background-color: ${({ theme }) => theme.color.mystic};
-        `
-      : css`
-          background-color: ${({ theme }) => theme.color.pattensBlue};
-        `}
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.mystic};
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     gap: 4px;

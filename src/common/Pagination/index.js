@@ -1,24 +1,28 @@
 import { Button, PageNumber, Pages, StyledPagination } from "./styled";
 import { ButtonText, StyledButtons, Wrapper } from "./styled";
 import { BackwardArrow, ForwardArrow } from "./paginationUtils/buttonArrows";
-import {
-  getFirstPage,
-  getLastPage,
-  getNextPage,
-  getPreviousPage,
-} from "./paginationUtils/pathFunctions";
+import { useReplaceQueryParameter } from "../queryParameters";
+import { pageQueryParamName } from "../queryParamNames";
 
-const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
-  const backButtonsDisabled = parseInt(currentPage) === 1;
-  const forwardButtonsDisabled = parseInt(currentPage) === lastPage;
+const Pagination = ({ currentPage, lastPage }) => {
+  const page = parseInt(currentPage);
+  const backButtonsDisabled = page === 1;
+  const forwardButtonsDisabled = page === lastPage;
+  const replaceQueryParameter = useReplaceQueryParameter();
+
+  const setPage = (destinationPage) => {
+    replaceQueryParameter([
+      {
+        key: pageQueryParamName,
+        value: destinationPage,
+      },
+    ]);
+  };
 
   return (
     <StyledPagination>
       <StyledButtons>
-        <Button
-          to={getFirstPage(type, searchParam)}
-          disabled={backButtonsDisabled}
-        >
+        <Button onClick={() => setPage(1)} disabled={backButtonsDisabled}>
           <BackwardArrow disabled={backButtonsDisabled} />
           <ButtonText>First</ButtonText>
           <Wrapper>
@@ -27,7 +31,7 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
         </Button>
 
         <Button
-          to={getPreviousPage(type, currentPage, searchParam)}
+          onClick={() => setPage(page - 1)}
           disabled={backButtonsDisabled}
         >
           <BackwardArrow disabled={backButtonsDisabled} />
@@ -42,7 +46,7 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
       </Pages>
       <StyledButtons>
         <Button
-          to={getNextPage(type, currentPage, lastPage, searchParam)}
+          onClick={() => setPage(page + 1)}
           disabled={forwardButtonsDisabled}
         >
           <ButtonText>Next</ButtonText>
@@ -50,7 +54,7 @@ const Pagination = ({ currentPage, lastPage, type, searchParam }) => {
         </Button>
 
         <Button
-          to={getLastPage(type, lastPage, searchParam)}
+          onClick={() => setPage(lastPage)}
           disabled={forwardButtonsDisabled}
         >
           <ButtonText>Last</ButtonText>
