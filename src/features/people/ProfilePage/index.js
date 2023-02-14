@@ -56,7 +56,7 @@ const PersonPage = () => {
                 <Layout>
                   {getNonDuplicatedItems(personCredits.cast, 12).map(
                     (movie) => (
-                      <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                      <TileLink to={`/movies/${movie.id}`} key={movie.id}>
                         <PopularMoviesTile
                           poster={movie.poster_path}
                           posterPath={movie.poster_path}
@@ -82,7 +82,7 @@ const PersonPage = () => {
                 <Layout>
                   {getNonDuplicatedItems(personCredits.crew, 12).map(
                     (movie) => (
-                      <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                      <TileLink to={`/movies/${movie.id}`} key={movie.id}>
                         <PopularMoviesTile
                           poster={movie.poster_path}
                           posterPath={movie.poster_path}

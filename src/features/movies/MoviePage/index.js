@@ -64,10 +64,7 @@ const MoviePage = () => {
                 <Layout>
                   {getNonDuplicatedItems(movieCredits.cast, 12).map(
                     (person) => (
-                      <TileLink
-                        to={`/people/person/${person.id}`}
-                        key={person.id}
-                      >
+                      <TileLink to={`/people/${person.id}`} key={person.id}>
                         <PersonTile
                           profile={person.profile_path}
                           fullName={person.name}
@@ -85,10 +82,7 @@ const MoviePage = () => {
                 <Layout>
                   {getNonDuplicatedItems(movieCredits.crew, 12).map(
                     (person) => (
-                      <TileLink
-                        to={`/people/people/${person.id}`}
-                        key={person.id}
-                      >
+                      <TileLink to={`/people/${person.id}`} key={person.id}>
                         <PersonTile
                           profile={person.profile_path}
                           fullName={person.name}
