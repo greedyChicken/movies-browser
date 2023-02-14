@@ -6,8 +6,9 @@ export const TileContainer = styled.div`
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
-  width: 324px;
+  width: 100%;
   height: 100%;
+  padding: 16px 16px 0;
   display: grid;
   grid-template-rows: auto 1fr;
   transition: 0.3s;
@@ -25,25 +26,31 @@ export const TileContainer = styled.div`
     height: 100%;
     width: 100%;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const NoMovieImage = styled.div`
   height: 434px;
   background-color: ${({ theme }) => theme.color.silver};
   border-radius: ${borderRadius};
-  margin: 16px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    min-width: 180px;
-    height: 270px;
+    min-width: 200px;
+    height: 300px;
+    margin-right: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     min-width: 114px;
-    height: 169px;
+    height: 187px;
+    margin-bottom: 0;
   }
 `;
 
@@ -63,15 +70,17 @@ export const NoMovieImageIcon = styled(NoPoster)`
 export const Poster = styled.img`
   height: 434px;
   width: 100%;
-  padding: 16px;
   border-radius: ${borderRadius};
+  margin-bottom: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: grid;
     grid-template-columns: auto 1fr;
     width: 200px;
     height: auto;
+    margin-right: 16px;
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     width: 114px;
     height: 100%;
@@ -93,6 +102,8 @@ export const Description = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 8px;
   margin-bottom: 16px;
+  padding: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.extraLarge}px) {
     margin-bottom: 12px;
   }
@@ -107,14 +118,14 @@ export const MovieTitle = styled.h2`
   font-weight: 500;
   font-size: 22px;
   line-height: 1.3;
-  margin: 0 16px;
+  margin: 0;
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 22px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 16px;
     line-height: 1.3;
     margin: 16px 0 0 0;
@@ -125,10 +136,10 @@ export const Release = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  margin: 0 16px;
+  margin: 0;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-weight: 400;
     font-size: 13px;
     line-height: 1.3;
@@ -142,7 +153,7 @@ export const Tags = styled.div`
   align-items: center;
   padding: 0;
   gap: 8px;
-  margin: 0 16px;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: flex;
@@ -163,6 +174,10 @@ export const TagButton = styled.button`
   border-radius: ${borderRadius};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    padding: 10px 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     padding: 4px 8px;
     gap: 8px;
     height: 19px;
@@ -175,7 +190,7 @@ export const Tag = styled.p`
   line-height: 1.4;
   color: ${({ theme }) => theme.color.woodsmoke};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 10px;
     line-height: 1.1;
   }
@@ -185,7 +200,7 @@ export const Rating = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 16px;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     margin: 0;
@@ -205,8 +220,10 @@ export const Rate = styled.p`
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.color.woodsmoke};
+  margin: 0;
+  padding: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
     line-height: 1.3;
   }
@@ -218,7 +235,7 @@ export const Votes = styled.p`
   line-height: 1.5;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 13px;
     line-height: 1.3;
   }

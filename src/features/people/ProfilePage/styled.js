@@ -11,5 +11,6 @@ export const Layout = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     grid-template-columns: 1fr;
     margin: 12px auto 0;
+    margin-bottom: 30px;
   }
 `;
