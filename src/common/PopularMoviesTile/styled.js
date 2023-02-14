@@ -99,6 +99,7 @@ export const Description = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     grid-gap: 4px;
     margin-bottom: 8px;
+    margin-right: 16px;
   }
 `;
 
