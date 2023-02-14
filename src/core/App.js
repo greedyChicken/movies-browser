@@ -1,4 +1,4 @@
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { Header } from "../common/Header";
 import MoviesListPage from "../features/movies/MoviesListPage";
 import PeopleListPage from "../features/people/PeopleListPage";
@@ -7,15 +7,7 @@ import MoviePage from "../features/movies/MoviePage";
 import { useDispatch } from "react-redux";
 import { fetchGenres } from "../features/genresSlice";
 import { useEffect } from "react";
-import {
-  toFirstPageMovies,
-  toFirstPagePeople,
-  toMainPagePeople,
-  toMovie,
-  toMovies,
-  toPeople,
-  toPerson,
-} from "./routes";
+import { toMovie, toMovies, toPeople, toPerson } from "./routes";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -40,11 +32,8 @@ const App = () => {
         <Route path={toPeople()}>
           <PeopleListPage />
         </Route>
-        <Route path={toMainPagePeople()}>
-          <Redirect to={toFirstPagePeople()} />
-        </Route>
-        <Route>
-          <Redirect to={toFirstPageMovies()} />
+        <Route path={toMovies()}>
+          <MoviesListPage />
         </Route>
       </Switch>
     </HashRouter>
