@@ -174,7 +174,8 @@ export const TagButton = styled.button`
   border-radius: ${borderRadius};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    padding: 10px 12px;
+    padding: 8px 12px;
+    height: 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
@@ -189,6 +190,11 @@ export const Tag = styled.p`
   font-size: 14px;
   line-height: 1.4;
   color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    font-size: 12px;
+    line-height: 1.1;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 10px;
