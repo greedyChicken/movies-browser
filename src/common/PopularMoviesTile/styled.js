@@ -70,9 +70,9 @@ export const NoMovieImageIcon = styled(NoPoster)`
 export const Poster = styled.img`
   height: 100%;
   width: 100%;
+  aspect-ratio: 2 / 3;
   border-radius: ${borderRadius};
   margin-bottom: 16px;
-  aspect-ratio: 2 / 3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: grid;
@@ -83,8 +83,9 @@ export const Poster = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    width: 114px;
-    height: 100%;
+    width: auto;
+    height: 169px;
+    margin-bottom: 0;
   }
 `;
 
@@ -124,6 +125,10 @@ export const MovieTitle = styled.h2`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {

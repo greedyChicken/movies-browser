@@ -12,7 +12,7 @@ export const Layout = styled.div`
     grid-column-gap: max(24px, calc((100% - (3 * 380px)) / 2));
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumBig}px) {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: max(24px, calc(100% - (2 * 400px)));
   }
