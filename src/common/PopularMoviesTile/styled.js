@@ -33,23 +33,25 @@ export const TileContainer = styled.div`
 `;
 
 export const NoMovieImage = styled.div`
-  height: 434px;
-  background-color: ${({ theme }) => theme.color.silver};
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 2 / 3;
   border-radius: ${borderRadius};
   margin-bottom: 16px;
+  background-color: ${({ theme }) => theme.color.silver};
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    min-width: 200px;
-    height: 300px;
+    width: 200px;
+    height: auto;
     margin-right: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    min-width: 114px;
-    height: 187px;
+    width: auto;
+    height: 169px;
     margin-bottom: 0;
   }
 `;
