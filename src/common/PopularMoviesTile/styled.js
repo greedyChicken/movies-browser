@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, boxShadow } from "../../core/theme";
+import { borderRadius, boxShadow, hoverBoxShadow } from "../../core/theme";
 import { ReactComponent as NoPoster } from "../../images/no-poster-image.svg";
 
 export const TileContainer = styled.div`
@@ -15,7 +15,7 @@ export const TileContainer = styled.div`
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    box-shadow: ${hoverBoxShadow};
   }
   &:active {
     transform: scale(1.05);

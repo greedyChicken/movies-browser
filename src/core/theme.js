@@ -25,4 +25,6 @@ export const theme = {
 
 export const boxShadow = "0px 4px 12px rgba(186, 199, 213, 0.5)";
 
+export const hoverBoxShadow = "0 0 11px rgba(33, 33, 33, 0.2)";
+
 export const borderRadius = "5px";
