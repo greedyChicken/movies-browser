@@ -11,6 +11,7 @@ export const TileContainer = styled.div`
   box-shadow: ${boxShadow};
   border-radius: ${borderRadius};
   color: ${({ theme }) => theme.color.woodsmoke};
+  text-align: center;
   transition: 0.3s;
 
   &:hover {
