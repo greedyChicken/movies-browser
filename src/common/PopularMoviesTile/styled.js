@@ -118,17 +118,18 @@ export const MovieTitle = styled.h2`
   font-weight: 500;
   font-size: 22px;
   line-height: 1.3;
-  margin: 0;
+  margin: 16px 0 0;
   color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 22px;
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
     font-size: 16px;
     line-height: 1.3;
-    margin: 16px 0 0 0;
+    margin: 0;
   }
 `;
 
