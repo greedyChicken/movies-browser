@@ -17,7 +17,7 @@
 
 ## Demo
 
-You can find a demo version [here](https://greedychicken.github.io/movies-browser/index#/movies/1).
+You can find a demo version [here](https://greedychicken.github.io/movies-browser).
 
 ## Preview
 
