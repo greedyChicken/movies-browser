@@ -65,6 +65,7 @@ export const PersonName = styled.h2`
   font-weight: 500;
   line-height: 1.3;
   margin: 12px 0 0;
+  text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}px) {
     font-size: 16px;

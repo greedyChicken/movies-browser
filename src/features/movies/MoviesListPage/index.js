@@ -21,13 +21,11 @@ import { TileLink } from "../../../common/TileLink";
 import { useQueryParameter } from "../../../common/queryParameters";
 import { searchQueryParamName } from "../../../common/queryParamNames";
 import NoResultsPage from "../../../common/NoResultsPage";
-import { selectGenres } from "../../genresSlice";
 import { usePage } from "../../utilities";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
   const popularMovies = useSelector(selectMovies);
-  const genresArray = useSelector(selectGenres);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
@@ -73,9 +71,7 @@ const MoviesListPage = () => {
                     date={movie.release_date}
                     voteAverage={movie.vote_average}
                     voteCount={movie.vote_count}
-                    genres={genresArray.filter((genre) =>
-                      movie.genre_ids.includes(genre.id)
-                    )}
+                    genres={movie.genre_ids}
                   />
                 </TileLink>
               ))}

@@ -12,7 +12,7 @@ const moviesSlice = createSlice({
   },
 
   reducers: {
-    fetchMovies: (state, { payload: { pageNumber } }) => {
+    fetchMovies: (state) => {
       state.loading = true;
       state.page = 1;
     },
@@ -27,7 +27,7 @@ const moviesSlice = createSlice({
     fetchMoviesError: (state) => {
       state.error = true;
     },
-    fetchMoviesSearchResults: (state, { payload: { page } }) => {
+    fetchMoviesSearchResults: (state) => {
       state.loading = true;
     },
     fetchMoviesSearchResultsSuccess: (state, { payload: results }) => {
