@@ -1,27 +1,26 @@
 import { APIImageUrl } from "../../features/dataAPI";
 import {
-  NoProfileImage,
-  NoProfileImageIcon,
   PersonDetails,
   PersonFunction,
   PersonName,
   PersonPhoto,
+  PersonPhotoWrapper,
   TileContainer,
 } from "./styled";
 
 export const PersonTile = ({ profile, fullName, role }) => {
   return (
     <TileContainer>
-      {profile ? (
-        <PersonPhoto
-          src={`${APIImageUrl}/w185${profile}`}
-          alt="Person Photo"
-        ></PersonPhoto>
-      ) : (
-        <NoProfileImage>
-          <NoProfileImageIcon />
-        </NoProfileImage>
-      )}
+      <PersonPhotoWrapper>
+        {profile ? (
+          <PersonPhoto
+            src={`${APIImageUrl}/w185${profile}`}
+            alt="Person Photo"
+          ></PersonPhoto>
+        ) : (
+          <PersonPhoto></PersonPhoto>
+        )}
+      </PersonPhotoWrapper>
       <PersonDetails>
         <PersonName>{fullName}</PersonName>
         <PersonFunction>{role}</PersonFunction>

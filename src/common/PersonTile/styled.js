@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { borderRadius, boxShadow } from "../../core/theme";
-import { ReactComponent as NoProfile } from "../../images/no-profile-image.svg";
+import NoProfile from "../../images/no-profile-image.svg";
 
 export const TileContainer = styled.div`
   padding: 16px;
@@ -26,40 +26,24 @@ export const TileContainer = styled.div`
   }
 `;
 
-export const NoProfileImage = styled.div`
-  height: 264px;
+export const PersonPhotoWrapper = styled.div`
   background-color: ${({ theme }) => theme.color.silver};
   border-radius: ${borderRadius};
-  object-fit: cover;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 210px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    height: 178px;
-  }
-`;
-
-export const NoProfileImageIcon = styled(NoProfile)`
-  height: 72px;
-  width: auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
-    height: 60px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
-    height: 48px;
-  }
+  align-self: center;
+  flex-basis: 434px;
 `;
 
 export const PersonPhoto = styled.img`
   width: 100%;
   border-radius: ${borderRadius};
+  background-size: 30%;
+  background-image: url(${NoProfile});
+  background-position: center;
+  background-repeat: no-repeat;
+  color: ${({ theme }) => theme.color.white};
+  aspect-ratio: 2/3;
   object-fit: cover;
 `;
 
