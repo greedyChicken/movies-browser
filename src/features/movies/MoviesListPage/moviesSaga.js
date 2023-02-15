@@ -10,7 +10,7 @@ import {
 
 function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   try {
-    yield delay(200);
+    yield delay(450);
     const popularMovies = yield call(getPopularMovies, pageNumber);
     yield put(fetchMoviesSuccess(popularMovies));
   } catch (error) {
@@ -30,7 +30,7 @@ function* fetchMoviesSearchResultsHandler({ payload: { query, page } }) {
 export function* watchFetchMovies() {
   yield takeLatest(fetchMovies.type, fetchPopularMoviesHandler);
   yield debounce(
-    200,
+    400,
     fetchMoviesSearchResults.type,
     fetchMoviesSearchResultsHandler
   );
