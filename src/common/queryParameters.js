@@ -10,20 +10,19 @@ export const useQueryParameter = (key) => {
 export const useReplaceQueryParameter = () => {
   const location = useLocation();
   const history = useHistory();
-  const secondSlash = location.pathname.indexOf("/", 1);
 
-  const replaceQueryParameter = ({ key, value }) => {
+  const replaceQueryParameter = (keyValuePairs) => {
     const searchParams = new URLSearchParams(location.search);
 
-    if (value === undefined) {
-      searchParams.delete(key);
-    } else {
-      searchParams.set(key, value);
+    for (const { key, value } of keyValuePairs) {
+      if (value === undefined) {
+        searchParams.delete(key);
+      } else {
+        searchParams.set(key, value);
+      }
     }
 
-    history.push(
-      `${location.pathname.slice(0, secondSlash)}/1?${searchParams.toString()}`
-    );
+    history.push(`${location.pathname.slice(0, 7)}?${searchParams.toString()}`);
   };
 
   return replaceQueryParameter;

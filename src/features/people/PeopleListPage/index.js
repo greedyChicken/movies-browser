@@ -9,18 +9,19 @@ import {
   selectError,
   selectLastPage,
   selectLoading,
+  selectPage,
   selectPeople,
   selectPeopleCount,
 } from "../peopleSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { useLocation, useParams } from "react-router-dom";
 import { TileLink } from "../../../common/TileLink";
-import searchQueryParamName from "../../../common/searchQueryParamName";
+import { searchQueryParamName } from "../../../common/queryParamNames";
 import { useQueryParameter } from "../../../common/queryParameters";
 import NoResultsPage from "../../../common/NoResultsPage";
 import { PeopleContainer } from "./styled";
+import { usePage } from "../../utilities";
 
 const PeopleListPage = () => {
   const dispatch = useDispatch();
@@ -29,9 +30,7 @@ const PeopleListPage = () => {
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
-  const params = useParams();
-  const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
-  const { search } = useLocation();
+  const page = usePage(selectPage);
   const peopleCount = useSelector(selectPeopleCount);
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const PeopleListPage = () => {
             />
             <PeopleContainer>
               {popularPeople?.map((person) => (
-                <TileLink to={`/people/person/${person.id}`} key={person.id}>
+                <TileLink to={`/people/${person.id}`} key={person.id}>
                   <PersonTile
                     profile={person.profile_path}
                     fullName={person.name}
@@ -73,12 +72,7 @@ const PeopleListPage = () => {
                 </TileLink>
               ))}
             </PeopleContainer>
-            <Pagination
-              currentPage={page}
-              lastPage={lastPage}
-              type={"people"}
-              searchParam={search ?? ""}
-            />
+            <Pagination currentPage={page} lastPage={lastPage} />
           </>
         )}
       </Container>

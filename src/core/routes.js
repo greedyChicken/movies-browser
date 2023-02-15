@@ -1,12 +1,5 @@
-export const toMovies = ({ page } = { page: ":page" }) => `/movies/${page}`;
-export const toMovie = ({ page } = { page: ":page" }, { id } = { id: ":id" }) =>
-  `/movies/${page}/${id}`;
-export const toFirstPageMovies = () => "/movies/1";
+export const toMovies = () => `/movies`;
+export const toMovie = ({ id } = { id: ":id" }) => `/movies/${id}`;
 
-export const toPeople = ({ page } = { page: ":page" }) => `/people/${page}`;
-export const toPerson = (
-  { page } = { page: ":page" },
-  { id } = { id: ":id" }
-) => `/people/${page}/${id}`;
-export const toFirstPagePeople = () => "/people/1";
-export const toMainPagePeople = () => "/people";
+export const toPeople = () => `/people`;
+export const toPerson = ({ id } = { id: ":id" }) => `/people/${id}`;

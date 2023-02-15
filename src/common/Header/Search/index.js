@@ -3,7 +3,10 @@ import {
   useQueryParameter,
   useReplaceQueryParameter,
 } from "../../queryParameters";
-import searchQueryParamName from "../../searchQueryParamName";
+import {
+  pageQueryParamName,
+  searchQueryParamName,
+} from "../../queryParamNames";
 import { SearchBar, SearchIcon, SearchInput } from "./styled";
 
 export const Search = () => {
@@ -12,10 +15,13 @@ export const Search = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
 
   const onInputChange = ({ target }) => {
-    replaceQueryParameter({
-      key: searchQueryParamName,
-      value: target.value.trim() !== "" ? target.value : undefined,
-    });
+    replaceQueryParameter([
+      {
+        key: searchQueryParamName,
+        value: target.value.trim() !== "" ? target.value : undefined,
+      },
+      { key: pageQueryParamName, value: "1" },
+    ]);
   };
 
   return (

@@ -12,15 +12,16 @@ import {
   selectLoading,
   selectMovies,
   selectMoviesCount,
+  selectPage,
 } from "./moviesSlice";
 import { Layout } from "./styled";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { TileLink } from "../../../common/TileLink";
-import { useLocation, useParams } from "react-router-dom";
 import { useQueryParameter } from "../../../common/queryParameters";
-import searchQueryParamName from "../../../common/searchQueryParamName";
+import { searchQueryParamName } from "../../../common/queryParamNames";
 import NoResultsPage from "../../../common/NoResultsPage";
+import { usePage } from "../../utilities";
 
 const MoviesListPage = () => {
   const dispatch = useDispatch();
@@ -29,9 +30,7 @@ const MoviesListPage = () => {
   const loading = useSelector(selectLoading);
   const lastPage = useSelector(selectLastPage);
   const query = useQueryParameter(searchQueryParamName);
-  const params = useParams();
-  const page = params.page < 1 || params.page > lastPage ? 1 : params.page;
-  const { search } = useLocation();
+  const page = usePage(selectPage);
   const moviesCount = useSelector(selectMoviesCount);
 
   useEffect(() => {
@@ -52,7 +51,7 @@ const MoviesListPage = () => {
             />
             <Loader />
           </>
-        ) : popularMovies.length === 0 ? (
+        ) : popularMovies?.length === 0 ? (
           <NoResultsPage query={query} />
         ) : (
           <>
@@ -65,7 +64,7 @@ const MoviesListPage = () => {
             />
             <Layout>
               {popularMovies?.map((movie) => (
-                <TileLink to={`/movies/movie/${movie.id}`} key={movie.id}>
+                <TileLink to={`/movies/${movie.id}`} key={movie.id}>
                   <PopularMoviesTile
                     poster={movie.poster_path}
                     title={movie.title}
@@ -77,12 +76,7 @@ const MoviesListPage = () => {
                 </TileLink>
               ))}
             </Layout>
-            <Pagination
-              currentPage={page}
-              lastPage={lastPage}
-              type={"movies"}
-              searchParam={search ?? ""}
-            />
+            <Pagination currentPage={page} lastPage={lastPage} />
           </>
         )}
       </Container>

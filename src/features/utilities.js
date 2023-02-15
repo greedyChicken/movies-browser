@@ -1,3 +1,7 @@
+import { useSelector } from "react-redux";
+import { useQueryParameter } from "../common/queryParameters";
+import { pageQueryParamName } from "../common/queryParamNames";
+
 export const formatDate = (inputDate, format) => {
   const date = new Date(inputDate);
 
@@ -32,4 +36,11 @@ export const getNonDuplicatedItems = (array, numberOfItems) => {
   );
 
   return filteredArray;
+};
+
+export const usePage = (selectPage) => {
+  const statePage = useSelector(selectPage);
+  const page = useQueryParameter(pageQueryParamName) ?? statePage;
+
+  return page;
 };
