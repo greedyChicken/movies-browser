@@ -1,6 +1,6 @@
 # Movies Browser 📽️🍿
 
-![headline.png](/src/images/headline.png)
+![headline.png](/headline.png)
 
 **Movies Browser** is an application that allows users to browse movies and people from film industry. It was created as the final project of the Frontend Developer course at YouCode and was based on the graphic design in Figma. Data about movies and people is fetched from an [external API](https://www.themoviedb.org/).
 
@@ -21,7 +21,7 @@ You can find a demo version [here](https://greedychicken.github.io/movies-browse
 
 ## Preview
 
-![Preview](...)
+![Preview](/Preview.gif)
 
 ## General Information
 
