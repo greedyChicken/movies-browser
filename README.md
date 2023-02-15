@@ -1,4 +1,4 @@
-# Movies Browser 🎥
+# Movies Browser 📽️🍿
 
 ![headline.png](/src/images/headline.png)
 
