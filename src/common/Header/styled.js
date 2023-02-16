@@ -5,6 +5,8 @@ import { ReactComponent as Camera } from "../../images/camera.svg";
 export const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.woodsmoke};
   position: sticky;
+  top: 0px;
+  z-index: 10;
 `;
 
 export const Content = styled.div`
