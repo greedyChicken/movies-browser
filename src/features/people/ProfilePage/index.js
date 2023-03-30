@@ -52,21 +52,19 @@ const PersonPage = () => {
                   title={`Movies - cast (${personCredits.cast.length})`}
                 />
                 <Layout>
-                  {getNonDuplicatedItems(personCredits.cast, 12).map(
-                    (movie) => (
-                      <TileLink to={`/movies/${movie.id}`} key={movie.id}>
-                        <PopularMoviesTile
-                          poster={movie.poster_path}
-                          posterPath={movie.poster_path}
-                          title={movie.title}
-                          date={movie.release_date}
-                          voteAverage={movie.vote_average}
-                          voteCount={movie.vote_count}
-                          genres={movie.genre_ids}
-                        />
-                      </TileLink>
-                    )
-                  )}
+                  {getNonDuplicatedItems(personCredits.cast).map((movie) => (
+                    <TileLink to={`/movies/${movie.id}`} key={movie.id}>
+                      <PopularMoviesTile
+                        poster={movie.poster_path}
+                        posterPath={movie.poster_path}
+                        title={movie.title}
+                        date={movie.release_date}
+                        voteAverage={movie.vote_average}
+                        voteCount={movie.vote_count}
+                        genres={movie.genre_ids}
+                      />
+                    </TileLink>
+                  ))}
                 </Layout>
               </>
             )}
@@ -76,21 +74,19 @@ const PersonPage = () => {
                   title={`Movies - crew (${personCredits.crew.length})`}
                 />
                 <Layout>
-                  {getNonDuplicatedItems(personCredits.crew, 12).map(
-                    (movie) => (
-                      <TileLink to={`/movies/${movie.id}`} key={movie.id}>
-                        <PopularMoviesTile
-                          poster={movie.poster_path}
-                          posterPath={movie.poster_path}
-                          title={movie.title}
-                          date={movie.release_date}
-                          voteAverage={movie.vote_average}
-                          voteCount={movie.vote_count}
-                          genres={movie.genre_ids}
-                        />
-                      </TileLink>
-                    )
-                  )}
+                  {getNonDuplicatedItems(personCredits.crew).map((movie) => (
+                    <TileLink to={`/movies/${movie.id}`} key={movie.id}>
+                      <PopularMoviesTile
+                        poster={movie.poster_path}
+                        posterPath={movie.poster_path}
+                        title={movie.title}
+                        date={movie.release_date}
+                        voteAverage={movie.vote_average}
+                        voteCount={movie.vote_count}
+                        genres={movie.genre_ids}
+                      />
+                    </TileLink>
+                  ))}
                 </Layout>
               </>
             )}

@@ -23,6 +23,8 @@ export const formatDate = (inputDate, format) => {
 };
 
 export const getNonDuplicatedItems = (array, numberOfItems) => {
+  const quantity = numberOfItems ?? array.length;
+
   // filtering from duplicates
   let filteredArray = Array.from(new Set(array.map((item) => item.id))).map(
     (id) => {
@@ -32,7 +34,7 @@ export const getNonDuplicatedItems = (array, numberOfItems) => {
 
   // getting exact number of people
   filteredArray = filteredArray.filter(
-    (item) => filteredArray.indexOf(item) < numberOfItems
+    (item) => filteredArray.indexOf(item) < quantity
   );
 
   return filteredArray;
