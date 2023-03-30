@@ -47,7 +47,7 @@ export const PopularMoviesTile = ({
       <InfoContainer>
         <Description>
           <MovieTitle>{title}</MovieTitle>
-          <Release>{date.slice(0, 4)}</Release>
+          <Release>{date ? date.slice(0, 4) : date}</Release>
           <Tags>
             {movieGenres.map((genre) => (
               <TagButton key={genre.id}>
