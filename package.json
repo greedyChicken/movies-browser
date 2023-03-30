@@ -2,7 +2,7 @@
   "name": "movies-browser",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://greedychicken.github.io/movies-browser/",
+  "homepage": "https://bartekdbc.github.io/movies-browser/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
